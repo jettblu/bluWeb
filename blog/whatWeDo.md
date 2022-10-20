@@ -27,6 +27,7 @@ tags: ["age", "health", "humor"]
 **44:** We’re a long way from the womb. Hopefully, we’re just as far from the tomb.
 
 **50:** It’s our 32nd class reunion: we wonder where the time went and are shocked by how some of our classmates are already chillin’ in coffins.
+
 **67:** We think about when we were 30 and yearning to be 67 so we could reap the benefits of social security and think about when we were 30.
 
 **72:** We’re probably grandparents now.
