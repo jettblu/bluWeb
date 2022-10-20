@@ -13,7 +13,7 @@ const FilmPreview:NextPage<Props> = (props) => {
     }
 
     return(
-        <div className="">
+        <div className="mx-auto">
             <a href={film.url} target="_blank" rel="noopener noreferrer">
             <div className="mx-auto hover:z-10 transition ease-in-out hover:scale-110" onClick={()=>handleFilmClicked()}>
                 <img src={film.thumbnailPath} className="hover:shadow-md hover:shadow-sky-400 w-64 h-64 rounded-md drop-shadow-lg object-cover"/>
