@@ -31,8 +31,8 @@ export default function BlogHome({allDocs}:Props){
         </Head>
         <div className="">
             <div className="dark:text-white">
-            <div className="max-w-3xl mx-auto mb-[10vh] text-left">
-                <p className="text-sky-400 text-lg mb-4 font-semibold">Blog</p> 
+            <div className="max-w-3xl mx-auto mb-[5vh] md:mb-[10vh] text-left">
+                <p className="text-sky-400 text-lg mt-2 ml-2 mb-4 font-semibold">Blog</p> 
             </div>
 
                 <BlogFeature doc={mostRecentDoc}/>
