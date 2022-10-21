@@ -12,12 +12,16 @@ import Link from 'next/link'
 
 
 const Home: NextPage = () => {
+  const profileFlipCardId:string = "bluFlipCard"
+  const profileFlipContentId:string = "bluFlipContent";
   const [totalMilesRan, setTotalMilesRan] = useState(0);
   const [loadingActivities, setLoadingActivities] = useState(false);
   const [activities, setActivities] = useState<Activity[]>([]);
   const [recentRun, setRecentRun] = useState<Activity|null>(null);
 
   async function fetchRunningData(){
+    // if we already have activities don't fetch again
+    if(activities.length!=0) return;
     setLoadingActivities(true);
     try{
       let runningDataResponse:IBluFetchResponse = await BluFetch('/api/activities', {method:"GET", timeout:8000, headers:{'Content-Type': 'application/json',}})
@@ -42,7 +46,27 @@ const Home: NextPage = () => {
     }
 
   }
+
+  function flipProfileCard(){
+    console.log("hit!")
+    if(!document) return;
+    const flipCardContent = document.getElementById(profileFlipContentId);
+    if(flipCardContent){
+      console.log("wee")
+      flipCardContent.classList.toggle("flipper");
+    }
+  }
+
   useEffect(()=>{
+    if(document){
+      const profileFlipCard = document.getElementById(profileFlipCardId);
+      if(profileFlipCard){
+        profileFlipCard.addEventListener("mouseenter", flipProfileCard)
+        profileFlipCard.addEventListener("mouseleave", flipProfileCard)
+        profileFlipCard.addEventListener("click", flipProfileCard)
+      }
+      
+    }
      // on page load... fetch data
     fetchRunningData()
   },[])
@@ -56,8 +80,8 @@ const Home: NextPage = () => {
 
         <div className="mb-12">
 
-          <div className="flip-card">
-            <div className="bg-black w-[100%] h-[300px] md:w-[300px] md:h-[300px] outline outline-1 outline-sky-400 rounded-lg hover:outline-green-400 flip-card-inner mx-auto">
+          <div id={profileFlipCardId} className="flip-card">
+            <div id={profileFlipContentId} className="bg-black w-[100%] h-[300px] md:w-[300px] md:h-[300px] outline outline-1 outline-sky-400 rounded-lg hover:outline-green-400 flip-card-inner mx-auto">
               
 
               <div className="flip-card-front bg-gray-900 rounded-lg px-2 py-4">
