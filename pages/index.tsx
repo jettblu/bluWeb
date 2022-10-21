@@ -118,8 +118,8 @@ const Home: NextPage = () => {
 
                 {/* running card */}
                 <a href="https://www.strava.com/athletes/94038785" target="_blank" rel="noopener noreferrer">
-                <div className="rounded-lg bg-gradient-to-r from-pink-500 to-purple-500 flex flex-row">
-                <img src="/blu/track.gif" className="w-28 h-auto object-cover rounded-l-lg"/>
+                <div className="rounded-lg bg-gradient-to-r from-sky-500 to-indigo-700 md:from-pink-500 md:to-purple-500 flex flex-row">
+                <img src="/blog/marathonBefore.jpg" className="w-28 h-auto object-cover rounded-l-lg"/>
                 <div className="py-4 px-2">
                   <p className="text-white text-2xl font-bold">
                   Training
