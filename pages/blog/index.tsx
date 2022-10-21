@@ -39,7 +39,7 @@ export default function BlogHome({allDocs}:Props){
 
                 <div className="max-w-3xl mx-auto">
                   <p className="text-sky-400 text-lg mt-10 mb-4 font-semibold">Recent Thoughts</p> 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-4">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-8">
                     {
                       freshDocs.map((doc:DocType, index:number)=>
                       <RecentDocCard doc={doc} key={index}/>
