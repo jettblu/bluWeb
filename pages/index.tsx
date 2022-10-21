@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import {useEffect, useState} from "react"
 import Head from 'next/head'
+import Tilt from 'react-parallax-tilt';
+
 import { BluFetch, IBluFetchResponse } from '../src/helpers/BluFetch'
 import { Activity, ActivityType } from '../src/helpers/strava/types'
 import { getTotalDistance } from '../src/helpers/strava'
@@ -101,6 +103,7 @@ const Home: NextPage = () => {
 
               <div className='flex flex-col space-y-4'>
               {/* kryptik card */}
+              <Tilt>
               <a href="https://kryptik.app" target="_blank" rel="noopener noreferrer">
               <div className="rounded-lg border border-gray-900 bg-gray-800 bg-gradient-to-r from-sky-600 via-sky-600 to-emerald-600">
                   <div className="py-4 px-2">
@@ -115,8 +118,11 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 </a>
+              </Tilt>
+                
 
                 {/* running card */}
+                <Tilt>
                 <a href="https://www.strava.com/athletes/94038785" target="_blank" rel="noopener noreferrer">
                 <div className="rounded-lg bg-gradient-to-r from-sky-500 to-indigo-700 md:from-pink-500 md:to-purple-500 flex flex-row">
                 <img src="/blog/marathonBefore.jpg" className="w-28 h-auto object-cover rounded-l-lg"/>
@@ -139,12 +145,14 @@ const Home: NextPage = () => {
                 </div>
                 </div>
                 </a>
+                </Tilt>
               </div>
 
 
               <div className='flex flex-col space-y-4'>
               
                 {/* spiritual warfare card */}
+                <Tilt>
                 <a href="https://www.amazon.com/dp/B096TQ67P1" target="_blank" rel="noopener noreferrer">
                 <div className="rounded-lg border border-gray-900 bg-gray-800 bg-gradient-to-r from-sky-400 to-blue-500 flex flex-row">
                   <img src="/spiritualWarfare/mockup.png" className="w-28 h-28 my-auto"/>
@@ -156,8 +164,10 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 </a>
+                </Tilt>
 
                 {/* brainstorm card */}
+                <Tilt>
                 <Link href="/research">
                 <div className="rounded-lg hover:cursor-pointer border border-gray-900 bg-gray-800 bg-gradient-to-r from-purple-400 to-blue-500 flex flex-row">
                   <div className="py-4 px-2">
@@ -168,6 +178,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 </Link>
+                </Tilt>
 
               </div>
               
