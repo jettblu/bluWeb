@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <div className="dark:text-white">
          <Head>
-          <title>Thoughts: Jett Hays</title>
+          <title>Research</title>
           <meta name="description" content="Research done by Jett Hays. Previous work includes a mind controlled keyboard and a digital wallet." />
         </Head>
         <div className="max-w-2xl mx-auto">

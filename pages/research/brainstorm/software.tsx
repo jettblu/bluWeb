@@ -9,7 +9,7 @@ const Software: NextPage = () => {
   return (
     <div className="dark:text-white text-lg">
          <Head>
-          <title>Thoughts: Jett Hays</title>
+          <title>Brainstorm Software</title>
           <meta name="description" content="The design decisions behind a complex brain computer interface." />
         </Head>
         <div className="max-w-2xl mx-auto">
