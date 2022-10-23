@@ -10,7 +10,7 @@ import Divider from '../../components/Divider'
 const Home: NextPage = () => {
 
   return (
-    <div className="dark:text-white">
+    <div className="text-black dark:text-white">
          <Head>
           <title>Research</title>
           <meta name="description" content="Research done by Jett Hays. Previous work includes a mind controlled keyboard and a digital wallet." />
@@ -28,7 +28,7 @@ const Home: NextPage = () => {
             </div>  
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-4">
                 {/* software card */}
-                <div className="bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
                     <h2 className="text-2xl font-semibold mb-2">Software</h2>
                     <p className="text-lg text-green-600">An analysis of the design principles behind Brainstorm.</p>
                     <Divider/>
@@ -43,7 +43,7 @@ const Home: NextPage = () => {
                     </div>
                 </div>
                 {/* overview card */}
-                <div className="bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
+                <div className="bg-gray-50 dark:bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
                     <h2 className="text-2xl font-semibold mb-2">System Overview</h2>
                     <p className="text-lg text-green-600">A high level overview of what Brainstorm is and how it works.</p>
                     <Divider/>
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
                     </div>
                 </div>
                  {/* poster card */}
-                 <div className="bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
+                 <div className="bg-gray-50 dark:bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
                     <h2 className="text-2xl font-semibold mb-2">Research Poster</h2>
                     <p className="text-lg text-green-600">A visual exploration of the research that resulted in Brainstorm.</p>
                     <Divider/>

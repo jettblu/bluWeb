@@ -71,7 +71,7 @@ const Home: NextPage = () => {
     fetchRunningData()
   },[])
   return (
-    <div className="dark:text-white">
+    <div className="text-black dark:text-white">
 
         <div className="max-w-2xl mx-auto">
         <div className="h-[10vh]">
@@ -81,15 +81,15 @@ const Home: NextPage = () => {
         <div className="mb-12">
 
           <div id={profileFlipCardId} className="flip-card">
-            <div id={profileFlipContentId} className="bg-black w-[100%] h-[300px] md:w-[300px] md:h-[300px] outline outline-1 outline-sky-400 rounded-lg hover:outline-green-400 flip-card-inner mx-auto">
+            <div id={profileFlipContentId} className="w-[100%] h-[300px] md:w-[300px] md:h-[300px] outline outline-1 outline-sky-400 rounded-lg hover:outline-green-400 flip-card-inner mx-auto">
               
 
-              <div className="flip-card-front bg-gray-900 rounded-lg px-2 py-4">
+              <div className="flip-card-front bg-gray-50 dark:bg-gray-900 rounded-lg px-2 py-4">
                 <div className="flex flex-row space-x-4">
                   <img src="/blu/jett.png" className="object-cover w-16 h-16"/>
-                <p className="bluFont text-5xl my-auto">Hey, I'm <span className="text-sky-400">Jett Hays</span></p>
+                <p className="bluFont text-slate-800 dark:text-white text-5xl my-auto">Hey, I'm <span className="text-sky-400">Jett Hays</span></p>
                 </div>
-                <div className="text-3xl bluFont dark:text-slate-200">
+                <div className="text-3xl bluFont text-slate-700 dark:text-slate-200">
                   
                     <p>Age: 20</p>
                     <p>School: Carnegie Mellon</p>
@@ -98,7 +98,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
 
-              <div className="flip-card-back px-2 py-4 bg-gray-900 rounded-lg bluFont">
+              <div className="flip-card-back px-2 py-4 bg-gray-50 dark:bg-gray-900 rounded-lg bluFont">
                 <h1 className="text-4xl text-sky-400 mb-2">Mission</h1>
                 <div className="text-3xl">
                     <p>My mission is to scale positive impact through technology. This is my story.</p>
@@ -115,7 +115,7 @@ const Home: NextPage = () => {
         <div>
               <div className="mt-8 mb-8">
                 <h1 className="text-3xl font-bold">What I Do</h1>
-                <p className="text-lg text-slate-200">I create stories and technology that make the world a better place. My adventures have taken me from assembly and silicon to skydiving and the jungles of Hawaii.</p>
+                <p className="text-lg text-slate-700 dark:text-slate-200">I create stories and technology that make the world a better place. My adventures have taken me from assembly and silicon to skydiving and the jungles of Hawaii.</p>
                 <Link href="/blog">
                 <div className="rounded-xl bg-gray-200 text-black font-bold w-fit p-2 text-xl my-2 hover:cursor-pointer hover:bg-green-400">
                   <h1>Read the Blog</h1>
@@ -129,7 +129,7 @@ const Home: NextPage = () => {
               {/* kryptik card */}
               <Tilt>
               <a href="https://kryptik.app" target="_blank" rel="noopener noreferrer">
-              <div className="rounded-lg border border-gray-900 bg-gray-800 bg-gradient-to-r from-sky-600 via-sky-600 to-emerald-600">
+              <div className="rounded-lg bg-gradient-to-r from-sky-600 via-sky-600 to-emerald-600">
                   <div className="py-4 px-2">
                     <div className="flex flex-row space-x-2">
                       <img src="/kryptik/kryptikEyez.png" className="h-4 w-auto my-auto"/>
@@ -178,7 +178,7 @@ const Home: NextPage = () => {
                 {/* spiritual warfare card */}
                 <Tilt>
                 <a href="https://www.amazon.com/dp/B096TQ67P1" target="_blank" rel="noopener noreferrer">
-                <div className="rounded-lg border border-gray-900 bg-gray-800 bg-gradient-to-r from-sky-400 to-blue-500 flex flex-row">
+                <div className="rounded-lg bg-gradient-to-r from-sky-400 to-blue-500 flex flex-row">
                   <img src="/spiritualWarfare/mockup.png" className="w-28 h-28 my-auto"/>
                   <div className="py-4 px-2">
                     <p className="text-white text-2xl font-bold">
@@ -193,7 +193,7 @@ const Home: NextPage = () => {
                 {/* brainstorm card */}
                 <Tilt>
                 <Link href="/research">
-                <div className="rounded-lg hover:cursor-pointer border border-gray-900 bg-gray-800 bg-gradient-to-r from-purple-400 to-blue-500 flex flex-row">
+                <div className="rounded-lg hover:cursor-pointer bg-gradient-to-r from-purple-400 to-blue-500 flex flex-row">
                   <div className="py-4 px-2">
                     <p className="text-white text-2xl font-bold">
                     Brainstorm 💻🧠⚡

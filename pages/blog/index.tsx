@@ -3,7 +3,6 @@ import Divider from '../../components/Divider';
 import DocCategoryPreview from '../../components/docs/docCategoryPreview';
 import Image from "next/image"
 
-import { useKryptikThemeContext } from '../../components/ThemeProvider';
 import { getAllDocs } from '../../src/helpers/docs';
 import { DocType, DocTypeEnum } from '../../src/helpers/docs/types';
 import BlogFeature from '../../components/docs/blogFeature';
@@ -16,7 +15,6 @@ type Props = {
 }
 
 export default function BlogHome({allDocs}:Props){
-  const {isDark} = useKryptikThemeContext();
   // get the most recent blog post
   const mostRecentDoc:DocType = allDocs[0];
   // most recent docs that aren't the last posted doc

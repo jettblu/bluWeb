@@ -3,7 +3,7 @@ import { useBluTheme } from '../src/bluThemeHelper';
 
 
 
-const kryptikThemeContext = createContext({
+const bluThemeContext = createContext({
     isDark:true,
     themeLoading:true,
     updateIsDark: (newIsDark:boolean)=>{}
@@ -12,7 +12,7 @@ const kryptikThemeContext = createContext({
 export function BluThemeProvider(props:any) {
   const {value, children} = props
   const theme = useBluTheme();
-  return <kryptikThemeContext.Provider value={theme}>{children}</kryptikThemeContext.Provider>;
+  return <bluThemeContext.Provider value={theme}>{children}</bluThemeContext.Provider>;
 }
 // custom hook to use the authUserContext and access authUser and loading
-export const useKryptikThemeContext = () => useContext(kryptikThemeContext);
+export const useBluThemeContext = () => useContext(bluThemeContext);
