@@ -45,7 +45,7 @@ const Navbar:NextPage = () => {
                 </button>
             </div>
             <div id="menu" className={menuWrapperClassName} onClick={()=>setMenuMobile(false)}>
-                <div className="w-fit h-fit p-1 mt-2 hover:outline hover:outline-1 hover:outline-black hover:dark:outline-white rounded-full text-slate-400 dark:text-white" onClick={()=>handleDarkToggle()}>
+                <div className="invisible md:visible w-fit h-fit p-1 mt-2 hover:outline hover:outline-1 hover:outline-black hover:dark:outline-white rounded-full text-slate-400 dark:text-white" onClick={()=>handleDarkToggle()}>
                 {
                     isDark?
                     <RiMoonFill size={20}/>:
@@ -56,6 +56,16 @@ const Navbar:NextPage = () => {
                 <Link href="/film"><span className={ `p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 ${router.pathname == "/film" ? "font-bold" : ""} `}>Film</span></Link>
                 {/* blog */}
                 <Link href="/blog"><span className={`p-2 lg:px-4 md:mx-2 text-green-400 text-3xl md:text-lg md:text-center md:border md:border-solid md:border-gray-300 md:dark:border-gray-600 md:dark:hover:border-sky-200 rounded hover:bg-green-400 hover:cursor-pointer hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1`}>Thoughts</span></Link>
+                <div className="-ml-8 md:hidden">
+                    <div className="mt-40 mx-auto w-fit p-4 border border-gray-400 dark:border-gray-500 rounded-full flex flex-row space-x-2 text-slate-900 dark:text-slate-100 hover:cursor-pointer" onClick={()=>handleDarkToggle()}>
+                        {
+                            isDark?
+                            <RiMoonFill size={20}/>:
+                            <RiSunFill size={20}/>
+                        }
+                        <p className="text-md">switch to {isDark?"light":"dark"} mode</p>
+                    </div>
+                </div>
             </div>
             </div>
         </nav>
