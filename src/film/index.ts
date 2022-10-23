@@ -2,6 +2,12 @@ import { Film } from "./types";
 
 export const films:Film[] = [
     {
+        title: "Wiffle Ball Hills",
+        url: "https://youtu.be/AD4qlnbHJT0",
+        thumbnailPath:"/film/thumbnails/wiffleBallHills.png",
+        description: "Playing ball in the pasture of dreams. Somewhere in magical South Dakota."
+    },
+    {
         title: "Raider Sunday",
         url: "https://vimeo.com/616205727",
         thumbnailPath:"/film/thumbnails/raiderSunday.jpg",
