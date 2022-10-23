@@ -1,4 +1,3 @@
-import { useKryptikThemeContext } from '../ThemeProvider';
 import markdownStylesLight from './markdownStyles.module.css'
 import markdownStylesDark from './markdownStylesDark.module.css'
 import DOMPurify from 'isomorphic-dompurify';
@@ -11,7 +10,6 @@ type Props = {
 }
 
 const DocContent = ({ content }: Props) => {
-const {isDark} = useKryptikThemeContext();
 
 // copy and paste when code element is clicked
 // TODO: add visual indication of copy ability before click

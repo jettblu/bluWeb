@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Head from 'next/head'
 
 import Link from 'next/link'
+import ReactPlayer from 'react-player'
 import Divider from '../../components/Divider'
 
 
@@ -23,8 +24,8 @@ const Home: NextPage = () => {
         </div>
 
         <div className="max-w-3xl mx-auto">
-            <div className="mb-12">
-                <iframe className="md:mx-auto w-full h-[300px] md:h-[400px] rounded-lg" src="https://www.youtube-nocookie.com/embed/3ONCUlBnBXE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+            <div className="mb-12 mx-auto w-full max-w-[600px]">
+                <ReactPlayer url={"https://www.youtube.com/watch?v=3ONCUlBnBXE"} width="100%"/>
             </div>  
             <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-4">
                 {/* software card */}
