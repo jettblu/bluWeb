@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import Link from 'next/link';
+import { useBluThemeContext } from '../components/ThemeProvider';
 
-import { useKryptikThemeContext } from '../components/ThemeProvider';
 
 
 const Custom404: NextPage = () => {
-  const {isDark, themeLoading} = useKryptikThemeContext()
+  const {isDark, themeLoading} = useBluThemeContext()
 
   return (
     <div className={`${(themeLoading||isDark && "text-white")} mx-auto max-w-xl`}>
