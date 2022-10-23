@@ -51,7 +51,7 @@ const FilmPreview:NextPage<Props> = (props) => {
             <div className="mx-auto hover:z-10 transition ease-in-out hover:scale-110" onClick={()=>handlePreviewClicked()}>
                 <img src={film.thumbnailPath} className="hover:shadow-md hover:shadow-sky-400 w-64 h-64 rounded-md drop-shadow-lg object-cover"/>
                 <div className="flex">
-                    <p className="my-2 text-lg text-gray-300 dark:text-gray-400 font-semibold">{film.title}</p>
+                    <p className="my-2 text-lg text-gray-400 dark:text-gray-400 font-semibold">{film.title}</p>
                 </div>
             </div>
             

@@ -138,7 +138,7 @@ const Home: NextPage = () => {
                     </p>
                     </div>
                     
-                    <p className="text-lg dark:text-slate-200">I'm building a digital wallet that simpifies and secures online ownership.</p>
+                    <p className="text-lg text-slate-200">I'm building a digital wallet that simpifies and secures online ownership.</p>
                   </div>
                 </div>
                 </a>
@@ -154,7 +154,7 @@ const Home: NextPage = () => {
                   <p className="text-white text-2xl font-bold">
                   Training
                   </p>
-                  <p className="text-lg dark:text-slate-200">When I'm not flipping bits and bytes, I like to train for triathlons. Over the past seven months, I've ran <span className="text-xl font-semibold">{
+                  <p className="text-lg text-slate-200">When I'm not flipping bits and bytes, I like to train for triathlons. Over the past seven months, I've ran <span className="text-xl font-semibold">{
                     !loadingActivities?
                       <span>{totalMilesRan.toFixed(2)} </span>:
                       <span className='rounded-md animate-pulse bg-slate-200 dark:bg-slate-700 animate-pulse w-20 h-10 min-h-12 min-w-20 mr-2 inline block px-4'>....</span>
@@ -184,7 +184,7 @@ const Home: NextPage = () => {
                     <p className="text-white text-2xl font-bold">
                     Spiritual Warfare
                     </p>
-                    <p className="text-lg dark:text-slate-200">I published a book on what we do and why at the age of 18.</p>
+                    <p className="text-lg text-slate-200">I published a book on what we do and why at the age of 18.</p>
                   </div>
                 </div>
                 </a>
@@ -198,7 +198,7 @@ const Home: NextPage = () => {
                     <p className="text-white text-2xl font-bold">
                     Brainstorm 💻🧠⚡
                     </p>
-                    <p className="text-lg dark:text-slate-200">I created a mind controlled keyboard that translates brainwaves into language. Brainstorm was sponsored by CMU with a small undergraduate research grant.</p>
+                    <p className="text-lg text-slate-200">I created a mind controlled keyboard that translates brainwaves into language. Brainstorm was sponsored by CMU with a small undergraduate research grant.</p>
                   </div>
                 </div>
                 </Link>
