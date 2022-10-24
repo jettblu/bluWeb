@@ -15,6 +15,7 @@ For the past fifty years, many of the smartest humans on Earth have been buildin
 ## History of a Secret
 
 Humans have been keeping secrets long before the internet. In Rome, Julius Caesar shared secrets by shifting the alphabet three spaces. The ‘Caesar Cipher’ uses the same key to encrypt and decrypt messages and is a form of symmetric cryptography.
+
 In the 1940's, the Germans used symmetric cryptography to share battle plans and war strategy. The Enigma cipher was eventually broken by a global team of scientists and supercomputers that included Alan Turing and Polish ‘Bombas’. While the Nazi cipher system kept secrets for over two deades, it required daily key lists and top-secret code books. In addition, the Enigma relied on custom machinery that cost millions of dollars to manufacture. The Enigma may have been useful for a national bureaucracy run by the Nazis, but it was completely unusable for regular people.
 
 **Enigma Requirements:**
@@ -85,4 +86,6 @@ But what if we had…
 - Portable social profiles that we control
 - Global money transfers in seconds, for pennies
 
-Asymmetric cryptography has given us the keys to an online kingdom: a world where we control what we share and what we own. But it’s up to us as builders to make this dream a reality. The status quo won’t change until everyone has a public-private key pair that can be used with ease. If we don’t take action now, then soon the gates will become a cage. And we won’t be able to get out, because we let someone else control our public-private key pair.
+Asymmetric cryptography has given us the keys to an online kingdom: a world where we control what we share and what we own. But it’s up to us as builders to make this dream a reality. The status quo won’t change until everyone has a public-private key pair that can be used with ease.
+
+If we don’t take action soon, then the gates will become a cage. And we won’t be able to get out, because we let someone else control our public-private key pair.
