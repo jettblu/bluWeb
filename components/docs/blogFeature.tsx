@@ -34,7 +34,7 @@ const  BlogFeature = ({ doc}: Props) => {
                         </div>
                     </div>
                     </div>
-                    <p className="text-lg text-gray-600 dark:text-gray-300">{doc.oneLiner}</p>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 md:mr-1">{doc.oneLiner}</p>
                     <Link as={urlAs} href={urlBase}>
                        <div className='hover:cursor-pointer py-4 md:py-0'>
                             <p className="text-md text-sky-500 font-semibold">Read More &gt;</p>
