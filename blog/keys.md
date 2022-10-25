@@ -16,7 +16,7 @@ For the past fifty years, many of the smartest humans on Earth have been buildin
 
 Humans have been keeping secrets long before the internet. In Rome, Julius Caesar shared secrets by shifting the alphabet three spaces. The ‘Caesar Cipher’ uses the same key to encrypt and decrypt messages and is a form of symmetric cryptography.
 
-In the 1940's, the Germans used symmetric cryptography to share battle plans and war strategy. The Enigma cipher was eventually broken by a global team of scientists and supercomputers that included Alan Turing and Polish ‘Bombas’. While the Nazi cipher system kept secrets for over two deades, it required daily key lists and top-secret code books. In addition, the Enigma relied on custom machinery that cost millions of dollars to manufacture. The Enigma may have been useful for a national bureaucracy run by the Nazis, but it was completely unusable for regular people.
+In the 1940's, the Germans used symmetric cryptography to share battle plans and war strategy. The [Enigma](https://bletchleypark.org.uk/our-story/enigma/) cipher was eventually broken by a global team of scientists and supercomputers that included Alan Turing and Polish ‘Bombas’. While the Nazi cipher system kept secrets for over two deades, it required daily key lists and top-secret code books. In addition, the Enigma relied on custom machinery that cost millions of dollars to manufacture. The Enigma may have been useful for a national bureaucracy run by the Nazis, but it was completely unusable for regular people.
 
 **Enigma Requirements:**
 
@@ -26,7 +26,7 @@ In the 1940's, the Germans used symmetric cryptography to share battle plans and
 - National coordination
 - Multiple secure channels
 
-In 1974, Whitfield Diffie and Martin Hellman changed everything. Their new system— asymmetric cryptography— allowed public keys to be shared with anyone, eliminating the need for custom hardware and code books. With a bit of math and a dash of insight, Diffie and Hillman created a way for peers to share secrets without the burden of bureaucracy. Public key cryptography is now embedded within the fabric of the internet and used by billions people around the world.
+In 1974, Whitfield Diffie and Martin Hellman changed everything. Their new system— [asymmetric cryptography](https://ee.stanford.edu/~hellman/publications/24.pdf)— allowed public keys to be shared with anyone, eliminating the need for custom hardware and code books. With a bit of math and a dash of insight, Diffie and Hillman created a way for peers to share secrets without the burden of bureaucracy. Public key cryptography is now embedded within the fabric of the internet and used by billions people around the world.
 
 ## Public Crypto 101
 
@@ -54,9 +54,9 @@ Public-private key pairs are woven into the fabric of the internet and for good 
 
 - **HTTPS:** HTTPS uses public key encryption to send messages between websites and your browser. HTTPS is essential for sensitive activities like logging into email or your bank account.
 
-- **Signal:** Messaging apps like Signal use public key encryption to ensure messages stay between you and your intended recipient.
+- **Signal:** Messaging apps like [Signal](https://signal.org/) use public key encryption to ensure messages stay between you and your intended recipient.
 
-- **Bitcoin:** Blockchains like Bitcoin use private keys to sign transactions. Public keys are used as payment ‘addresses’.
+- **Bitcoin:** Blockchains like [Bitcoin](https://bitcoin.org/bitcoin.pdf) use private keys to sign transactions. Public keys are used as payment ‘addresses’.
 
 **Bottom Line:** If you use the internet, you use asymmetric cryptography.
 
