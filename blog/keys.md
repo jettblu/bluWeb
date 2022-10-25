@@ -1,7 +1,7 @@
 ---
 title: "Asymmetric Cryptography"
 oneLiner: "Public-private key pairs give everyone access to privacy and ownership."
-image: "/blog/keyCover.png"
+image: "/blog/publicKeyGradient.jpg"
 lastUpdate: "2022-10-23"
 category: "Technology"
 authorName: "Jett Hays"
@@ -10,7 +10,7 @@ authorRole: "Creator"
 tags: ["cryptography", "internet", "computers"]
 ---
 
-For the past fifty years, many of the smartest humans on Earth have been building the internet. So far, the results have been stellar. Million dollar mainframes have become front-pocket mainstays, iphones are as common as toasters, and conversations that one took weeks and a postage stamp now take milliseconds and an internet connection. Distances are shrinking, opportunities are opening and none of it would be possible without asymmetric cryptography.
+For the past fifty years, many of the smartest humans on Earth have been building the internet. So far, change has been rapid. Million dollar mainframes have become front-pocket mainstays, iphones are as common as toasters, and conversations that once took weeks and a postage stamp now take milliseconds and an internet connection. Distances are shrinking, opportunities are opening and none of it would be possible without asymmetric cryptography.
 
 ## History of a Secret
 
@@ -26,7 +26,7 @@ In the 1940's, the Germans used symmetric cryptography to share battle plans and
 - National coordination
 - Multiple secure channels
 
-In 1974, Whitfield Diffie and Martin Hellman changed everything. Their new system— asymmetric cryptography— allowed public keys to be shared with anyone, eliminating the need for custom hardware and code books. With a bit of math and a dash of brilliance, Diffie and Hillman created a way for peers to share secrets without the burden of bureaucracy. Public key cryptography is now embedded within the fabric of the internet and used by billions.
+In 1974, Whitfield Diffie and Martin Hellman changed everything. Their new system— asymmetric cryptography— allowed public keys to be shared with anyone, eliminating the need for custom hardware and code books. With a bit of math and a dash of insight, Diffie and Hillman created a way for peers to share secrets without the burden of bureaucracy. Public key cryptography is now embedded within the fabric of the internet and used by billions people around the world.
 
 ## Public Crypto 101
 
@@ -34,7 +34,7 @@ Asymmetric cryptography uses public-private key pairs. The two primary functions
 
 #### Encryption
 
-Public keys can be shared and are used to encrypt messages, but only those who know the private key can decrypt the incoming message. Encryption helps preserve privacy and draws a strong boundary between what’s personal and what’s public.'
+Public keys can be shared and are used to encrypt messages, but only those who know the private key can decrypt the incoming message. Encryption helps preserve privacy and draws a strong boundary between what is personal and what is public.
 
 #### Digital Signatures
 
@@ -50,14 +50,15 @@ When combined, public-private key pairs provide ownership and privacy: both of w
 
 ## Applications
 
-Public-private key pairs are woven into the fabric of the internet and for good reason: privacy and ownership make the internet a better place. Here are a few examples of applications that use asymmetric cryptography.
+Public-private key pairs are woven into the fabric of the internet and for good reason: privacy and ownership make the internet a better place to protect value and share ideas. Here are a few examples of applications that use asymmetric cryptography.
 
 - **HTTPS:** HTTPS uses public key encryption to send messages between websites and your browser. HTTPS is essential for sensitive activities like logging into email or your bank account.
 
 - **Signal:** Messaging apps like Signal use public key encryption to ensure messages stay between you and your intended recipient.
 
 - **Bitcoin:** Blockchains like Bitcoin use private keys to sign transactions. Public keys are used as payment ‘addresses’.
-  Bottom Line: If you use the internet, you use asymmetric cryptography.
+
+**Bottom Line:** If you use the internet, you use asymmetric cryptography.
 
 ## The Promise
 
@@ -66,17 +67,17 @@ Privacy and ownership in your hands. No third party handcuffs. No misplaced trus
 
 ## The Problem
 
-Most of us have surrendered our right to online privacy and ownership. We’re back to a permissioned society that relies on third party gatekeepers.
+Most of us have surrendered our right to online privacy and ownership. We’re back to a permissioned society that relies on third party gatekeepers:
 
-Google can read your messages, but it's still the most popular email system.
+- Google can read your messages, but it's still the most popular email system.
 
-Facebook has a horrendous privacy track record, but it’s still the most popular social network.
+- Facebook has a horrendous privacy track record, but it’s still the most popular social network.
 
-Blockchains offer a peer-to-peer cash system, but the majority of transfers are between custodial exchanges.
+- Blockchains offer a peer-to-peer cash system, but the majority of transfers are between custodial exchanges.
 
 The internet relies on a peer to peer connection between computers. But the majority of services we use everyday are centralized. We surrender our privacy and ownership to corporations, because it’s easy. Because companies like Google, Facebook, and Coinbase offer a tremendous amount of value for free.
 
-We surrendered our keys and the gatekeepers became kings. Our content, our messages, and our value are controlled by someone else with different incentives. When we rely on gatekeepers to manage our online experience, we trust they won’t close the gate. We trust they won’t read our messages. We trust they won’t share our data. We trust, we trust, we trust.
+As consumers, we have surrendered our keys and the gatekeepers became kings. Our content, our messages, and our value are controlled by someone else with different incentives. When we rely on gatekeepers to manage our online experience, we trust they won’t close the gate. We trust they won’t read our messages. We trust they won’t share our data. We trust, we trust, we trust.
 
 ## What if….
 
@@ -88,4 +89,4 @@ But what if we had…
 
 Asymmetric cryptography has given us the keys to an online kingdom: a world where we control what we share and what we own. But it’s up to us as builders to make this dream a reality. The status quo won’t change until everyone has a public-private key pair that can be used with ease.
 
-If we don’t take action soon, then the gates will become a cage. And we won’t be able to get out, because we let someone else control our public-private key pair.
+If we don’t take action soon, then the gates will become a cage and we won’t be able to get out, because we let someone else control our public-private key pair.
