@@ -26,11 +26,11 @@ In the 1940's, the Germans used symmetric cryptography to share battle plans and
 - National coordination
 - Multiple secure channels
 
-In 1974, Whitfield Diffie and Martin Hellman changed everything. Their new system— [asymmetric cryptography](https://ee.stanford.edu/~hellman/publications/24.pdf)— allowed public keys to be shared with anyone, eliminating the need for custom hardware and code books. With a bit of math and a dash of insight, Diffie and Hillman created a way for peers to share secrets without the burden of bureaucracy. Public key cryptography is now embedded within the fabric of the internet and used by billions people around the world.
+In 1974, Whitfield Diffie and Martin Hellman changed everything. Their new system— asymmetric cryptography— allowed public keys to be shared with anyone, eliminating the need for custom hardware and code books. With a bit of math and a dash of insight, Diffie and Hillman created a way for peers to share secrets without the burden of bureaucracy. Public key cryptography is now embedded within the fabric of the internet and used by billions people around the world.
 
 ## Public Crypto 101
 
-Asymmetric cryptography uses public-private key pairs. The two primary functions of key pairs are encryption and digital signatures.
+[Asymmetric cryptography](https://ee.stanford.edu/~hellman/publications/24.pdf) uses public-private key pairs. The two primary functions of key pairs are encryption and digital signatures.
 
 #### Encryption
 
@@ -89,4 +89,4 @@ But what if we had…
 
 Asymmetric cryptography has given us the keys to an online kingdom: a world where we control what we share and what we own. But it’s up to us as builders to make this dream a reality. The status quo won’t change until everyone has a public-private key pair that can be used with ease.
 
-If we don’t take action soon, then the gates will become a cage and we won’t be able to get out, because we let someone else control our public-private key pair.
+If we don’t take action soon, then third party gates will become a cage and we won’t be able to get out, because we let someone else hold our asymmetric keys.
