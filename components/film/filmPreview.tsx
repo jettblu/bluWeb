@@ -32,11 +32,11 @@ const FilmPreview:NextPage<Props> = (props) => {
         if(!document) return;
         const modal = document.getElementById(modalId);
         if(!modal) return;
-        // close modal if you click area around the nft card
+        // close modal if you click area around the film card
         modal.addEventListener("click", function(e){
             setShowModal(false);
         })
-        // if you click the nft card itself, don't close the card!
+        // if you click the film card itself, don't close the card!
         // stop propogation
         const filmCard = document.getElementById(filmCardId);
         if(!filmCard) return;
