@@ -10,7 +10,6 @@ type Data = {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-    console.log("HIT!")
     // Get data submitted in request's body.
     try{
         const body = req.body;
@@ -21,8 +20,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
             return res.status(400).json({friend:null, msg:"Email and name are required"});
         }
         const newFriend = await addFriend(name, email);
-        console.log("New friend:");
-        console.log(newFriend);
         return res.status(200).json({friend:newFriend})
     }
     catch(e:any){
