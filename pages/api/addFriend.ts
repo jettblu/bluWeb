@@ -1,13 +1,12 @@
-import { Friend } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-import strava from "strava-v3"
+
+import { Friend } from "@prisma/client";
 import { addFriend } from "../../prisma/script";
 
-import { secondsInAYear } from "../../src/constants";
-import { Activity } from "../../src/helpers/strava/types";
 
 type Data = {
     friend:Friend|null
+    msg?:string
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
@@ -19,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         const email = body.email;
         console.log(req)
         if(!name || !email){
-            return res.status(400).json({friend:null});
+            return res.status(400).json({friend:null, msg:"Email and name are required"});
         }
         const newFriend = await addFriend(name, email);
         console.log("New friend:");
@@ -28,6 +27,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     }
     catch(e:any){
         console.log(e.message);
-        return res.status(400).json({friend:null});
+        return res.status(400).json({friend:null, msg:`${e.message}`});
     }
 }
