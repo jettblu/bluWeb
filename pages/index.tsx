@@ -26,7 +26,6 @@ const Home: NextPage = () => {
     try{
       let runningDataResponse:IBluFetchResponse = await BluFetch('/api/activities', {method:"GET", timeout:8000, headers:{'Content-Type': 'application/json',}})
       const newActivities:Activity[]|null = parseStravaActivityList(runningDataResponse.data.activities);
-      console.log(runningDataResponse);
       if(!newActivities){
         setLoadingActivities(false);
         return;
