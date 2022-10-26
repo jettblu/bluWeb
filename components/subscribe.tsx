@@ -159,13 +159,13 @@ const Subscribe:NextPage = () => {
                                     <label className="block text-gray-500 md:text-left text-sm mb-1">
                                         First Name
                                     </label>
-                                    <input maxLength={20} className="appearance-none bg-white dark:bg-black border border-slate-200 dark:border-slate-700 rounded w-full py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-400 dark:text-white" id="inline-full-name" placeholder={"Your Name"} value={name} onClick={(e)=>e.stopPropagation()} onChange={(e) => handleNameChange(e.target.value)}/>
+                                    <input type="text" maxLength={20} className="appearance-none bg-white dark:bg-black border border-slate-200 dark:border-slate-700 rounded w-full py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-400 dark:text-white" id="inline-full-name" placeholder={"Your Name"} value={name} onClick={(e)=>e.stopPropagation()} onChange={(e) => handleNameChange(e.target.value)}/>
                                 </div>
                                 <div>
                                     <label className="block text-gray-500 md:text-left text-sm mb-1">
                                         Email
                                     </label>
-                                    <input maxLength={40} className="appearance-none bg-white dark:bg-black border border-slate-200 dark:border-slate-700 rounded w-full py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-400 dark:text-white" id="inline-full-name" placeholder={"abcd@gmail.com"} value={email} onClick={(e)=>e.stopPropagation()} onChange={(e) => handleEmailChange(e.target.value)}/>
+                                    <input type="email" maxLength={40} className="appearance-none bg-white dark:bg-black border border-slate-200 dark:border-slate-700 rounded w-full py-4 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-sky-400 dark:text-white" id="inline-full-name" placeholder={"abcd@gmail.com"} value={email} onClick={(e)=>e.stopPropagation()} onChange={(e) => handleEmailChange(e.target.value)}/>
                                 </div>
                                 <div id={subButtonId} className="rounded-md py-4 px-4 border text-center font-bold bg-black dark:bg-slate-200 text-white dark:text-black hover:cursor-pointer hover:bg-sky-400" onClick={(e)=>handleSubscribeClicked()}>
                                     Sign Up
