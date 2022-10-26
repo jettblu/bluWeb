@@ -8,6 +8,8 @@ import { DocType, DocTypeEnum } from '../../src/helpers/docs/types';
 import BlogFeature from '../../components/docs/blogFeature';
 import RecentDocCard from '../../components/docs/recentDocCard';
 import Head from 'next/head';
+import { useState } from 'react';
+import DocListItemPreview from '../../components/docs/docListItemPreview';
 
 
 type Props = {
@@ -15,6 +17,7 @@ type Props = {
 }
 
 export default function BlogHome({allDocs}:Props){
+  const [showAll, setShowAll] = useState(false)
   // get the most recent blog post
   const mostRecentDoc:DocType = allDocs[0];
   // most recent docs that aren't the last posted doc
@@ -44,6 +47,26 @@ export default function BlogHome({allDocs}:Props){
                       )
                     }
                   </div>
+                  <div className="mb-2" onClick={()=>setShowAll(!showAll)}>
+                    {
+                      showAll?
+                      <p className="text-sky-400 text-right text-lg mt-4 font-semibold hover:cursor-pointer">Hide All</p>:
+                      <p className="text-sky-400 text-right text-lg mt-4 font-semibold hover:cursor-pointer">See All</p>
+                    }
+                  </div>
+                    {
+                      showAll &&
+                      <div className="grid grid-cols-1 gap-y-2">
+                         {
+                            allDocs.map((doc:DocType, index:number)=>
+                            <DocListItemPreview doc={doc} key={index}/>
+                            )
+                          }
+                      </div>
+                    }
+                    
+                
+                  
                 </div>
                 
             </div>
