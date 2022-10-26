@@ -22,3 +22,9 @@ export function stringToActivityType(typeString:string):ActivityType{
         }
     }
 }
+
+export const isValidEmailAddress = function(email:string){
+    /* Checks for anystring@anystring.anystring */
+    let re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
