@@ -9,7 +9,7 @@ export function getTotalDistance(activities:Activity[], activityType?:ActivityTy
     const activitiesToSum:Activity[] = activityType?activities.filter(a=>a.type==activityType):activities;
     let totalDistance:number = 0
     // sum distance and return in miles
-    for(const activity of activities){
+    for(const activity of activitiesToSum){
         const newDist:number = metersToMiles(activity.distance);
         totalDistance = totalDistance+newDist;
     }
