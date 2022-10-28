@@ -4,9 +4,7 @@ oneLiner: "Despite our percieved freedom, most of us follow a standard set of li
 image: "/blog/lifeRope.png"
 lastUpdate: "2021-3-9"
 category: "Reflection"
-authorName: "Jett Hays"
-authorAvatar: "/blog/contributors/jett.png"
-authorRole: "Creator"
+contributorId: "jett"
 tags: ["age", "health", "humor"]
 ---
 

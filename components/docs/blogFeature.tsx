@@ -24,12 +24,12 @@ const  BlogFeature = ({ doc}: Props) => {
                         </Link>
                         <div className="flex flex-row space-x-2">
                             {
-                            doc.authorAvatar &&
-                            <img className="w-12 h-12" src={doc.authorAvatar} />
+                            doc.contributor.avatarPath &&
+                            <img className="w-12 h-12" src={doc.contributor.avatarPath} />
                             }
                             <div className="flex flex-col">
-                                <p className='text-md text-slate-800 dark:text-slate-100 font-semibold'>{doc.authorName}</p>
-                                <p className='text-sm text-slate-600 dark:text-slate-300 font-semibold'>{doc.authorRole?doc.authorRole:""}</p>
+                                <p className='text-md text-slate-800 dark:text-slate-100 font-semibold'>{doc.contributor.name}</p>
+                                <p className='text-sm text-slate-600 dark:text-slate-300 font-semibold'>{doc.contributor.role}</p>
                             </div>
                         </div>
                     </div>

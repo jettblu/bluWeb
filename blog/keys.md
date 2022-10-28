@@ -4,9 +4,7 @@ oneLiner: "Public-private key pairs give everyone access to privacy and ownershi
 image: "/blog/publicKeyGradient.jpg"
 lastUpdate: "2022-10-23"
 category: "Technology"
-authorName: "Jett Hays"
-authorAvatar: "/blog/contributors/jett.png"
-authorRole: "Creator"
+contributorId: "jett"
 tags: ["cryptography", "internet", "computers"]
 ---
 

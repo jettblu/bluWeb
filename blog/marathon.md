@@ -4,9 +4,7 @@ oneLiner: "I reflect on who I am and who I am becoming, the night before my firs
 image: "/blog/marathonBefore.jpg"
 lastUpdate: "2022-4-30"
 category: "Reflection"
-authorName: "Jett Hays"
-authorAvatar: "/blog/contributors/jett.png"
-authorRole: "Creator"
+contributorId: "jett"
 tags: ["age", "health"]
 ---
 

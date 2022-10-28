@@ -86,20 +86,7 @@ export default function BlogHome({allDocs}:Props){
 
 export const getStaticProps = async () => {
     const allDocs = getAllDocs({
-        fields:[
-        "slug",
-        "title",
-        "lastUpdate",
-        "image",
-        "oneLiner",
-        "content",
-        "category",
-        "emoji",
-        "tags",
-        "authorName",
-        "authorAvatar",
-        "authorRole"
-    ], docEnum:DocTypeEnum.Blog})
+        docEnum:DocTypeEnum.Blog})
   
     return {
       props: { allDocs },
