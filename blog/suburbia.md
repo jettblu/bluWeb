@@ -4,9 +4,7 @@ oneLiner: "Entering college I felt like my life was master planned. But the subu
 image: "/blog/suburbia.png"
 lastUpdate: "2021-3-18"
 category: "Reflection"
-authorName: "Jett Hays"
-authorAvatar: "/blog/contributors/jett.png"
-authorRole: "Creator"
+contributorId: "jett"
 tags: []
 ---
 

@@ -4,9 +4,7 @@ oneLiner: "Some apples drop farther from the tree of knowledge."
 image: "/blog/knowledgeTree.png"
 lastUpdate: "2020-2-8"
 category: "Humor"
-authorName: "Jett Hays"
-authorAvatar: "/blog/contributors/jett.png"
-authorRole: "Creator"
+contributorId: "jett"
 tags: ["humor"]
 ---
 
