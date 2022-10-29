@@ -7,7 +7,7 @@ export const contributorList:Contributor[] = [
     {   
         id: "jett",
         name: "Jett Hays",
-        role: "Core Creator",
+        role: "Creator",
         avatarPath: "/blog/contributors/jett.png"
     }
 ]
