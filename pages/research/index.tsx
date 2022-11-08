@@ -34,7 +34,7 @@ const Home: NextPage = () => {
                     <p className="text-lg text-green-600">An analysis of the design principles behind Brainstorm.</p>
                     <Divider/>
                     <div className="flex flex-row space-x-4 text-sky-400 text-lg font-bold">
-                        <Link href="../research/brainstorm/software">
+                        <Link href="../blog/brainstormSoftware">
                             Read
                         </Link>
                         <a href="/brainstorm/Brainstorm Software.pdf" download>
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
                     <p className="text-lg text-green-600">A high level overview of what Brainstorm is and how it works.</p>
                     <Divider/>
                     <div className="flex flex-row space-x-4 text-sky-400 text-lg font-bold">
-                        <Link href="../research/brainstorm/overview">
+                        <Link href="../blog/brainstormOverview">
                             Read
                         </Link>
                         <a href="/brainstorm/Brainstorm High Level.pdf" download>
