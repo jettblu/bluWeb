@@ -1,5 +1,5 @@
 ---
-title: "Brainstorm Design principles"
+title: "Brainstorm Design Principles"
 oneLiner: "An analysis of software that translates brainwaves to language."
 image: "/brainstorm/output.png"
 lastUpdate: "2021-5-11"
