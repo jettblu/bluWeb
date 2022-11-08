@@ -28,6 +28,8 @@ export default function Post({ doc, recommendedDocs }: Props) {
             <Head>
               <title>{doc.title}</title>
               <meta name="description" content={doc.oneLiner} />
+              <meta property="og:image" content={doc.image?doc.image:"/icon.ico"}/>
+              <meta name="twitter:image" content={doc.image?doc.image:"/icon.ico"}/>
             </Head>
             <div className="max-w-2xl mx-auto">
                 {
