@@ -1,5 +1,3 @@
-import markdownStylesLight from './markdownStyles.module.css'
-import markdownStylesDark from './markdownStylesDark.module.css'
 import DOMPurify from 'isomorphic-dompurify';
 import { useEffect } from 'react';
 import { toast, Toaster } from 'react-hot-toast';
