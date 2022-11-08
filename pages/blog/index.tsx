@@ -17,7 +17,7 @@ type Props = {
 }
 
 export default function BlogHome({allDocs}:Props){
-  const [showAll, setShowAll] = useState(false)
+  const [showAll, setShowAll] = useState(true)
   // get the most recent blog post
   const mostRecentDoc:DocType = allDocs[0];
   // most recent docs that aren't the last posted doc
