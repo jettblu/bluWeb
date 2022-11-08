@@ -1,6 +1,6 @@
 ---
 title: "Secret Sharing: The Power of Polynomials"
-oneLiner: "Public-private key pairs give everyone access to privacy and ownership."
+oneLiner: "Polynomials are a powerful tool for sharing secrets."
 image: "/blog/polynomialCover.png"
 lastUpdate: "2022-11-7"
 category: "Technology"
