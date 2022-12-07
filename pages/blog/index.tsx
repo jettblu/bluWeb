@@ -10,11 +10,13 @@ import RecentDocCard from '../../components/docs/recentDocCard';
 import Head from 'next/head';
 import { useState } from 'react';
 import DocListItemPreview from '../../components/docs/docListItemPreview';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 
 type Props = {
     allDocs: DocType[]
 }
+
 
 export default function BlogHome({allDocs}:Props){
   const [showAll, setShowAll] = useState(true)
@@ -22,6 +24,22 @@ export default function BlogHome({allDocs}:Props){
   const mostRecentDoc:DocType = allDocs[0];
   // most recent docs that aren't the last posted doc
   const freshDocs:DocType[]  = allDocs.slice(1, 4)
+  const [query, setQuery] = useState("")
+  const [filteredDocs, setFilteredDocs] = useState<DocType[]>(allDocs)
+
+  function searchArticles(q:string){
+    // filter on title and tags
+    const newResults:DocType[] = allDocs.filter(d=>(d.title.toLowerCase().includes(q)) || d.tags?.find(d=>d.toLowerCase().includes(q)))
+    // update state
+    setFilteredDocs(newResults)
+  }
+
+  function handleQueryChange(newQuery:string){
+    // update state
+    setQuery(newQuery);
+    // get suggestions
+    searchArticles(newQuery);
+  }
 
   return (
 
@@ -47,6 +65,18 @@ export default function BlogHome({allDocs}:Props){
                       )
                     }
                   </div>
+                  {/* searchbar */}
+                  <div className='my-10 rounded-lg bg-gray-100 dark:bg-gray-900 border border-slate-200 hover:border-green-400 text-black dark-text-gray'>
+                      <div className="flex flex-row space-x-1">
+                        <div className='my-auto font-semibold pl-2'>
+                          <AiOutlineSearch size={24} className="text-black dark:text-white"/>
+                        </div>
+                        
+                        <input type="search" autoComplete="off" id="search-articles" className="p-4 flex-grow text-gray-900 text-lg bg-inherit dark:placeholder-gray-400 dark:text-white font-bold outline-none" placeholder={`Search Articles`} value={query} onChange={(e) => handleQueryChange(e.target.value)}  required/>
+                      
+                      </div>
+                      
+                  </div>
                   <div className="mb-2" onClick={()=>setShowAll(!showAll)}>
                     {
                       showAll?
@@ -58,7 +88,7 @@ export default function BlogHome({allDocs}:Props){
                       showAll &&
                       <div className="grid grid-cols-1 gap-y-2">
                          {
-                            allDocs.map((doc:DocType, index:number)=>
+                            filteredDocs.map((doc:DocType, index:number)=>
                             <DocListItemPreview doc={doc} key={index}/>
                             )
                           }
