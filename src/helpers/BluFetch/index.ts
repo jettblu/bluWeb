@@ -3,10 +3,10 @@ export interface BluFetchRequestOpts extends RequestInit {
   timeout?: number;
 }
 
-export interface IBluFetchResponse{
-  data:any,
-  headers:Headers,
-  status:number
+export interface IBluFetchResponse {
+  data: any;
+  headers: Headers;
+  status: number;
 }
 
 /**
@@ -15,15 +15,15 @@ export interface IBluFetchResponse{
 export async function BluFetch(
   url: RequestInfo,
   opts: BluFetchRequestOpts
-):Promise<IBluFetchResponse> {
+): Promise<IBluFetchResponse> {
   opts = {
     headers: {},
-    method: 'get',
+    method: "get",
     timeout: 30000, // 30 secs
     ...opts, // Any other fetch options
   };
 
-  if (!url) throw new Error('BluFetch: Missing url argument');
+  if (!url) throw new Error("BluFetch: Missing url argument");
 
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), opts.timeout);
@@ -31,14 +31,14 @@ export async function BluFetch(
   const { body, params, headers, ...otherOpts } = opts;
 
   const requestBody =
-    body && typeof body === 'object' ? JSON.stringify(opts.body) : opts.body;
+    body && typeof body === "object" ? JSON.stringify(opts.body) : opts.body;
 
   const response = await fetch(`${url}${createParams(params)}`, {
     ...otherOpts,
     body: requestBody,
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
       ...headers,
     },
     signal: controller.signal,
@@ -52,7 +52,7 @@ export async function BluFetch(
     return { data: responseBody, headers, status };
   } else {
     const errorResponseBody =
-      typeof responseBody === 'string' ? { error: responseBody } : responseBody;
+      typeof responseBody === "string" ? { error: responseBody } : responseBody;
 
     const error = generateError({
       requestBody: body,
@@ -65,22 +65,22 @@ export async function BluFetch(
 }
 
 function getBody(response: Response) {
-  const contentType = response.headers.get('Content-Type');
-  if (contentType?.startsWith('application/json')) {
+  const contentType = response.headers.get("Content-Type");
+  if (contentType?.startsWith("application/json")) {
     return response.json();
   } else {
     return response.text();
   }
 }
 
-function createParams(params: BluFetchRequestOpts['params']) {
-  return params ? `?${new URLSearchParams(params)}` : '';
+function createParams(params: BluFetchRequestOpts["params"]) {
+  return params ? `?${new URLSearchParams(params)}` : "";
 }
 
 interface BluFetchError extends Error {
   response?: Response;
   responseBody?: any;
-  requestBody?: RequestInit['body'];
+  requestBody?: RequestInit["body"];
 }
 
 function generateError({
@@ -88,14 +88,14 @@ function generateError({
   response,
   responseBody,
 }: {
-  requestBody: RequestInit['body'];
+  requestBody: RequestInit["body"];
   response: Response;
   responseBody: any;
 }) {
   const message =
     responseBody?.error ||
     response?.statusText ||
-    'There was an error with the request.';
+    "There was an error with the request.";
 
   const error: BluFetchError = new Error(message);
 
@@ -115,7 +115,7 @@ export class BluFetchClient {
   opts: BluFetchRequestOpts;
 
   constructor(opts: BluFetchClientOpts = {}) {
-    const { baseURL = '', ...otherOpts } = opts;
+    const { baseURL = "", ...otherOpts } = opts;
     this.baseURL = baseURL;
     this.opts = otherOpts;
   }
@@ -126,7 +126,7 @@ export class BluFetchClient {
   get(url?: RequestInfo, opts?: BluFetchRequestOpts) {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
-      method: 'get',
+      method: "get",
     });
   }
 
@@ -136,7 +136,7 @@ export class BluFetchClient {
   delete(url?: RequestInfo, opts?: BluFetchRequestOpts) {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
-      method: 'delete',
+      method: "delete",
     });
   }
 
@@ -146,7 +146,7 @@ export class BluFetchClient {
   head(url?: RequestInfo, opts?: BluFetchRequestOpts) {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
-      method: 'head',
+      method: "head",
     });
   }
 
@@ -156,7 +156,7 @@ export class BluFetchClient {
   options(url?: RequestInfo, opts?: BluFetchRequestOpts) {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
-      method: 'options',
+      method: "options",
     });
   }
 
@@ -167,7 +167,7 @@ export class BluFetchClient {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
       body,
-      method: 'post',
+      method: "post",
     });
   }
 
@@ -178,7 +178,7 @@ export class BluFetchClient {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
       body,
-      method: 'put',
+      method: "put",
     });
   }
 
@@ -189,7 +189,7 @@ export class BluFetchClient {
     return BluFetch(`${this.baseURL}${url}`, {
       ...opts,
       body,
-      method: 'patch',
+      method: "patch",
     });
   }
 }
