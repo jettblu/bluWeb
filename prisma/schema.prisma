@@ -16,3 +16,42 @@ model Friend {
   name      String
   createdAt DateTime @default(now())
 }
+
+model Event{
+  id        Int      @id @default(autoincrement())
+  name String @default("")
+  description String
+  userId      String
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model User {
+  id            String         @id @unique @default(uuid())
+  email         String         @unique
+  name String @default("")
+  refreshTokens RefreshToken[]
+  oneTimeTokens OneTimeToken[]
+  events Event[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model RefreshToken {
+  id          String   @id @unique @default(uuid())
+  hashedToken String
+  userId      String
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  revoked     Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model OneTimeToken{
+  id          String   @id @unique @default(uuid())
+  userId      String
+  User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  code        String
+  expiration  DateTime 
+}
