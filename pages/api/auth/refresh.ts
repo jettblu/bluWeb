@@ -63,7 +63,6 @@ export default async function handler(
     );
     await addRefreshTokenToWhitelist(jti, newRefreshToken, user.id);
     // set tokens as cookies
-    deleteCookie("accessToken");
     setCookie("accessToken", accessToken, {
       req,
       res,
