@@ -1,9 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import {
-  generateAccessToken,
-  generateTokens,
-} from "../../../src/authUtils/jwt";
+import { generateTokens } from "../../../src/authUtils/jwt";
 
 import hashToken from "../../../src/authUtils/hashtoken";
 import jwt from "jsonwebtoken";
@@ -26,7 +23,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // console.log("RUNNING refresh!");
   // Get data submitted in request's body.
   try {
     const refreshToken: string | undefined = getCookie("refreshToken", {
@@ -44,7 +40,10 @@ export default async function handler(
     // verify refresh token
     const payload: any = jwt.verify(refreshToken, secret);
     const savedRefreshToken = await findRefreshTokenById(payload.jti);
-    if (!savedRefreshToken || savedRefreshToken.revoked === true) {
+    if (!savedRefreshToken) {
+      return res.status(400).json({ msg: "Unauthorized." });
+    }
+    if (savedRefreshToken.revoked === true) {
       return res.status(400).json({ msg: "Unauthorized." });
     }
 
@@ -71,7 +70,6 @@ export default async function handler(
       secure: process.env.APP_STAGE == "production",
       httpOnly: true,
     });
-    deleteCookie("refreshToken");
     setCookie("refreshToken", newRefreshToken, {
       req,
       res,
