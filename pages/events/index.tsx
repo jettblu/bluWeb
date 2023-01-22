@@ -101,11 +101,9 @@ const Home: NextPage = () => {
           />
         </div>
         <div className="flex-col space-y-2">
-          {eventsToAdd
-            .reverse()
-            .map((event: EventPlaceholder, index: number) => (
-              <EventPreview event={event} key={index} onDelete={handleDelete} />
-            ))}
+          {eventsToAdd.map((event: EventPlaceholder, index: number) => (
+            <EventPreview event={event} key={index} onDelete={handleDelete} />
+          ))}
         </div>
       </div>
     </div>
