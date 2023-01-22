@@ -13,7 +13,7 @@ import { handleApprove } from "../../src/authUtils/jwt";
 
 const LoginCard: NextPage = () => {
   const [email, setEmail] = useState("");
-  const [sentEmail, setSentEmail] = useState(false);
+  const [sentEmail, setSentEmail] = useState(true);
   const [loadingApproval, setLoadingApproval] = useState(false);
   const [loading, setLoading] = useState(false);
   const sendLink: boolean = false;
@@ -64,7 +64,7 @@ const LoginCard: NextPage = () => {
     setCode(newCode);
     if (newCode.length == 8) {
       setLoadingApproval(true);
-      const approvedStatus: boolean = await handleApprove(email, code);
+      const approvedStatus: boolean = await handleApprove(email, newCode);
       if (approvedStatus) {
         toast.success("You are now logged in!");
         setLoadingApproval(false);
