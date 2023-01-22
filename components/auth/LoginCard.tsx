@@ -13,7 +13,7 @@ import { handleApprove } from "../../src/authUtils/jwt";
 
 const LoginCard: NextPage = () => {
   const [email, setEmail] = useState("");
-  const [sentEmail, setSentEmail] = useState(true);
+  const [sentEmail, setSentEmail] = useState(false);
   const [loadingApproval, setLoadingApproval] = useState(false);
   const [loading, setLoading] = useState(false);
   const sendLink: boolean = false;
