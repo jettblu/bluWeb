@@ -39,5 +39,10 @@ export async function middleware(req: NextRequest, res: NextApiResponse) {
 }
 
 export const config = {
-  matcher: ["/events/:path*", "/api/addEvents", "/api/getEvents"],
+  matcher: [
+    "/events/:path*",
+    "/api/addEvents",
+    "/api/getEvents",
+    "/profile/:path*",
+  ],
 };
