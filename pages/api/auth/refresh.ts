@@ -26,6 +26,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  // console.log("RUNNING refresh!");
   // Get data submitted in request's body.
   try {
     const refreshToken: string | undefined = getCookie("refreshToken", {
@@ -40,6 +41,7 @@ export default async function handler(
     if (!secret) {
       return res.status(400).json({ msg: "Missing jwt creation secret." });
     }
+    // verify refresh token
     const payload: any = jwt.verify(refreshToken, secret);
     const savedRefreshToken = await findRefreshTokenById(payload.jti);
     if (!savedRefreshToken || savedRefreshToken.revoked === true) {
@@ -54,13 +56,13 @@ export default async function handler(
     if (!user) {
       return res.status(400).json({ msg: "Unauthorized." });
     }
-    // await deleteRefreshToken(savedRefreshToken.id);
+    await deleteRefreshToken(savedRefreshToken.id);
     const jti = v4();
     const { accessToken, refreshToken: newRefreshToken } = generateTokens(
       user,
       jti
     );
-    // await addRefreshTokenToWhitelist(jti, newRefreshToken, user.id);
+    await addRefreshTokenToWhitelist(jti, newRefreshToken, user.id);
     // set tokens as cookies
     deleteCookie("accessToken");
     setCookie("accessToken", accessToken, {
