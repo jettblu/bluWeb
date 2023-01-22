@@ -1,7 +1,6 @@
 import { BluFetch } from "../BluFetch";
 
 export async function logout(): Promise<void> {
-  console.log("Running logout code");
   // try to add new friend on server
   try {
     const res = await BluFetch("/api/auth/logout", {
