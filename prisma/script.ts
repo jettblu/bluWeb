@@ -3,6 +3,7 @@ import EventPlaceholder from "../src/helpers/events/types";
 import hashToken from "../src/authUtils/hashtoken";
 import { add } from "date-fns";
 import { generateCode } from "../src/authUtils/jwt";
+import { decryptTextIv, encryptTextIv } from "../src/helpers/crypto";
 
 const prisma = new PrismaClient();
 
@@ -22,6 +23,11 @@ export async function addEvents(
     event.userId = userId;
     // add start date if provided... otherwise use default
     event.createdAt = startDate;
+    const { ciphertext, ivString } = encryptTextIv(event.description);
+    // replace description with ciphertext
+    event.description = ciphertext;
+    // update iv
+    event.iv = ivString;
   }
   const eventsAdded = await prisma.event.createMany({ data: events });
   return eventsAdded;
@@ -32,6 +38,15 @@ export async function getEvents(
   startDate?: Date
 ): Promise<Event[]> {
   const allEvents = await prisma.event.findMany({ where: { userId: userId } });
+  for (const event of allEvents) {
+    // TODO: THROW ERROR IF NO IV? CUSTOM MESSAGE
+    if (!event.iv) {
+      continue;
+    } else {
+      const { plaintext } = decryptTextIv(event.description, event.iv);
+      event.description = plaintext;
+    }
+  }
   return allEvents;
 }
 
