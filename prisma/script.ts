@@ -1,4 +1,10 @@
-import { Event, Friend, PrismaClient, User } from "@prisma/client";
+import {
+  Event,
+  Friend,
+  OneTimeToken,
+  PrismaClient,
+  User,
+} from "@prisma/client";
 import { add } from "date-fns";
 
 import EventPlaceholder from "../src/helpers/events/types";
@@ -67,6 +73,29 @@ export function findUserById(id: string) {
       id,
     },
   });
+}
+
+export function findCodeByUserId(id: string) {
+  //a
+  return prisma.oneTimeToken.findFirst({
+    where: {
+      userId: id,
+    },
+  });
+}
+
+export async function validateUserOneTimeCode(id: string, code: string) {
+  const tokens: OneTimeToken[] = await prisma.oneTimeToken.findMany({
+    where: { userId: id },
+  });
+  const currentDate: Date = new Date();
+  // TODO: UPDATE SO WE DON'T CYCLE THROUGH ALL CODES
+  for (const token of tokens) {
+    if (token.expiration > currentDate && code == token.code) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**

@@ -5,6 +5,7 @@ import { generateTokens } from "../../../src/authUtils/jwt";
 import {
   addRefreshTokenToWhitelist,
   findUserByEmail,
+  validateUserOneTimeCode,
 } from "../../../prisma/script";
 import { setCookie } from "cookies-next";
 
@@ -28,10 +29,15 @@ export default async function handler(
     if (!email || !code) {
       return res.status(400).json({ msg: "Email and code are required" });
     }
+
     const user = await findUserByEmail(email);
     // reject if user already exists
     if (!user) {
       return res.status(400).json({ msg: "Unable to find user" });
+    }
+    const isValid: boolean = await validateUserOneTimeCode(user.id, code);
+    if (!isValid) {
+      throw new Error("Invalid code.");
     }
     const jti = v4();
     const { accessToken, refreshToken } = generateTokens(user, jti);
