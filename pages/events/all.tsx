@@ -1,26 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import NewEvent from "../../components/events/NewEvent";
+import { LoaderIcon, Toaster } from "react-hot-toast";
 
-import { BluFetch } from "../../src/helpers/BluFetch";
-import EventPlaceholder, {
-  handleGetEvents,
-} from "../../src/helpers/events/types";
-import EventPreview from "../../components/events/EventPreview";
-import Datetime from "react-datetime";
 import { Event } from "@prisma/client";
 import StoredEvent from "../../components/events/StoredEvent";
 import Link from "next/link";
+import { handleGetEvents } from "../../src/helpers/events";
+import LoadingSpinner from "../../components/loadingSpinner";
 
 const All: NextPage = () => {
   const [events, setEvents] = useState<Event[]>([]);
+  const [loadingAlEvents, setLoadingAllEvents] = useState(true);
 
   useEffect(() => {
     handleGetEvents().then((newEvents) => {
-      if (!newEvents) return;
+      if (!newEvents) {
+        setLoadingAllEvents(false);
+        return;
+      }
       setEvents(newEvents);
+      setLoadingAllEvents(false);
     });
   }, []);
 
@@ -56,9 +56,29 @@ const All: NextPage = () => {
         </div>
         <div className="flex-col space-y-2">
           {events.length != 0 &&
+            !loadingAlEvents &&
             events.map((event: Event, index: number) => (
               <StoredEvent event={event} key={index} />
             ))}
+          {events.length == 0 && !loadingAlEvents && (
+            <div className="flex flex-col space-y-2">
+              <p>No events to show.</p>
+              <Link
+                href={"../events/"}
+                className="hover:cursor-pointer text-sky-400"
+              >
+                Create New.
+              </Link>
+            </div>
+          )}
+          {loadingAlEvents && (
+            <div className="flex flex-row">
+              <p className="text-lg text-gray-500 dark:text-gray-400">
+                Unscrambling moments.
+              </p>
+              <LoadingSpinner />
+            </div>
+          )}
         </div>
       </div>
     </div>
