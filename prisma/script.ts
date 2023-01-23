@@ -1,7 +1,8 @@
 import { Event, Friend, PrismaClient, User } from "@prisma/client";
+import { add } from "date-fns";
+
 import EventPlaceholder from "../src/helpers/events/types";
 import hashToken from "../src/authUtils/hashtoken";
-import { add } from "date-fns";
 import { generateCode } from "../src/authUtils/jwt";
 import { decryptTextIv, encryptTextIv } from "../src/helpers/crypto";
 
