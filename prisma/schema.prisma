@@ -21,6 +21,7 @@ model Event{
   id        Int      @id @default(autoincrement())
   name String @default("")
   description String
+  iv String?
   userId      String
   User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
