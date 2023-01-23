@@ -22,7 +22,6 @@ model Event{
   name String @default("")
   description String
   iv String?
-  meta String @default("")
   userId      String
   User        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())

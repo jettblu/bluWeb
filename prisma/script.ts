@@ -38,7 +38,9 @@ export async function getEvents(
   userId: string,
   startDate?: Date
 ): Promise<Event[]> {
-  const allEvents: Event[] = await prisma.event.findMany({
+  // TODO: TEMPORARY PATCH. AD EVENT TYPE AFTER DEPLOYMENT ISSUE RESOLVED
+  // allevents has the EVENT type
+  const allEvents: any = await prisma.event.findMany({
     where: { userId: userId },
   });
   for (const event of allEvents) {
