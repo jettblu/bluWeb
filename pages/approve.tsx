@@ -14,7 +14,6 @@ const Approve: NextPage = () => {
     // default network ticker to ethereum ticker
     let email: string | null = null;
     let code: string | null = null;
-    console.log(router.query);
     // pull network ticker from route
     if (typeof router.query["code"] == "string") {
       code = router.query["code"];

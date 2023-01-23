@@ -25,7 +25,6 @@ const NewEvent: NextPage<Props> = (props) => {
     };
     setDescription("");
     if (onSave) {
-      console.log("running on save handler");
       onSave(eventToAdd, id);
     }
   }
@@ -52,7 +51,7 @@ const NewEvent: NextPage<Props> = (props) => {
             className="text-sky-400 font-semibold hover:font-bold hover:cursor-pointer"
             onClick={() => handleSave()}
           >
-            Save
+            Add
           </p>
         </div>
       </div>

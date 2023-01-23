@@ -51,8 +51,6 @@ export async function handleApprove(
     email: email,
     code: code,
   };
-  console.log("running approval with params:");
-  console.log(params);
   // try to add new friend on server
   try {
     const res = await BluFetch("/api/auth/approve", {

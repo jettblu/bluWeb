@@ -17,7 +17,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log("logging in");
   // Get data submitted in request's body.
   try {
     const body = req.body;
