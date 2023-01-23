@@ -31,7 +31,6 @@ const Profile: NextPage = () => {
       </Head>
       <div className="max-w-2xl mx-auto h-screen">
         <div className="h-[20%]"></div>
-        <Toaster />
         <h1 className="font-bold text-2xl mb-4">Profile</h1>
         <p className="text-gray-800 dark:text-gray-200">
           This page will provide information about your account.

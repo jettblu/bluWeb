@@ -37,7 +37,6 @@ const All: NextPage = () => {
         />
       </Head>
       <div className="max-w-2xl mx-auto">
-        <Toaster />
         <div className="mb-12 mx-auto">
           <div className="">
             <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-t from-sky-400 to-green-400 mb-2">

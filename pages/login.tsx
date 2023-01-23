@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import { BluFetch } from "../src/helpers/BluFetch";
 import LoginCard from "../components/auth/LoginCard";
+import { useRouter } from "next/router";
 
 const Login: NextPage = () => {
   const [email, setEmail] = useState();
@@ -40,7 +41,6 @@ const Login: NextPage = () => {
       </Head>
       <div className="max-w-2xl mx-auto h-screen">
         <div className="h-[20%]"></div>
-        <Toaster />
         <LoginCard />
       </div>
     </div>
