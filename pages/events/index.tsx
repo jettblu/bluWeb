@@ -14,6 +14,10 @@ const Home: NextPage = () => {
   const [eventsToAdd, setEventsToAdd] = useState<EventPlaceholder[]>([]);
   const [startDate, setStartDate] = useState(new Date());
   function handleNewSave(newEvent: EventPlaceholder, id: string) {
+    if (newEvent.description.length == 0) {
+      toast.error("Please add a description.");
+      return;
+    }
     // TODO: ensure event does not exist
     setEventsToAdd([...eventsToAdd, newEvent]);
   }
@@ -54,8 +58,6 @@ const Home: NextPage = () => {
     const updatedEvents: EventPlaceholder[] = eventsToAdd.filter(
       (e) => e.description != eventToDelete.description
     );
-    console.log("Filtered events");
-    console.log(updatedEvents);
     setEventsToAdd(updatedEvents);
   }
   return (
@@ -68,7 +70,6 @@ const Home: NextPage = () => {
         />
       </Head>
       <div className="max-w-2xl mx-auto">
-        <Toaster />
         <div className="mb-12 mx-auto">
           <div className="">
             <h1 className="text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-t from-sky-400 to-green-400 mb-2">
@@ -87,7 +88,7 @@ const Home: NextPage = () => {
         </div>
         <NewEvent onSave={handleNewSave} />
         <p className="text-md text-gray-300 dark:text-gray-600 mt-2">
-          All event descriptions are scrambled before being saved.
+          All descriptions are encrypted before being saved.
         </p>
         <div
           className="bg-sky-400 text-white text-xl px-2 py-2 rounded-lg hover:cursor-pointer my-8 text-center"
@@ -100,7 +101,7 @@ const Home: NextPage = () => {
             type="date"
             value={startDate.toISOString().slice(0, 10)}
             onChange={(e) => handleNewDate(e.target.value)}
-            className="border border-sky-400 rounded-md bg-gray-200 dark:bg-gray-700"
+            className="border border-sky-400 rounded-md bg-gray-400 dark:bg-gray-700 dark:text-white"
           />
         </div>
         <div className="flex-col space-y-2">

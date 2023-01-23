@@ -19,7 +19,7 @@ const StoredEvent: NextPage<Props> = (props) => {
   }
 
   return (
-    <div className="rounded-lg border border-gray-400 dark:border-gray-700 py-4 px-4 flex flex-col space-y-2 dark:text-gray-200 text-slate-800 text-lg hover:border-sky-400 dark:hover:border-sky-400">
+    <div className="rounded-lg border border-gray-400 dark:border-gray-700 py-4 px-4 flex flex-col space-y-2 text-gray-600 dark:text-gray-200 text-lg hover:border-sky-400 dark:hover:border-sky-400">
       <div className="flex-row">
         <p>{event.description}</p>
       </div>
