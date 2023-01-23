@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 import Datetime from "react-datetime";
@@ -16,10 +16,19 @@ const LoginCard: NextPage = () => {
   const [sentEmail, setSentEmail] = useState(false);
   const [loadingApproval, setLoadingApproval] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [redirectToPath, setRedirectToPath] = useState<null | string>(null);
   const sendLink: boolean = false;
   const { isDark } = useBluThemeContext();
   const [code, setCode] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    // pull network ticker from route
+    if (router.query["from"] && typeof router.query["from"] == "string") {
+      const newFromPath = router.query["from"];
+      setRedirectToPath(newFromPath);
+    }
+  }, [router.isReady]);
 
   const params = {
     email: email,
@@ -68,7 +77,12 @@ const LoginCard: NextPage = () => {
       if (approvedStatus) {
         toast.success("You are now logged in!");
         setLoadingApproval(false);
-        router.push("/");
+        // redirect to main page or previous (if set)
+        if (redirectToPath) {
+          router.push(redirectToPath);
+        } else {
+          router.push("/");
+        }
         return;
       } else {
         setLoadingApproval(false);
@@ -80,7 +94,6 @@ const LoginCard: NextPage = () => {
 
   return (
     <div className="dark:text-white">
-      <Toaster />
       <div className="max-w-2xl mx-auto flex-col border border-gray-200 dark:border-gray-700 py-4 px-2 space-y-2 hover:border-green-400 rounded-md min-h-[220px]">
         <p className="text-sky-400 font-semibold mb-4 text-xl">Login</p>
         <div>
