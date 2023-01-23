@@ -25,7 +25,6 @@ export default async function handler(
     // TODO: update to return added events
     return res.status(200).json({ events: allEvents });
   } catch (e: any) {
-    console.log(e.mes);
     return res.status(400).json({ events: null, msg: `${e.message}` });
   }
 }
