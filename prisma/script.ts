@@ -37,7 +37,9 @@ export async function getEvents(
   userId: string,
   startDate?: Date
 ): Promise<Event[]> {
-  const allEvents = await prisma.event.findMany({ where: { userId: userId } });
+  const allEvents: Event[] = await prisma.event.findMany({
+    where: { userId: userId },
+  });
   for (const event of allEvents) {
     // TODO: THROW ERROR IF NO IV? CUSTOM MESSAGE
     if (!event.iv) {
@@ -51,8 +53,6 @@ export async function getEvents(
 }
 
 export async function findUserByEmail(email: string): Promise<User | null> {
-  console.log("finding user with email:");
-  console.log(email);
   return prisma.user.findUnique({
     where: {
       email: email,
