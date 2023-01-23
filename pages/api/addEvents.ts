@@ -20,7 +20,10 @@ export default async function handler(
     if (!userId || typeof userId != "string") {
       return res
         .status(400)
-        .json({ events: null, msg: "No user id available." });
+        .json({
+          events: null,
+          msg: "No user id available or user id was of the wrong type (expected string).",
+        });
     }
     if (!eventsToAdd) {
       return res
