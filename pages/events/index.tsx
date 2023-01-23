@@ -86,6 +86,9 @@ const Home: NextPage = () => {
           </div>
         </div>
         <NewEvent onSave={handleNewSave} />
+        <p className="text-md text-gray-300 dark:text-gray-600 mt-2">
+          All event descriptions are scrambled before being saved.
+        </p>
         <div
           className="bg-sky-400 text-white text-xl px-2 py-2 rounded-lg hover:cursor-pointer my-8 text-center"
           onClick={() => handlePushChanges()}
@@ -97,7 +100,7 @@ const Home: NextPage = () => {
             type="date"
             value={startDate.toISOString().slice(0, 10)}
             onChange={(e) => handleNewDate(e.target.value)}
-            className="border border-sky-400 rounded-md"
+            className="border border-sky-400 rounded-md bg-gray-200 dark:bg-gray-700"
           />
         </div>
         <div className="flex-col space-y-2">
