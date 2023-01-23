@@ -81,7 +81,7 @@ const LoginCard: NextPage = () => {
   return (
     <div className="dark:text-white">
       <Toaster />
-      <div className="max-w-2xl mx-auto flex-col border border-gray-200 dark:border-gray-700 py-4 px-2 space-y-2 hover:border-green-400 rounded-md h-[220px]">
+      <div className="max-w-2xl mx-auto flex-col border border-gray-200 dark:border-gray-700 py-4 px-2 space-y-2 hover:border-green-400 rounded-md min-h-[220px]">
         <p className="text-sky-400 font-semibold mb-4 text-xl">Login</p>
         <div>
           {!sentEmail && loading && (
