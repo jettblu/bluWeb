@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
-import Head from "next/head";
 import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
-import Datetime from "react-datetime";
 import { BluFetch } from "../../src/helpers/BluFetch";
 import ReactCodeInput from "react-code-input";
 import { useBluThemeContext } from "../ThemeProvider";
