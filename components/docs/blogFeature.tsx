@@ -60,7 +60,7 @@ const BlogFeature = ({ doc }: Props) => {
               alt="Blu Blog feature image."
               width="600"
               height="600"
-              className="object-cover max-w-[50%]"
+              className="object-cover md:max-w-[50%] rounded-lg"
               src={doc.image}
             />
           )}
