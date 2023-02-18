@@ -108,6 +108,7 @@ export async function getStaticProps({ params }: Params) {
     category: newDoc.category,
     slugToExclude: newDoc.slug,
     docEnum: DocTypeEnum.Blog,
+    maxCount: 3,
   });
   return {
     props: {
