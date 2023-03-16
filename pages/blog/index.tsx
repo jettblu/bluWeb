@@ -25,22 +25,22 @@ export default function BlogHome({ allDocs }: Props) {
   const [query, setQuery] = useState("");
   const [filteredDocs, setFilteredDocs] = useState<DocType[]>(allDocs);
 
-  function searchArticles(q: string) {
+  function searchArticles(q: string): DocType[] {
     // filter on title and tags
     const newResults: DocType[] = allDocs.filter(
       (d) =>
         d.title.toLowerCase().includes(q) ||
         d.tags?.find((d) => d.toLowerCase().includes(q))
     );
-    // update state
-    setFilteredDocs(newResults);
+    return newResults;
   }
 
   function handleQueryChange(newQuery: string) {
+    // get suggestions
+    const searchResults = searchArticles(newQuery);
     // update state
     setQuery(newQuery);
-    // get suggestions
-    searchArticles(newQuery);
+    setFilteredDocs(searchResults);
   }
 
   const articleContainerId = "articleResultsContainer";
@@ -51,8 +51,6 @@ export default function BlogHome({ allDocs }: Props) {
       return;
     }
     const initHeight = articleContainer.scrollHeight;
-    console.log("HEIGHT");
-    console.log(initHeight);
     articleContainer.style.minHeight = `${initHeight}px`;
   }, []);
 
