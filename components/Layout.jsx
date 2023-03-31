@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
+import Fathom from "./Fathom";
 import Navbar from "./navbar";
 import Subscribe from "./subscribe";
 import { useBluThemeContext } from "./ThemeProvider";
@@ -37,6 +38,7 @@ export default function Layout({ children }) {
       <main className={``}>
         <Navbar />
         <Toaster />
+        <Fathom />
         {children}
         {router.pathname.includes("blog") && (
           <div className="fixed bottom-4 right-4">
