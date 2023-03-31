@@ -1,10 +1,10 @@
-import "../styles/globals.css";
-import Layout from "../components/Layout";
-import type { AppProps } from "next/app";
-import { BluThemeProvider } from "../components/ThemeProvider";
 import "highlight.js/styles/github-dark-dimmed.css";
+import type { AppProps } from "next/app";
 import { useEffect, useRef } from "react";
-import { BluFetch } from "../src/helpers/BluFetch";
+import Layout from "../components/Layout";
+import { BluThemeProvider } from "../components/ThemeProvider";
+import * as Fathom from "fathom-client";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const workerRef = useRef<Worker>();
@@ -15,6 +15,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     );
     workerRef.current.onmessage = (event: MessageEvent<number>) =>
       alert(`WebWorker Response => ${event.data}`);
+    // Initialize Fathom when the app loads
+    Fathom.load("JCXAQSCR", {
+      includedDomains: ["jetthays.com"],
+    });
   }, []);
 
   return (
