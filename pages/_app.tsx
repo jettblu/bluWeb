@@ -1,6 +1,7 @@
 import "highlight.js/styles/github-dark-dimmed.css";
 import type { AppProps } from "next/app";
 import { useEffect, useRef } from "react";
+import { BluDataProvider } from "../components/DataProvider";
 import Layout from "../components/Layout";
 import { BluThemeProvider } from "../components/ThemeProvider";
 import "../styles/globals.css";
@@ -17,9 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <BluThemeProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <BluDataProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </BluDataProvider>
     </BluThemeProvider>
   );
 }

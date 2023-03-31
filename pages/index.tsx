@@ -1,26 +1,32 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import Head from "next/head";
 import Tilt from "react-parallax-tilt";
 
-import { BluFetch, IBluFetchResponse } from "../src/helpers/BluFetch";
-import { Activity, ActivityType } from "../src/helpers/strava/types";
-import { getTotalDistance } from "../src/helpers/strava";
-import { metersToMiles, secondsToMinutes } from "../src/helpers/utils";
-import { parseStravaActivityList } from "../src/helpers/strava/parse";
 import Link from "next/link";
+import { BluFetch, IBluFetchResponse } from "../src/helpers/BluFetch";
+import { getTotalDistance } from "../src/helpers/strava";
+import { Activity, ActivityType } from "../src/helpers/strava/types";
+import { metersToMiles, secondsToMinutes } from "../src/helpers/utils";
+import { useBluDataContext } from "../components/DataProvider";
 
 const Home: NextPage = () => {
   const profileFlipCardId: string = "bluFlipCard";
   const profileFlipContentId: string = "bluFlipContent";
-  const [totalMilesRan, setTotalMilesRan] = useState(0);
   const [loadingActivities, setLoadingActivities] = useState(false);
-  const [activities, setActivities] = useState<Activity[]>([]);
-  const [recentRun, setRecentRun] = useState<Activity | null>(null);
+  const {
+    updateActivities,
+    loadingStravaData,
+    activities,
+    totalMilesRan,
+    recentRun,
+  } = useBluDataContext();
 
   async function fetchRunningData() {
     // if we already have activities don't fetch again
     if (activities.length != 0) return;
+    if (!loadingStravaData) {
+      return;
+    }
     setLoadingActivities(true);
     try {
       let runningDataResponse: IBluFetchResponse = await BluFetch(
@@ -37,19 +43,7 @@ const Home: NextPage = () => {
         setLoadingActivities(false);
         return;
       }
-      const newTotalMilesRan: number = getTotalDistance(
-        newActivities,
-        ActivityType.run
-      );
-      const newRuns: Activity[] = newActivities.filter(
-        (a) => a.type == ActivityType.run
-      );
-      // assuming we receive activities w/ bigger index meaning more recent
-      const newRecentRun: Activity | null =
-        newRuns.length > 0 ? newRuns[newRuns.length - 1] : null;
-      setTotalMilesRan(newTotalMilesRan);
-      setActivities(newActivities);
-      setRecentRun(newRecentRun);
+      updateActivities(newActivities);
       setLoadingActivities(false);
     } catch (e) {
       console.warn("Unable to fetch strava activity");
