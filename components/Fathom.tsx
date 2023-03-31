@@ -9,7 +9,6 @@ function FathomView() {
     // Initialize Fathom when the app loads
     load("KMWGVIMQ", {
       includedDomains: ["www.jetthays.com", "jetthays.com"],
-      spa: "auto",
     });
   }, [pathname, searchParams]);
 

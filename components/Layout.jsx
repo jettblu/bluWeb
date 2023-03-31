@@ -38,7 +38,6 @@ export default function Layout({ children }) {
       <main className={``}>
         <Navbar />
         <Toaster />
-        <Fathom />
         {children}
         {router.pathname.includes("blog") && (
           <div className="fixed bottom-4 right-4">
