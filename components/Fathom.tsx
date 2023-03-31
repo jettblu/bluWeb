@@ -1,8 +1,8 @@
 import { load, trackPageview } from "fathom-client";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export default function Fathom() {
+function FathomView() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   useEffect(() => {
@@ -14,4 +14,12 @@ export default function Fathom() {
   }, [pathname, searchParams]);
 
   return null;
+}
+
+export default function Fathom() {
+  return (
+    <Suspense fallback={null}>
+      <FathomView />
+    </Suspense>
+  );
 }
