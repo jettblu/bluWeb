@@ -16,8 +16,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     workerRef.current.onmessage = (event: MessageEvent<number>) =>
       alert(`WebWorker Response => ${event.data}`);
     // Initialize Fathom when the app loads
-    Fathom.load("JCXAQSCR", {
-      includedDomains: ["jetthays.com"],
+    Fathom.load("EDTJYLRZ", {
+      includedDomains: ["www.jetthays.com"],
     });
   }, []);
 
