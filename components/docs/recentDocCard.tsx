@@ -15,7 +15,7 @@ const RecentDocCard = ({ doc }: Props) => {
   ).toDateString();
   return (
     <div className="mx-auto w-full">
-      <div className="rounded-lg bg-white dark:bg-gray-900 text-black dark:text-white outline outline-1 outline-gray-500 hover:outline-green-400 min-h-[300px] md:min-h-[500px] md:max-h-[500px]">
+      <div className="rounded-lg bg-white dark:bg-gray-900 text-black dark:text-white border border-1 border-gray-500 hover:border-green-400 min-h-[300px] md:min-h-[500px] md:max-h-[500px]">
         <div className="flex flex-col">
           {doc.image && (
             <img
