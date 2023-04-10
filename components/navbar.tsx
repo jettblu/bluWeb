@@ -13,8 +13,8 @@ const Navbar: NextPage = () => {
 
   // change style based on boolean
   const menuWrapperClassName = isMenuMobile
-    ? "flex flex-col md:flex-row mx-auto min-h-[100vh] md:min-h-0 md:ml-auto mt-8 md:mt-0 z-20 md:z-0 pl-8"
-    : "hidden md:flex md:flex-row md:ml-auto mt-3 md:mt-0";
+    ? "flex flex-col md:flex-row mx-auto h-[100vh] md:ml-auto mt-8 md:mt-0 z-20 pl-8"
+    : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
 
   function handleDarkToggle() {
     updateIsDark(!isDark);
@@ -22,7 +22,17 @@ const Navbar: NextPage = () => {
 
   return (
     <nav className="">
-      <div className="px-4 mx-auto md:flex md:items-center">
+      <div
+        className={`mx-auto md:flex md:items-center fixed top-0 z-50 w-full -mx-4 px-4 ${
+          !isMenuMobile && !isDark && "bg-white/50"
+        } ${isMenuMobile && !isDark && "bg-white"} ${
+          !isMenuMobile &&
+          isDark &&
+          "bg-gradient-to-r from-black to-slate-900/80"
+        } ${
+          isMenuMobile && isDark && "bg-gradient-to-r from-black to-slate-900"
+        }`}
+      >
         <div className="flex justify-between items-center hover:cursor-pointer">
           <div onClick={() => setMenuMobile(false)}>
             {
