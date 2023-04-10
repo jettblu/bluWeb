@@ -11,6 +11,8 @@ import DocHeader from "../../components/docs/docHeader";
 import DocContent from "../../components/docs/docContent";
 import DocKeepReadingPreview from "../../components/docs/docKeepReadingPreview";
 import Head from "next/head";
+import { useRef } from "react";
+import ArticleProgress from "../../components/progress/ArticleProgressBar";
 
 type Props = {
   doc: DocType;
@@ -19,6 +21,7 @@ type Props = {
 
 export default function Post({ doc, recommendedDocs }: Props) {
   const router = useRouter();
+
   // TODO: 2x check to make sure we correctly set 404
   if (!router.isFallback && !doc?.slug) {
     console.warn(`Unable to find this doc!`);
@@ -52,7 +55,9 @@ export default function Post({ doc, recommendedDocs }: Props) {
               lastUpdated={doc.lastUpdate}
               emoji={doc.emoji || undefined}
             />
+
             <DocContent content={doc.content} />
+
             {readNext.length != 0 && (
               <div className="my-8">
                 <hr className="mt-2" />
