@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { Film } from "../../src/film/types";
 import { useBluThemeContext } from "../ThemeProvider";
+import BluVideo from "./bluVideo";
 
 interface Props {
   film: Film;
@@ -133,18 +134,7 @@ const FilmPreview: NextPage<Props> = (props) => {
 
               <div className="my-4">
                 <div className="w-full mx-auto">
-                  <ReactPlayer
-                    url={film.url}
-                    playing={showModal}
-                    controls={true}
-                    width="100%"
-                    style={{
-                      outline: "1px solid blue",
-                      borderRadius: "5px",
-                      padding: "5px",
-                      backgroundColor: "skyblue",
-                    }}
-                  />
+                  <BluVideo videoSrc={film.url} isPlaying={showModal} />
                 </div>
 
                 <div>

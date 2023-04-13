@@ -2,8 +2,8 @@ import { NextPage } from "next";
 import Head from "next/head";
 
 import Link from "next/link";
-import ReactPlayer from "react-player";
 import Divider from "../../components/Divider";
+import BluVideo from "../../components/film/bluVideo";
 
 const Home: NextPage = () => {
   return (
@@ -28,16 +28,9 @@ const Home: NextPage = () => {
 
       <div className="max-w-3xl mx-auto">
         <div className="mb-12 mx-auto w-full max-w-[640px]">
-          <ReactPlayer
-            url={"https://www.youtube.com/watch?v=3ONCUlBnBXE"}
-            controls={true}
-            width="100%"
-            style={{
-              outline: "1px solid blue",
-              borderRadius: "5px",
-              padding: "5px",
-              backgroundColor: "skyblue",
-            }}
+          <BluVideo
+            videoSrc={"https://www.youtube.com/watch?v=3ONCUlBnBXE"}
+            isPlaying={false}
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-4">
