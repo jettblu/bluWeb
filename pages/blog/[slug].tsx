@@ -13,6 +13,7 @@ import DocKeepReadingPreview from "../../components/docs/docKeepReadingPreview";
 import Head from "next/head";
 import { useRef } from "react";
 import ArticleProgress from "../../components/progress/ArticleProgressBar";
+import ReactPlayer from "react-player";
 
 type Props = {
   doc: DocType;
@@ -21,6 +22,7 @@ type Props = {
 
 export default function Post({ doc, recommendedDocs }: Props) {
   const router = useRouter();
+  console.log(doc);
 
   // TODO: 2x check to make sure we correctly set 404
   if (!router.isFallback && !doc?.slug) {
@@ -55,7 +57,22 @@ export default function Post({ doc, recommendedDocs }: Props) {
               lastUpdated={doc.lastUpdate}
               emoji={doc.emoji || undefined}
             />
-
+            {doc.videoSrc && (
+              <div className="mb-10">
+                <ReactPlayer
+                  url={doc.videoSrc}
+                  playing={false}
+                  controls={true}
+                  width="100%"
+                  style={{
+                    outline: "1px solid blue",
+                    borderRadius: "5px",
+                    padding: "5px",
+                    backgroundColor: "skyblue",
+                  }}
+                />
+              </div>
+            )}
             <DocContent content={doc.content} />
 
             {readNext.length != 0 && (

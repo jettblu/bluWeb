@@ -18,6 +18,8 @@ const defaultFields = [
   "emoji",
   "tags",
   "contributorId",
+  "videoSrc",
+  "videoTitle",
 ];
 
 export function getDocSlugs(docEnum: DocTypeEnum) {
@@ -90,6 +92,8 @@ export function getDocBySlug(props: {
     category: items.category || "",
     tags: items.tags || null,
     contributor: contributor,
+    videoSrc: items.videoSrc || null,
+    videoTitle: items.videoTitle || null,
   };
   return docToReturn;
 }

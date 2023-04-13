@@ -13,7 +13,6 @@ export default function ArticleProgress({
 
     const element = target.current;
     const totalHeight = element.clientHeight - element.offsetTop;
-    console.log("Total height: ", totalHeight);
     const windowScrollTop =
       window.pageYOffset ||
       document.documentElement.scrollTop ||

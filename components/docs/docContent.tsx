@@ -1,6 +1,6 @@
 import DOMPurify from "isomorphic-dompurify";
 import { useEffect, useRef } from "react";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import ArticleProgress from "../progress/ArticleProgressBar";
 
 type Props = {
