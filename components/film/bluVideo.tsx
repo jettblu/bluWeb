@@ -1,9 +1,5 @@
 import { NextPage } from "next";
-import Router, { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { Film } from "../../src/film/types";
-import { useBluThemeContext } from "../ThemeProvider";
 
 interface Props {
   videoSrc: string;
