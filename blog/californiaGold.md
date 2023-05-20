@@ -10,7 +10,7 @@ tags: ["run", "sports", "ironman", "triathlon"]
 
 California sunlight shines on decades of discovery. Gold glistens in our history: a magical rock that summoned pioneers from around the world.
 
-This is the land where pioneers dug for nuggets, with shovels full of dirt and hearts full of hope. This is the land where Natin Americas sustained vibrant cultures, and immigrants created homes. This is where empty pockets can become full, and dreams can become neighbors with reality.
+This is the land where pioneers dug for nuggets, with shovels full of dirt and hearts full of hope. This is the land where Native Americas sustained vibrant cultures, and immigrants created homes. This is where empty pockets can become full, and dreams can become neighbors with reality.
 
 And now I’m here - halfway between the Hollywood Hills and Silicon Valley - staking a claim on the shores of self-discovery. At 4 AM, I rise and say hello to the darkness of hard things: a 1.2-mile swim, 56-mile bike, and 13.1-mile run.
 
