@@ -6,8 +6,9 @@ import { useEffect, useRef } from "react";
 
 import { BluDataProvider } from "../components/DataProvider";
 import Layout from "../components/Layout";
-import { BluThemeProvider } from "../components/ThemeProvider";
+
 import "../styles/globals.css";
+import { ThemeProvider } from "next-themes";
 
 // Record a pageview when route changes
 Router.events.on("routeChangeComplete", (as, routeProps) => {
@@ -31,13 +32,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <BluThemeProvider>
+    <ThemeProvider attribute="class">
       <BluDataProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </BluDataProvider>
-    </BluThemeProvider>
+    </ThemeProvider>
   );
 }
 

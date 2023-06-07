@@ -2,14 +2,29 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useBluThemeContext } from "./ThemeProvider";
+import { useTheme } from "next-themes";
 
 const Navbar: NextPage = () => {
-  const { isDark, updateIsDark } = useBluThemeContext();
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const isDark = theme === "dark";
+
   const [isMenuMobile, setMenuMobile] = useState(false);
   const router = useRouter();
+
+  // useEffect only runs on the client, so now we can safely show the UI
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // if the theme is not yet mounted, don't render anything
+  // this prevents the navbar from rendering server-side
+  // which would cause a hydration mismatch
+  if (!mounted) {
+    return null;
+  }
 
   // change style based on boolean
   const menuWrapperClassName = isMenuMobile
@@ -17,20 +32,24 @@ const Navbar: NextPage = () => {
     : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
 
   function handleDarkToggle() {
-    updateIsDark(!isDark);
+    if (theme === "dark") {
+      setTheme("light");
+    } else {
+      setTheme("dark");
+    }
   }
 
   return (
     <nav className="">
       <div
         className={`mx-auto md:flex md:items-center fixed top-0 z-50 w-full -mx-4 px-4 ${
-          !isMenuMobile && !isDark && "bg-white/50"
-        } ${isMenuMobile && !isDark && "bg-white"} ${
+          !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
+        } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
           !isMenuMobile &&
           isDark &&
-          "bg-gradient-to-r from-black to-slate-900/80"
+          "bg-gradient-to-r from-black to-[#010F15]/80"
         } ${
-          isMenuMobile && isDark && "bg-gradient-to-r from-black to-slate-900"
+          isMenuMobile && isDark && "bg-gradient-to-r from-black to-[#010F15]"
         }`}
       >
         <div className="flex justify-between items-center hover:cursor-pointer">

@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 
 import { BluFetch } from "../../src/helpers/BluFetch";
 import ReactCodeInput from "react-code-input";
-import { useBluThemeContext } from "../ThemeProvider";
 import { useRouter } from "next/router";
 import LoadingSpinner from "../loadingSpinner";
 import { handleApprove } from "../../src/authUtils/jwt";
@@ -16,7 +15,6 @@ const LoginCard: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [redirectToPath, setRedirectToPath] = useState<null | string>(null);
   const sendLink: boolean = false;
-  const { isDark } = useBluThemeContext();
   const [code, setCode] = useState("");
   const router = useRouter();
 

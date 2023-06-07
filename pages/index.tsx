@@ -72,7 +72,7 @@ const Home: NextPage = () => {
     fetchRunningData();
   }, []);
   return (
-    <div className="text-black dark:text-white">
+    <div className="">
       <div className="max-w-2xl mx-auto">
         <div className="h-[10vh]">
           {/* space filler between top and main elements */}
@@ -100,7 +100,7 @@ const Home: NextPage = () => {
 
               <div className="flip-card-back px-2 py-4 bg-gray-50 dark:bg-gray-900 rounded-lg bluFont">
                 <h1 className="text-4xl text-sky-400 mb-2">Mission</h1>
-                <div className="text-3xl">
+                <div className="text-3xl text-slate-800 dark:text-white">
                   <p>
                     My mission is to scale positive impact through technology.
                     This is my story.

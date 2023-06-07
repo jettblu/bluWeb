@@ -1,21 +1,15 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Script from "next/script";
 import { Toaster } from "react-hot-toast";
-import Fathom from "./Fathom";
 import Navbar from "./navbar";
 import Subscribe from "./subscribe";
-import { useBluThemeContext } from "./ThemeProvider";
 
 // TODO: Update to support dynamic headers
 export default function Layout({ children }) {
-  const { isDark, themeLoading } = useBluThemeContext();
   const router = useRouter();
   return (
     <div
-      className={`min-h-screen pb-20 ${
-        isDark ? "dark bg-gradient-to-r from-black to-slate-900" : "bg-white"
-      } px-4`}
+      className={`min-h-screen pb-20 px-4 bg-[#F8F6F1] dark:bg-gradient-to-r dark:from-black dark:to-[#010F15] text-black dark:text-white`}
     >
       <Head>
         <title>Jett Hays</title>

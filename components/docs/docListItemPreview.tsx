@@ -1,35 +1,18 @@
 import Link from "next/link";
-import { useEffect } from "react";
 import { DocType } from "../../src/helpers/docs/types";
-import { useBluThemeContext } from "../ThemeProvider";
 
 type Props = {
   doc: DocType;
 };
 
 const DocListItemPreview = ({ doc }: Props) => {
-  const { isDark } = useBluThemeContext();
   const { slug, title, lastUpdate } = { ...doc };
   const urlBase = "/blog/[slug]";
   const urlAs = `/blog/${slug}`;
   const formattedDate = new Date(lastUpdate.replace(/-/g, "/")).toDateString();
   const listItemId = `${title}ListPreview`;
   const listItemTitleId = `${title}Title`;
-  // useEffect(()=>{
-  //     if(!document) return;
-  //     const listItem = document.getElementById(listItemId);
-  //     const listItemTitle = document.getElementById(listItemTitleId);
-  //     if(listItem && listItemTitle){
-  //         listItem.addEventListener("mouseenter", (e)=>{
-  //             console.log("here")
-  //             listItemTitle.style.color = "#3dde37"
-  //         })
-  //         listItem.addEventListener("mouseenter", (e)=>{
-  //             // update to be same as default
-  //             listItemTitle.style.color = isDark?"white":"black"
-  //         })
-  //     }
-  // },[])
+
   return (
     <Link as={urlAs} href={urlBase}>
       <div
