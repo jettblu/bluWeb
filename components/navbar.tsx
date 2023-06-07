@@ -42,7 +42,7 @@ const Navbar: NextPage = () => {
   return (
     <nav className="">
       <div
-        className={`mx-auto md:flex md:items-center fixed top-0 z-50 w-full -mx-4 px-4 ${
+        className={`mx-auto md:flex md:items-center fixed top-0 z-10 w-full -mx-4 px-4 ${
           !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
         } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
           !isMenuMobile &&
