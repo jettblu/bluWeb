@@ -8,8 +8,8 @@ import { useTheme } from "next-themes";
 
 const Navbar: NextPage = () => {
   const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const isDark = theme === "dark";
+  const { resolvedTheme, setTheme } = useTheme();
+  const [isDark, setIsDark] = useState(resolvedTheme === "dark");
 
   const [isMenuMobile, setMenuMobile] = useState(false);
   const router = useRouter();
@@ -18,6 +18,10 @@ const Navbar: NextPage = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    setIsDark(resolvedTheme === "dark");
+  }, [resolvedTheme]);
 
   // if the theme is not yet mounted, don't render anything
   // this prevents the navbar from rendering server-side
@@ -32,7 +36,7 @@ const Navbar: NextPage = () => {
     : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
 
   function handleDarkToggle() {
-    if (theme === "dark") {
+    if (isDark) {
       setTheme("light");
     } else {
       setTheme("dark");
