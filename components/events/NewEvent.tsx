@@ -1,7 +1,7 @@
-import { Event } from "@prisma/client";
+"use client";
+
 import { NextPage } from "next";
 import { useState } from "react";
-import { addEvents } from "../../prisma/script";
 import EventPlaceholder from "../../src/helpers/events/types";
 
 interface Props {

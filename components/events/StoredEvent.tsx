@@ -1,8 +1,7 @@
+"use client";
+
 import { Event } from "@prisma/client";
 import { NextPage } from "next";
-import { useState } from "react";
-import { AiOutlineDelete } from "react-icons/ai";
-import { addEvents } from "../../prisma/script";
 import EventPlaceholder from "../../src/helpers/events/types";
 
 interface Props {

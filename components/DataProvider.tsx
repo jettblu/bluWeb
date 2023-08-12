@@ -1,3 +1,5 @@
+"use client";
+
 import { createContext, useContext } from "react";
 import { useBluData } from "../src/bluDataHelper";
 import { Activity, defaultActivity } from "../src/helpers/strava/types";

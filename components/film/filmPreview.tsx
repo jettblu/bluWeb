@@ -1,6 +1,7 @@
+"use client";
+
 import { NextPage } from "next";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Film } from "../../src/film/types";
 import BluVideo from "./bluVideo";
 import Modal from "../modals/modal";
@@ -12,9 +13,7 @@ const FilmPreview: NextPage<Props> = (props) => {
   const { film } = { ...props };
 
   const filmCardId = `${film.title}Card`;
-  const modalId = `${film.title}Modal`;
   const [showModal, setShowModal] = useState(false);
-  const router = useRouter();
 
   function handlePreviewClicked() {
     // pop vimeo vids up in app

@@ -1,4 +1,5 @@
-import DOMPurify from "isomorphic-dompurify";
+"use client";
+
 import { useEffect, useRef } from "react";
 import { toast } from "react-hot-toast";
 import ArticleProgress from "../progress/ArticleProgressBar";
@@ -27,13 +28,13 @@ const DocContent = ({ content }: Props) => {
   }, []);
 
   // sanitize incoming content
-  const cleanContent = DOMPurify.sanitize(content);
+  // const cleanContent = DOMPurify.sanitize(content);
   return (
     <div className="max-w-3xl mx-auto">
       <ArticleProgress target={articleTarget} />
       <div
         className="overflow-hidden prose dark:prose-invert md:prose-xl prose-blockquote:border-sky-400 prose-code:-mx-4 prose-code:-my-3 prose-code:rounded-md prose-code:hover:cursor-pointer prose-code:scrollbar-thin prose-code:scrollbar-thumb-sky-400 prose-code:scrollbar-track-gray-700 prose-blockquote:rounded-md prose-img:rounded-md prose-a:text-sky-400 prose-li:marker:text-sky-400 prose-quoteless prose-blockquote:not-italic"
-        dangerouslySetInnerHTML={{ __html: cleanContent }}
+        dangerouslySetInnerHTML={{ __html: content }}
         ref={articleTarget}
       />
     </div>

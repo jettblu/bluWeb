@@ -1,13 +1,14 @@
+"use client";
+
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import NewEvent from "../../components/events/NewEvent";
 
 import { BluFetch } from "../../src/helpers/BluFetch";
 import EventPlaceholder from "../../src/helpers/events/types";
 import EventPreview from "../../components/events/EventPreview";
-import Datetime from "react-datetime";
 import Link from "next/link";
 
 const Home: NextPage = () => {
