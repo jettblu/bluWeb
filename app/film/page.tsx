@@ -1,5 +1,4 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
 import Head from "next/head";
 import { films } from "../../src/film";
 import { Film } from "../../src/film/types";
