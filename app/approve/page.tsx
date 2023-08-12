@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { handleApprove } from "../../src/authUtils/jwt";
@@ -16,7 +15,7 @@ const Approve: NextPage = () => {
     if (approved) {
       router.push("/");
     } else {
-      toast.error("Unable to approve login request. Link may be expired");
+      console.warn("Unable to approve login request. Link may be expired");
     }
   });
 
