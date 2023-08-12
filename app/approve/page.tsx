@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 import { handleApprove } from "../../src/authUtils/jwt";
@@ -29,7 +29,6 @@ const Approve: NextPage = () => {
       <div className="max-w-2xl mx-auto h-screen">
         <div className="h-[20%]"></div>
         <p>Approving login...</p>
-        <Toaster />
       </div>
     </div>
   );
