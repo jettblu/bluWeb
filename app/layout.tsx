@@ -8,9 +8,9 @@ import Navbar from "../components/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nanograd",
+  title: "Jett Hays",
   description:
-    "A minimal deep learning library. Built with Rust and WebAssembly. Try it out!",
+    "Hey, I'm Jett Hays! I make the world a better place through stories and technology. Right now, I attend Carnegie Mellon where I study statistics and machine learning.",
 };
 
 export default function RootLayout({
@@ -19,18 +19,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <BluThemeProvider>
-        <BluDataProvider>
-          <main className="min-h-screen">
-            <body className={`${inter.className} lg:mb-8 mb-[250px] px-3`}>
-              <Navbar />
-              <div className="h-20" />
-              {children}
-            </body>
-          </main>
-        </BluDataProvider>
-      </BluThemeProvider>
+    <html lang="en" suppressHydrationWarning={true}>
+      <main>
+        <body
+          className={`${inter.className} min-h-screen pb-20 px-4 bg-[#F8F6F1] dark:bg-gradient-to-r dark:from-black dark:to-[#010F15] text-black dark:text-white`}
+          suppressHydrationWarning={true}
+        >
+          <Navbar />
+          <div className="h-20" />
+          <BluThemeProvider>
+            <BluDataProvider>{children}</BluDataProvider>
+          </BluThemeProvider>
+        </body>
+      </main>
     </html>
   );
 }
