@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-
-import LoginCard from "../components/auth/LoginCard";
+import LoginCard from "../../components/auth/LoginCard";
 
 const Login: NextPage = () => {
   return (

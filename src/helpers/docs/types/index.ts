@@ -14,6 +14,28 @@ export type DocType = {
   contributor: Contributor;
 };
 
+export const DEFAULT_CONTRIBUTOR: Contributor = {
+  id: "",
+  name: "",
+  role: "",
+  avatarPath: "",
+};
+
+export const DEFAULT_DOC: DocType = {
+  slug: "",
+  title: "",
+  lastUpdate: "",
+  image: null,
+  emoji: null,
+  videoSrc: null,
+  videoTitle: null,
+  oneLiner: "",
+  content: "",
+  category: "",
+  tags: null,
+  contributor: DEFAULT_CONTRIBUTOR,
+};
+
 export enum DocTypeEnum {
   Blog = 0,
   DevDoc = 1,

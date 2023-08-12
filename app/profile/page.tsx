@@ -1,8 +1,10 @@
+"use client";
+
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { logout } from "../../src/helpers/auth";
 
 const Profile: NextPage = () => {

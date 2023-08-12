@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import BluThemeProvider from "../components/ThemeProvider";
 import { BluDataProvider } from "../components/DataProvider";
 import Navbar from "../components/navbar";
+import BluToaster from "../components/notifications/BluToaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <BluThemeProvider>
             <BluDataProvider>
               <Navbar />
+              <BluToaster />
               <div className="h-20" />
               {children}
             </BluDataProvider>

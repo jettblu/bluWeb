@@ -1,12 +1,14 @@
+"use client";
+
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
 import { Event } from "@prisma/client";
-import StoredEvent from "../../components/events/StoredEvent";
 import Link from "next/link";
-import { handleGetEvents } from "../../src/helpers/events";
-import LoadingSpinner from "../../components/loadingSpinner";
+import StoredEvent from "../../../components/events/StoredEvent";
+import { handleGetEvents } from "../../../src/helpers/events";
+import LoadingSpinner from "../../../components/loadingSpinner";
 
 const All: NextPage = () => {
   const [events, setEvents] = useState<Event[]>([]);

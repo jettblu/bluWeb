@@ -2,7 +2,7 @@ import fs from "fs";
 import { join } from "path";
 /// <reference path="node_modules\gray-matter\gray-matter.d.ts" />
 import matter from "gray-matter";
-import { DocType, DocTypeEnum } from "./types";
+import { DEFAULT_DOC, DocType, DocTypeEnum } from "./types";
 import { getContributorById } from "./contributors";
 
 const blogDocsDirectory = join(process.cwd(), "blog");
@@ -47,55 +47,60 @@ export function getDocBySlug(props: {
   fields?: string[];
   docEnum: DocTypeEnum;
 }): DocType {
-  const { slug, fields, docEnum } = { ...props };
-  const realSlug = slug.replace(/\.md$/, "");
-  let directory: string;
-  switch (docEnum) {
-    case DocTypeEnum.Blog: {
-      directory = blogDocsDirectory;
-      break;
+  try {
+    const { slug, fields, docEnum } = { ...props };
+    const realSlug = slug.replace(/\.md$/, "");
+    let directory: string;
+    switch (docEnum) {
+      case DocTypeEnum.Blog: {
+        directory = blogDocsDirectory;
+        break;
+      }
+      default: {
+        directory = blogDocsDirectory;
+        break;
+      }
     }
-    default: {
-      directory = blogDocsDirectory;
-      break;
-    }
+    const fullPath = join(directory, `${realSlug}.md`);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data, content } = matter(fileContents);
+
+    const items: Items = {};
+    const fieldsToUse: string[] = fields || defaultFields;
+    // Ensure only the minimal needed data is exposed
+    fieldsToUse.forEach((field) => {
+      if (field === "slug") {
+        items[field] = realSlug;
+      }
+      if (field === "content") {
+        items[field] = content;
+      }
+
+      if (typeof data[field] !== "undefined") {
+        items[field] = data[field];
+      }
+    });
+    const contributorId: string = items.contributorId || "";
+    const contributor = getContributorById(contributorId);
+    const docToReturn: DocType = {
+      slug: items.slug || "",
+      title: items.title || "",
+      lastUpdate: items.lastUpdate || "",
+      image: items.image || "",
+      emoji: items.emoji || null,
+      oneLiner: items.oneLiner || "",
+      content: items.content || "",
+      category: items.category || "",
+      tags: items.tags || null,
+      contributor: contributor,
+      videoSrc: items.videoSrc || null,
+      videoTitle: items.videoTitle || null,
+    };
+    return docToReturn;
+  } catch (e) {
+    console.log(e);
+    return DEFAULT_DOC;
   }
-  const fullPath = join(directory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  const items: Items = {};
-  const fieldsToUse: string[] = fields || defaultFields;
-  // Ensure only the minimal needed data is exposed
-  fieldsToUse.forEach((field) => {
-    if (field === "slug") {
-      items[field] = realSlug;
-    }
-    if (field === "content") {
-      items[field] = content;
-    }
-
-    if (typeof data[field] !== "undefined") {
-      items[field] = data[field];
-    }
-  });
-  const contributorId: string = items.contributorId || "";
-  const contributor = getContributorById(contributorId);
-  const docToReturn: DocType = {
-    slug: items.slug || "",
-    title: items.title || "",
-    lastUpdate: items.lastUpdate || "",
-    image: items.image || "",
-    emoji: items.emoji || null,
-    oneLiner: items.oneLiner || "",
-    content: items.content || "",
-    category: items.category || "",
-    tags: items.tags || null,
-    contributor: contributor,
-    videoSrc: items.videoSrc || null,
-    videoTitle: items.videoTitle || null,
-  };
-  return docToReturn;
 }
 
 export function getAllDocs(props: {

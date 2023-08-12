@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 
 import { BluFetch } from "../../src/helpers/BluFetch";
 import ReactCodeInput from "react-code-input";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 import LoadingSpinner from "../loadingSpinner";
 import { handleApprove } from "../../src/authUtils/jwt";
 
@@ -19,14 +19,15 @@ const LoginCard: NextPage = () => {
   const sendLink: boolean = false;
   const [code, setCode] = useState("");
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     // pull network ticker from route
-    if (router.query["from"] && typeof router.query["from"] == "string") {
-      const newFromPath = router.query["from"];
+    if (searchParams && searchParams.get("from")) {
+      const newFromPath = searchParams.get("from");
       setRedirectToPath(newFromPath);
     }
-  }, [router.isReady]);
+  }, []);
 
   const params = {
     email: email,
