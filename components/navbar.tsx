@@ -1,9 +1,11 @@
+"use client";
+
 import { NextPage } from "next";
+
 import Link from "next/link";
 import { RiMoonFill, RiSunFill } from "react-icons/ri";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { useTheme } from "next-themes";
 
 const Navbar: NextPage = () => {
@@ -12,7 +14,6 @@ const Navbar: NextPage = () => {
   const [isDark, setIsDark] = useState(resolvedTheme === "dark");
 
   const [isMenuMobile, setMenuMobile] = useState(false);
-  const router = useRouter();
 
   // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
@@ -46,7 +47,7 @@ const Navbar: NextPage = () => {
   return (
     <nav className="">
       <div
-        className={`mx-auto md:flex md:items-center fixed top-0 z-10 w-full -mx-4 px-4 ${
+        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-10 w-full -mx-4 px-4 ${
           !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
         } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
           !isMenuMobile &&
@@ -88,25 +89,21 @@ const Navbar: NextPage = () => {
           onClick={() => setMenuMobile(false)}
         >
           <div
-            className="invisible md:visible w-fit h-fit p-1 hover:border hover:border-1 hover:outline-black hover:dark:border-white rounded-full text-slate-400 dark:text-white"
+            className="invisible md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
             onClick={() => handleDarkToggle()}
           >
             {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
           </div>
           <Link href="/research">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 ${
-                router.pathname == "/research" ? "font-bold" : ""
-              } `}
+              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
             >
               Research
             </span>
           </Link>
           <Link href="/film">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 ${
-                router.pathname == "/film" ? "font-bold" : ""
-              } `}
+              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
             >
               Film
             </span>

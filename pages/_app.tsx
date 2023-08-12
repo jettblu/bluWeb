@@ -32,7 +32,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
 
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider
+      attribute="class"
+      enableSystem={true}
+      enableColorScheme={true}
+      themes={["light", "dark"]}
+    >
       <BluDataProvider>
         <Layout>
           <Component {...pageProps} />
