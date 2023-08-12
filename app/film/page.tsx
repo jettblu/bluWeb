@@ -14,14 +14,13 @@ const Home: NextPage = () => {
           content="A curated collection of films: from my camera to your computer. Created by Jett Hays."
         />
       </Head>
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-12 mx-auto md:px-10">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-12 mx-auto text-left">
           <div className="">
-            <h1 className="text-4xl text-black dark:text-white font-bold mb-2">
-              Film 📽️
-            </h1>
+            <h1 className="text-3xl text-sky-400 font-semibold mb-2">Film</h1>
             <p className="text-slate-700 dark:text-slate-200 text-xl">
-              A curated collection of films: from my camera to your computer.
+              Cameras are a portal into the magical world of stories. Here are a
+              few tales I've told.
             </p>
           </div>
         </div>

@@ -21,8 +21,10 @@ export default function BlogHome() {
       <div className="max-w-3xl mx-auto">
         <div className="dark:text-white">
           <div className=" mb-[5vh] text-left">
-            <p className="text-sky-400 text-lg font-semibold">Blog</p>
-            <p className="text-gray-500">From my mind to yours.</p>
+            <h1 className="text-3xl text-sky-400 font-semibold mb-2">Blog</h1>
+            <p className="text-slate-700 dark:text-slate-200 text-xl">
+              Thoughts on technology and philosophy.
+            </p>
           </div>
 
           <SearchDocs allDocs={allDocs} />
