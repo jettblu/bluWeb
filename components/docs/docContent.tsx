@@ -1,3 +1,5 @@
+"use client";
+
 import DOMPurify from "isomorphic-dompurify";
 import { useEffect, useRef } from "react";
 import { toast } from "react-hot-toast";

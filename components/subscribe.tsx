@@ -1,3 +1,5 @@
+"use client";
+
 import { Friend } from "@prisma/client";
 import { NextPage } from "next";
 import Link from "next/link";

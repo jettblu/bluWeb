@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import { LoaderIcon, Toaster } from "react-hot-toast";
 
 import { Event } from "@prisma/client";
 import StoredEvent from "../../components/events/StoredEvent";

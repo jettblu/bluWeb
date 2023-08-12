@@ -1,8 +1,3 @@
-import Link from "next/link";
-import Divider from "../../components/Divider";
-import DocCategoryPreview from "../../components/docs/docCategoryPreview";
-import Image from "next/image";
-
 import { getAllDocs } from "../../src/helpers/docs";
 import { DocType, DocTypeEnum } from "../../src/helpers/docs/types";
 import BlogFeature from "../../components/docs/blogFeature";
