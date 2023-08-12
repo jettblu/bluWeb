@@ -1,3 +1,5 @@
+"use client";
+
 import { NextPage } from "next";
 import ReactPlayer from "react-player";
 
