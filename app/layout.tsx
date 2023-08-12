@@ -25,10 +25,12 @@ export default function RootLayout({
           className={`${inter.className} min-h-screen pb-20 px-4 bg-[#F8F6F1] dark:bg-gradient-to-r dark:from-black dark:to-[#010F15] text-black dark:text-white`}
           suppressHydrationWarning={true}
         >
-          <Navbar />
           <div className="h-20" />
           <BluThemeProvider>
-            <BluDataProvider>{children}</BluDataProvider>
+            <BluDataProvider>
+              <Navbar />
+              {children}
+            </BluDataProvider>
           </BluThemeProvider>
         </body>
       </main>
