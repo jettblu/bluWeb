@@ -30,7 +30,7 @@ export default function RootLayout({
             <BluDataProvider>
               <Navbar />
               <BluToaster />
-              <div className="h-20" />
+              <div className="h-24" />
               {children}
             </BluDataProvider>
           </BluThemeProvider>

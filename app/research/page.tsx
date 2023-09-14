@@ -1,77 +1,118 @@
 import { NextPage } from "next";
+import Image from "next/image";
 import Head from "next/head";
-
 import Link from "next/link";
-import Divider from "../../components/Divider";
-import BluVideo from "../../components/film/bluVideo";
 
 const Home: NextPage = () => {
   return (
     <div className="text-black dark:text-white">
       <Head>
-        <title>Research</title>
+        <title>SYNC</title>
         <meta
           name="description"
-          content="Research done by Jett Hays. Previous work includes a mind controlled keyboard and a digital wallet."
+          content="SYNC is a peer-to-peer data sharing protocol. It allows users to share data between devices without a central server using a QR code stream."
         />
       </Head>
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-sky-400 to-blue-500 mb-2 text-center">
-            Brainstorm
-          </h1>
-          <p className="text-slate-700 dark:text-slate-200 text-xl font-semibold text-center">
-            Type With Your Mind
+      {/* fixed left hand side */}
+      <div className="md:fixed md:left-0 md:h-full md:w-[50%] md:bg-green-900 md:text-white md:dark:bg-green-400/10 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
+        <div className="md:pt-[25vh] md:px-12">
+          <h1 className="text-3xl font-semibold mb-2">My Research</h1>
+          <p className="text-slate-700 dark:text-slate-200 md:text-slate-200 md:dark:text-slate-200 text-xl">
+            My primary research interests include machine learning, peer-to-peer
+            sharing, and cryptography.
           </p>
         </div>
       </div>
-
-      <div className="max-w-3xl mx-auto">
-        <div className="mb-12 mx-auto w-full max-w-[640px]">
-          <BluVideo
-            videoSrc={"https://www.youtube.com/watch?v=3ONCUlBnBXE"}
-            isPlaying={false}
-          />
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-4">
-          {/* software card */}
-          <div className="dark:bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
-            <h2 className="text-2xl font-semibold mb-2">Software</h2>
-            <p className="text-lg text-green-600">
-              An analysis of the design principles behind Brainstorm.
-            </p>
-            <Divider />
-            <div className="flex flex-row space-x-4 text-sky-400 text-lg font-bold">
-              <Link href="../blog/brainstormSoftware">Read</Link>
-              <a href="/brainstorm/Brainstorm Software.pdf" download>
-                Download
+      <div className="md:ml-[50%] h-full md:w-[50%] md:px-12 pt-8">
+        <div className="grid grid-cols-1 gap-y-12 snap-y snap-mandatory mx-auto max-w-lg">
+          <div className="bg-sky-400/10 w-full h-full">
+            <div className="rounded-md ring-1 ring-sky-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+              <Link href="/research/brainstorm">
+                <Image
+                  src="/research/covers/brainstorm.gif"
+                  alt="Brainstorm cover art"
+                  className="w-full h-80 object-cover rounded-tr-md rounded-tl-md"
+                  width={200}
+                  height={200}
+                />
+                <div className="px-2 py-2">
+                  <h2 className="text-2xl font-semibold mb-2">Brainstorm</h2>
+                  <p className="text-lg text-sky-600">
+                    A mind controlled keyboard.
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className="bg-green-400/10 w-full h-full">
+            <div className="rounded-md ring-1 ring-green-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+              <Link href="/research/sync">
+                {" "}
+                <Image
+                  src="/research/covers/sync.gif"
+                  alt="Brainstorm cover art"
+                  className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
+                  width={200}
+                  height={200}
+                />
+                <div className="px-2 py-2">
+                  <h2 className="text-2xl font-semibold mb-2">Sync</h2>
+                  <p className="text-lg text-green-600">
+                    Share data between devices with a QR code stream.
+                  </p>
+                </div>
+              </Link>
+            </div>
+          </div>
+          <div className="bg-purple-400/10 w-full h-full">
+            <div className="rounded-md ring-1 ring-purple-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+              <a
+                href="https://www.nanograd.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/research/covers/nanograd.png"
+                  alt="Brainstorm cover art"
+                  className="w-full object-cover h-80 rounded-tr-md rounded-tl-md"
+                  width={200}
+                  height={200}
+                />
+                <div className="px-2 py-2">
+                  <h2 className="text-2xl font-semibold mb-2">Nanograd</h2>
+                  <p className="text-lg text-purple-600">
+                    A deep learning framework built from scratch in Rust.
+                    Nanograd minimizes memory usage and maximizes performance
+                    with a custom autograd engine.
+                  </p>
+                </div>
               </a>
             </div>
           </div>
-          {/* overview card */}
-          <div className="dark:bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
-            <h2 className="text-2xl font-semibold mb-2">System Overview</h2>
-            <p className="text-lg text-green-600">
-              A high level overview of what Brainstorm is and how it works.
-            </p>
-            <Divider />
-            <div className="flex flex-row space-x-4 text-sky-400 text-lg font-bold">
-              <Link href="../blog/brainstormOverview">Read</Link>
-              <a href="/brainstorm/Brainstorm High Level.pdf" download>
-                Download
-              </a>
-            </div>
-          </div>
-          {/* poster card */}
-          <div className="dark:bg-gray-900 rounded-lg px-2 py-4 hover:shadow-md hover:shadow-sky-400 border border-gray-300 dark:border-gray-600">
-            <h2 className="text-2xl font-semibold mb-2">Research Poster</h2>
-            <p className="text-lg text-green-600">
-              A visual exploration of the research that resulted in Brainstorm.
-            </p>
-            <Divider />
-            <div className="flex flex-row space-x-4 text-sky-400 text-lg font-bold">
-              <a href="/brainstorm/poster.pdf" download>
-                Download
+          <div className="bg-pink-400/10 w-full h-full">
+            <div className="rounded-md ring-1 ring-pink-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+              <a
+                href="https://sword.kryptik.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/research/covers/sword.gif"
+                  alt="Brainstorm cover art"
+                  className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
+                  width={200}
+                  height={200}
+                />
+                <div className="px-2 py-2">
+                  <h2 className="text-2xl font-semibold mb-2">SWORD</h2>
+                  <p className="text-lg text-pink-600">
+                    Instead of relying on a smart contract with trusted
+                    guardians, SWORD distributes shares of an encryption key to
+                    a group of shareholders. Whenever a user wants to regain
+                    access to their wallet, the shares are reassembled, and the
+                    wallet is decrypted.
+                  </p>
+                </div>
               </a>
             </div>
           </div>
