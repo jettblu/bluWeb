@@ -1,16 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Brainstorm Software",
+  description:
+    "The design decisions behind a complex brain computer interface.",
+};
 
 const Software: NextPage = () => {
   return (
     <div className="dark:text-white text-lg">
-      <Head>
-        <title>Brainstorm Software</title>
-        <meta
-          name="description"
-          content="The design decisions behind a complex brain computer interface."
-        />
-      </Head>
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-2">
           Brainstorm: Design Principles
