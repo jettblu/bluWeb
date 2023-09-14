@@ -12,6 +12,7 @@ export default function SearchDocs(props: { allDocs: DocType[] }) {
   const [filteredDocs, setFilteredDocs] = useState<DocType[]>(allDocs);
 
   function searchArticles(q: string): DocType[] {
+    q = q.toLowerCase();
     // filter on title and tags
     const newResults: DocType[] = allDocs.filter(
       (d) =>
