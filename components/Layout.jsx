@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       className={`min-h-screen pb-20 px-4 bg-[#F8F6F1] dark:bg-gradient-to-r dark:from-black dark:to-[#010F15] text-black dark:text-white`}
     >
       <Head>
-        <title>Jett Hays</title>
+        <title key={"title"}>Jett Hays</title>
         <meta
           name="description"
           content="Hey, I'm Jett Hays! I make the world a better place through stories and technology. Right now, I attend Carnegie Mellon where I study statistics and machine learning."

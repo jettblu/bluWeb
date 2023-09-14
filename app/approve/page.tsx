@@ -7,6 +7,13 @@ import { useRouter } from "next/navigation";
 import { handleApprove } from "../../src/authUtils/jwt";
 import { useSearchParams } from "next/navigation";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Approve Login",
+  description: "Approve login request.",
+};
+
 const Approve: NextPage = () => {
   const router = useRouter();
 
@@ -23,10 +30,6 @@ const Approve: NextPage = () => {
 
   return (
     <div className="dark:text-white">
-      <Head>
-        <title>Approve Login</title>
-        <meta name="description" content="Verify login request." />
-      </Head>
       <div className="max-w-2xl mx-auto h-screen">
         <div className="h-[20%]"></div>
         <p>Approving login...</p>

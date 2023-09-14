@@ -11,6 +11,14 @@ import EventPlaceholder from "../../src/helpers/events/types";
 import EventPreview from "../../components/events/EventPreview";
 import Link from "next/link";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Moments",
+  description:
+    "A curated collection of life's moments. Add a new moment or view all moments.",
+};
+
 const Home: NextPage = () => {
   const [eventsToAdd, setEventsToAdd] = useState<EventPlaceholder[]>([]);
   const [startDate, setStartDate] = useState(new Date());
@@ -63,13 +71,6 @@ const Home: NextPage = () => {
   }
   return (
     <div className="dark:text-white">
-      <Head>
-        <title>Moments</title>
-        <meta
-          name="description"
-          content="A curated collection of life's moments."
-        />
-      </Head>
       <div className="max-w-2xl mx-auto">
         <div className="mb-12 mx-auto">
           <div className="">

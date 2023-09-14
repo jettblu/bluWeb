@@ -5,16 +5,17 @@ import Link from "next/link";
 import Divider from "../../../components/Divider";
 import BluVideo from "../../../components/film/bluVideo";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Brainstorm - Jett's Research",
+  description:
+    "Brainstorm is a mind controlled keyboard. It allows users to type with their mind using a brain-computer interface.",
+};
+
 const Home: NextPage = () => {
   return (
     <div className="text-black dark:text-white">
-      <Head>
-        <title>Brainstorm</title>
-        <meta
-          name="description"
-          content="Research done by Jett Hays. Previous work includes a mind controlled keyboard and a digital wallet."
-        />
-      </Head>
       <div className="max-w-2xl mx-auto">
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-t from-sky-400 to-blue-500 mb-2 text-center">

@@ -7,6 +7,13 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { logout } from "../../src/helpers/auth";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Profile",
+  description: "Review your account information and logout.",
+};
+
 const Profile: NextPage = () => {
   const [email, setEmail] = useState();
   const router = useRouter();
@@ -27,10 +34,6 @@ const Profile: NextPage = () => {
 
   return (
     <div className="dark:text-white text-xl">
-      <Head>
-        <title>Profile</title>
-        <meta name="description" content="Review your profile." />
-      </Head>
       <div className="max-w-2xl mx-auto h-screen">
         <div className="h-[20%]"></div>
         <h1 className="font-bold text-2xl mb-4">Profile</h1>

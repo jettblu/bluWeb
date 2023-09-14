@@ -3,7 +3,13 @@ import { DocType, DocTypeEnum } from "../../src/helpers/docs/types";
 import Head from "next/head";
 import DocListItemPreview from "../../components/docs/docListItemPreview";
 import SearchDocs from "../../components/search/SearchDocs";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Jett's Thoughts",
+  description:
+    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on technology and philosophy.",
+};
 export default function BlogHome() {
   const allDocs = getAllDocs({
     docEnum: DocTypeEnum.Blog,
@@ -11,13 +17,6 @@ export default function BlogHome() {
 
   return (
     <div className="">
-      <Head>
-        <title>Thoughts: Jett Hays</title>
-        <meta
-          name="description"
-          content="Thoughts on technology and philosophy."
-        />
-      </Head>
       <div className="max-w-3xl mx-auto">
         <div className="dark:text-white">
           <div className=" mb-[5vh] text-left">

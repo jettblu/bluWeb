@@ -10,6 +10,13 @@ import StoredEvent from "../../../components/events/StoredEvent";
 import { handleGetEvents } from "../../../src/helpers/events";
 import LoadingSpinner from "../../../components/loadingSpinner";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Moments",
+  description: "A curated collection of life's moments.",
+};
+
 const All: NextPage = () => {
   const [events, setEvents] = useState<Event[]>([]);
   const [loadingAlEvents, setLoadingAllEvents] = useState(true);
@@ -30,13 +37,6 @@ const All: NextPage = () => {
   }
   return (
     <div className="dark:text-white">
-      <Head>
-        <title>All Moments</title>
-        <meta
-          name="description"
-          content="A curated collection of life's moments."
-        />
-      </Head>
       <div className="max-w-2xl mx-auto">
         <div className="mb-12 mx-auto">
           <div className="">

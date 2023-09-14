@@ -1,18 +1,17 @@
 import { NextPage } from "next";
 import Image from "next/image";
-import Head from "next/head";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Jett's Research",
+  description:
+    "My primary research interests include machine learning, peer-to-peer sharing, and cryptography.",
+};
 
 const Home: NextPage = () => {
   return (
     <div className="text-black dark:text-white">
-      <Head>
-        <title>SYNC</title>
-        <meta
-          name="description"
-          content="SYNC is a peer-to-peer data sharing protocol. It allows users to share data between devices without a central server using a QR code stream."
-        />
-      </Head>
       {/* fixed left hand side */}
       <div className="md:fixed md:left-0 md:h-full md:w-[50%] md:bg-green-900 md:text-white md:dark:bg-green-400/10 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
         <div className="md:pt-[25vh] md:px-12">

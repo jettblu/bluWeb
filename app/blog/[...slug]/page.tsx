@@ -9,9 +9,12 @@ import BluVideo from "../../../components/film/bluVideo";
 import markdownToHtml from "../../../src/helpers/docs/markdownFormat";
 import Custom404 from "../../404";
 
-type Props = {
-  doc: DocType;
-  recommendedDocs?: DocType[];
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "A Thought by Jett Hays",
+  description:
+    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on the intersection of philosophy and performance.",
 };
 
 export default async function Post(context: any) {
@@ -25,7 +28,6 @@ export default async function Post(context: any) {
     docEnum: DocTypeEnum.Blog,
     maxCount: 3,
   });
-  console.log(doc);
 
   // TODO: 2x check to make sure we correctly set 404
   if (!doc?.slug) {

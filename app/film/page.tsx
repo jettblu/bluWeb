@@ -4,16 +4,17 @@ import { films } from "../../src/film";
 import { Film } from "../../src/film/types";
 import FilmPreview from "../../components/film/filmPreview";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Films by Jett Blu",
+  description:
+    "A curated collection of films: from my camera to your computer. Created by Jett Blu.",
+};
+
 const Home: NextPage = () => {
   return (
     <div className="dark:text-white mx-auto">
-      <Head>
-        <title>Film</title>
-        <meta
-          name="description"
-          content="A curated collection of films: from my camera to your computer. Created by Jett Hays."
-        />
-      </Head>
       <div className="max-w-4xl mx-auto">
         <div className="mb-12 mx-auto text-left">
           <div className="">
