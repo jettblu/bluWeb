@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <div className="text-black dark:text-white">
       {/* fixed left hand side */}
-      <div className="md:fixed md:left-0 md:h-full md:w-[50%] md:bg-green-900 md:text-white md:dark:bg-green-400/10 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
+      <div className="md:fixed md:left-0 md:h-full md:w-[40%] md:bg-green-900 md:text-white md:dark:bg-green-400/10 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
         <div className="md:pt-[25vh] md:px-12">
           <h1 className="text-3xl font-semibold mb-2">My Research</h1>
           <p className="text-slate-700 dark:text-slate-200 md:text-slate-200 md:dark:text-slate-200 text-xl">
@@ -22,7 +22,7 @@ const Home: NextPage = () => {
           </p>
         </div>
       </div>
-      <div className="md:ml-[50%] h-full md:w-[50%] md:px-12 pt-8">
+      <div className="md:ml-[40%] h-full md:w-[60%] md:px-12 pt-8">
         <div className="grid grid-cols-1 gap-y-12 snap-y snap-mandatory mx-auto max-w-lg">
           <div className="bg-sky-400/10 w-full h-full">
             <div className="rounded-md ring-1 ring-sky-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
