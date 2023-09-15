@@ -7,13 +7,6 @@ import { useRouter } from "next/navigation";
 import { handleApprove } from "../../src/authUtils/jwt";
 import { useSearchParams } from "next/navigation";
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Approve Login",
-  description: "Approve login request.",
-};
-
 const Approve: NextPage = () => {
   const router = useRouter();
 
