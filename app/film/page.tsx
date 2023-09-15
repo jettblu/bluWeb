@@ -7,7 +7,7 @@ import FilmPreview from "../../components/film/filmPreview";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Films by Jett Blu",
+  title: "Jett's Films",
   description:
     "A curated collection of films: from my camera to your computer. Created by Jett Blu.",
 };
