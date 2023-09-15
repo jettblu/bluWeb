@@ -7,13 +7,6 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { logout } from "../../src/helpers/auth";
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Profile",
-  description: "Review your account information and logout.",
-};
-
 const Profile: NextPage = () => {
   const [email, setEmail] = useState();
   const router = useRouter();
