@@ -52,7 +52,7 @@ const ActivitiesSection: NextPage = () => {
 
   useEffect(() => {
     // on page load... fetch data
-    fetchRunningData();
+    // fetchRunningData();
   }, []);
   return (
     <div className="">
@@ -117,37 +117,8 @@ const ActivitiesSection: NextPage = () => {
                       <p className="text-white text-2xl font-bold">Training</p>
                       <p className="text-lg text-slate-200">
                         When I'm not flipping bits and bytes, I like to train
-                        for triathlons. Over the past seven months, I've ran{" "}
-                        <span className="text-xl font-semibold">
-                          {!loadingActivities ? (
-                            <span>{totalMilesRan.toFixed(2)} </span>
-                          ) : (
-                            <span className="rounded-md animate-pulse bg-slate-200 dark:bg-slate-700 animate-pulse w-20 h-10 min-h-12 min-w-20 mr-2 inline block px-4">
-                              ....
-                            </span>
-                          )}
-                          <span className="inline">miles</span>
-                        </span>
-                        . My last run was
-                        {!loadingActivities && recentRun ? (
-                          <span>
-                            {" "}
-                            <span className="">
-                              {metersToMiles(recentRun.distance).toFixed(2)}
-                            </span>{" "}
-                            miles long and took{" "}
-                            <span className="">
-                              {secondsToMinutes(recentRun.movingTime).toFixed(
-                                0
-                              )}
-                            </span>{" "}
-                            minutes.
-                          </span>
-                        ) : (
-                          <span className="rounded-md animate-pulse bg-slate-200 dark:bg-slate-700 animate-pulse w-20 h-10 min-h-12 min-w-20 ml-2 inline block px-4">
-                            ....
-                          </span>
-                        )}
+                        for triathlons. I ran my first half Ironman in May 2023
+                        at Morro Bay.
                       </p>
                     </div>
                   </div>
