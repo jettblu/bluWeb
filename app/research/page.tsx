@@ -29,6 +29,7 @@ const Home: NextPage = () => {
               <Link href="/research/brainstorm">
                 <Image
                   src="/research/covers/brainstorm.gif"
+                  placeholder="blur"
                   alt="Brainstorm cover art"
                   className="w-full h-80 object-cover rounded-tr-md rounded-tl-md"
                   width={200}
@@ -49,6 +50,7 @@ const Home: NextPage = () => {
                 {" "}
                 <Image
                   src="/research/covers/sync.gif"
+                  placeholder="blur"
                   alt="Brainstorm cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
@@ -72,6 +74,7 @@ const Home: NextPage = () => {
               >
                 <Image
                   src="/research/covers/nanograd.png"
+                  placeholder="blur"
                   alt="Brainstorm cover art"
                   className="w-full object-cover h-80 rounded-tr-md rounded-tl-md"
                   width={200}
@@ -97,6 +100,7 @@ const Home: NextPage = () => {
               >
                 <Image
                   src="/research/covers/sword.gif"
+                  placeholder="blur"
                   alt="Brainstorm cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
