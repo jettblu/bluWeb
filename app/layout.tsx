@@ -10,6 +10,19 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Jett Hays",
+  icons: ["/icon.ico"],
+  openGraph: {
+    images: ["/icon.ico"],
+    description:
+      "Hey, I'm Jett Hays! I make the world a better place through stories and technology. Right now, I attend Carnegie Mellon where I study statistics and machine learning.",
+    title: "Jett Hays",
+  },
+  twitter: {
+    images: ["/icon.ico"],
+    description:
+      "Hey, I'm Jett Hays! I make the world a better place through stories and technology. Right now, I attend Carnegie Mellon where I study statistics and machine learning.",
+    title: "Jett Hays",
+  },
   description:
     "Hey, I'm Jett Hays! I make the world a better place through stories and technology. Right now, I attend Carnegie Mellon where I study statistics and machine learning.",
 };

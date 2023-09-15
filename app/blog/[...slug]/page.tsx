@@ -22,9 +22,23 @@ export async function generateMetadata(
   // read route params
   const slug = params.slug[0];
   const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
-
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+  const newOgImages = doc.image
+    ? [doc.image, ...previousImages]
+    : previousImages;
   return {
     title: doc.title,
+    openGraph: {
+      images: newOgImages,
+      title: doc.title,
+      description: doc.oneLiner,
+    },
+    twitter: {
+      images: newOgImages,
+      title: doc.title,
+      description: doc.oneLiner,
+    },
     description: doc.oneLiner,
   };
 }
