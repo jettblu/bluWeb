@@ -9,13 +9,25 @@ import BluVideo from "../../../components/film/bluVideo";
 import markdownToHtml from "../../../src/helpers/docs/markdownFormat";
 import Custom404 from "../../404";
 
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 
-export const metadata: Metadata = {
-  title: "A Thought by Jett Hays",
-  description:
-    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on the intersection of philosophy and performance.",
+type Props = {
+  params: { slug: string };
 };
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug[0];
+  const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
+
+  return {
+    title: doc.title,
+    description: doc.oneLiner,
+  };
+}
 
 export default async function Post(context: any) {
   const slug = context.params.slug[0];
