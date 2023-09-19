@@ -33,7 +33,7 @@ const Navbar: NextPage = () => {
 
   // change style based on boolean
   const menuWrapperClassName = isMenuMobile
-    ? "flex flex-col md:flex-row mx-auto h-[80vh] rounded-lg bg-gray-500/90 ring-4 ring-sky-400 md:ml-auto mt-8 md:mt-0 z-20 pl-8 backdrop-blur-2xl"
+    ? "flex flex-col md:flex-row mx-auto h-[80vh] rounded-lg bg-gray-500/90 ring-4 ring-sky-400 md:ml-auto mt-8 md:mt-0 pt-4 z-20 pl-8 backdrop-blur-2xl"
     : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
 
   function handleDarkToggle() {
@@ -45,7 +45,7 @@ const Navbar: NextPage = () => {
   }
 
   return (
-    <nav className="">
+    <nav className="bluFont">
       <div
         className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-10 w-full -mx-4 px-4 ${
           !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
@@ -96,14 +96,14 @@ const Navbar: NextPage = () => {
           </div>
           <Link href="/research">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
+              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
             >
               Research
             </span>
           </Link>
           <Link href="/film">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-3xl md:text-xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
+              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
             >
               Film
             </span>
@@ -111,7 +111,7 @@ const Navbar: NextPage = () => {
           {/* blog */}
           <Link href="/blog">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-green-400 text-3xl md:text-lg md:text-center md:border md:border-solid md:border-gray-300 md:dark:border-gray-600 md:dark:hover:border-sky-200 rounded hover:bg-green-400 hover:cursor-pointer hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1`}
+              className={`p-2 lg:px-4 md:mx-2 text-green-400 text-4xl md:text-center md:border md:border-solid md:border-gray-300 md:dark:border-gray-600 md:dark:hover:border-sky-200 rounded hover:bg-green-400 hover:cursor-pointer hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1`}
             >
               Thoughts
             </span>
