@@ -2,6 +2,10 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import SyncImage from "../../public/research/covers/sync.gif";
+import BrainstormImage from "../../public/research/covers/brainstorm.gif";
+import SwordImage from "../../public/research/covers/sword.gif";
+import NanogradImage from "../../public/research/covers/nanograd.png";
 
 export const metadata: Metadata = {
   title: "Jett's Research",
@@ -28,8 +32,9 @@ const Home: NextPage = () => {
             <div className="rounded-md ring-1 ring-sky-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
               <Link href="/research/brainstorm">
                 <Image
-                  src="/research/covers/brainstorm.gif"
+                  src={BrainstormImage}
                   placeholder="blur"
+                  blurDataURL="/research/covers/brainstorm small.jpg"
                   alt="Brainstorm cover art"
                   className="w-full h-80 object-cover rounded-tr-md rounded-tl-md"
                   width={200}
@@ -49,9 +54,10 @@ const Home: NextPage = () => {
               <Link href="/research/sync">
                 {" "}
                 <Image
-                  src="/research/covers/sync.gif"
+                  src={SyncImage}
                   placeholder="blur"
-                  alt="Brainstorm cover art"
+                  blurDataURL="/research/covers/sync small.jpg"
+                  alt="SYNC cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
                   height={200}
@@ -73,9 +79,9 @@ const Home: NextPage = () => {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/research/covers/nanograd.png"
+                  src={NanogradImage}
                   placeholder="blur"
-                  alt="Brainstorm cover art"
+                  alt="Nanograd cover art"
                   className="w-full object-cover h-80 rounded-tr-md rounded-tl-md"
                   width={200}
                   height={200}
@@ -99,9 +105,10 @@ const Home: NextPage = () => {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/research/covers/sword.gif"
+                  src={SwordImage}
                   placeholder="blur"
-                  alt="Brainstorm cover art"
+                  blurDataURL="/research/covers/sword small.jpg"
+                  alt="SWORD cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
                   height={200}
