@@ -25,7 +25,7 @@ const VideoPlayerSplash: NextPage<Props> = (props) => {
       autoPlay
       muted
       loop
-      id="myVideo"
+      id="splashVideo"
       className="w-full h-full object-cover"
       onCanPlayThrough={() => handleOnReady()}
     >
