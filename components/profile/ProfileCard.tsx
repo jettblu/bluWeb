@@ -26,7 +26,7 @@ export default function ProfileCard() {
   }, []);
 
   return (
-    <div id={profileFlipCardId} className="flip-card">
+    <div id={profileFlipCardId} className="flip-card z-10">
       <div
         id={profileFlipContentId}
         className="w-[100%] h-[300px] md:w-[300px] md:h-[300px] border border-1 border-sky-400 rounded-lg hover:border-green-400 flip-card-inner mx-auto"
