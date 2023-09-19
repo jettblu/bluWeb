@@ -24,7 +24,7 @@ export default function SplashImage() {
       )}
 
       <VideoPlayerSplash
-        videoSrc="/splash/overlook.mp4"
+        videoSrc="https://res.cloudinary.com/drxzxoqu8/video/upload/v1695158630/overlook.mp4"
         isPlaying={false}
         onReadyCallback={handleOnLoad}
       />
