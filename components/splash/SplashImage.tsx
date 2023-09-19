@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import VideoPlayerHype from "./VideoPlayerSplash";
 import VideoPlayerSplash from "./VideoPlayerSplash";
+import Picture from "../../public/splash/overlook.jpg";
 
 export default function SplashImage() {
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
@@ -15,11 +16,12 @@ export default function SplashImage() {
     <div className="absolute top-[80px] left-0 w-full h-full z-0">
       {showPlaceholder && (
         <Image
-          src="/splash/overlook.jpg"
+          src={Picture}
           width={200}
           height={200}
-          alt="Incredible overlook of Hawaiin mountains."
+          alt="Incredible overlook of mountains in Hawaii."
           className={`h-full w-full object-cover`}
+          placeholder="blur"
         />
       )}
 
