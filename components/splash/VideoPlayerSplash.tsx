@@ -22,12 +22,12 @@ const VideoPlayerSplash: NextPage<Props> = (props) => {
 
   return (
     <video
-      autoPlay={playVideo}
+      autoPlay
       muted
       loop
       id="splashVideo"
       className="w-full h-full object-cover"
-      onPlaying={() => handleOnReady()}
+      onCanPlayThrough={() => handleOnReady()}
     >
       <source src={videoSrc} type="video/mp4" />
     </video>

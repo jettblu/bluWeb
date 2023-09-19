@@ -10,6 +10,7 @@ export default function SplashImage() {
   function handleOnLoad() {
     // wait half a second before showing the video
     setTimeout(() => {
+      console.log("showing video");
       setShowPlaceholder(false);
     }, 500);
   }
