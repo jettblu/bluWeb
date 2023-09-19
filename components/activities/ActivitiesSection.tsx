@@ -68,7 +68,7 @@ const ActivitiesSection: NextPage = () => {
             </p>
             <Link href="/blog">
               <div className="rounded-xl bg-gray-200 text-black font-bold w-fit p-2 text-xl my-2 hover:cursor-pointer hover:bg-green-400">
-                <h1>Read the Blog</h1>
+                <h1>See My Thoughts</h1>
               </div>
             </Link>
           </div>

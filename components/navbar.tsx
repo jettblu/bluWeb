@@ -89,21 +89,21 @@ const Navbar: NextPage = () => {
           onClick={() => setMenuMobile(false)}
         >
           <div
-            className="invisible md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
+            className="invisible mt-1 mr-3 md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
             onClick={() => handleDarkToggle()}
           >
             {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
           </div>
           <Link href="/research">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
+              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-6xl md:text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
             >
               Research
             </span>
           </Link>
           <Link href="/film">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
+              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-6xl md:text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
             >
               Film
             </span>
@@ -111,7 +111,7 @@ const Navbar: NextPage = () => {
           {/* blog */}
           <Link href="/blog">
             <span
-              className={`p-2 lg:px-4 md:mx-2 text-green-400 text-4xl md:text-center md:border md:border-solid md:border-gray-300 md:dark:border-gray-600 md:dark:hover:border-sky-200 rounded hover:bg-green-400 hover:cursor-pointer hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1`}
+              className={`p-2 lg:px-4 md:mx-2 text-green-400 text-6xl md:text-4xl md:text-center md:border md:border-solid md:border-gray-300 md:dark:border-gray-600 md:dark:hover:border-sky-200 rounded hover:bg-green-400 hover:cursor-pointer hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1`}
             >
               Thoughts
             </span>
@@ -122,7 +122,7 @@ const Navbar: NextPage = () => {
               onClick={() => handleDarkToggle()}
             >
               {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
-              <p className="text-md">
+              <p className="text-xl">
                 switch to {isDark ? "light" : "dark"} mode
               </p>
             </div>
