@@ -12,7 +12,7 @@ export default function SplashImage() {
   }
 
   return (
-    <div className="absolute top-24 left-0 w-full h-full z-0">
+    <div className="absolute top-[80px] left-0 w-full h-full z-0">
       {showPlaceholder && (
         <Image
           src="/splash/overlook.jpg"
