@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import VideoPlayerHype from "./VideoPlayerSplash";
 import VideoPlayerSplash from "./VideoPlayerSplash";
 import Picture from "../../public/splash/overlook.jpg";
 
@@ -9,7 +8,10 @@ export default function SplashImage() {
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
 
   function handleOnLoad() {
-    setShowPlaceholder(false);
+    // wait half a second before showing the video
+    setTimeout(() => {
+      setShowPlaceholder(false);
+    }, 500);
   }
 
   return (
@@ -20,7 +22,7 @@ export default function SplashImage() {
           width={200}
           height={200}
           alt="Incredible overlook of mountains in Hawaii."
-          className={`h-full w-full object-cover`}
+          className={`h-full absolute left-0 top-0 w-full object-cover`}
           placeholder="blur"
         />
       )}
