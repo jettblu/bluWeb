@@ -57,8 +57,8 @@ export default async function Home() {
       </div>
       <div className="md:ml-[40%] h-full md:w-[60%] md:px-12 pt-8">
         <div className="grid grid-cols-1 gap-y-12 snap-y snap-mandatory mx-auto max-w-lg">
-          <div className="bg-sky-400/10 w-full h-full">
-            <div className="rounded-md ring-1 ring-sky-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+          <div className="rounded-md ring-1 ring-sky-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+            <div className="bg-sky-400/10 w-full h-full">
               <Link href="/research/brainstorm">
                 <Image
                   src={BrainstormImage}
@@ -78,8 +78,9 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <div className="bg-green-400/10 w-full h-full">
-            <div className="rounded-md ring-1 ring-green-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+
+          <div className="rounded-md ring-1 ring-green-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+            <div className="bg-green-400/10 w-full h-full">
               <Link href="/research/sync">
                 {" "}
                 <Image
@@ -100,8 +101,9 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <div className="bg-purple-400/10 w-full h-full">
-            <div className="rounded-md ring-1 ring-purple-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+
+          <div className="rounded-md ring-1 ring-purple-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+            <div className="bg-purple-400/10 w-full h-full">
               <a
                 href="https://www.nanograd.xyz/"
                 target="_blank"
@@ -127,8 +129,9 @@ export default async function Home() {
               </a>
             </div>
           </div>
-          <div className="bg-pink-400/10 w-full h-full">
-            <div className="rounded-md ring-1 ring-pink-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+
+          <div className="rounded-md ring-1 ring-pink-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+            <div className="bg-pink-400/10 w-full h-full">
               <a
                 href="https://sword.kryptik.app"
                 target="_blank"
