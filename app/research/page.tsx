@@ -6,6 +6,15 @@ import SyncImage from "../../public/research/covers/sync.gif";
 import BrainstormImage from "../../public/research/covers/brainstorm.gif";
 import SwordImage from "../../public/research/covers/sword.gif";
 import NanogradImage from "../../public/research/covers/nanograd.png";
+import { getPlaiceholder } from "plaiceholder";
+
+import fs from "node:fs/promises";
+import { join } from "path";
+
+const researchCoversDirectory = join(
+  process.cwd(),
+  "public/research/covers/small/"
+);
 
 export const metadata: Metadata = {
   title: "Jett's Research",
@@ -13,7 +22,27 @@ export const metadata: Metadata = {
     "My primary research interests include machine learning, peer-to-peer sharing, and cryptography.",
 };
 
-const Home: NextPage = () => {
+// generate placeholder urls base64.... using plaiceholder
+// https://plaiceholder.co/
+async function getPlaceholderUrl() {
+  const preOptimized = [
+    "brainstorm.jpg",
+    "sync.png",
+    "nanograd.png",
+    "sword.webp",
+  ];
+  const temp_placeholders = await Promise.all(
+    preOptimized.map(async (data, index) => {
+      const buffer = await fs.readFile(`${researchCoversDirectory}${data}`);
+      const { base64 } = await getPlaiceholder(buffer);
+      return base64;
+    })
+  );
+  return temp_placeholders;
+}
+
+export default async function Home() {
+  const placeholders: string[] = await getPlaceholderUrl();
   return (
     <div className="text-black dark:text-white">
       {/* fixed left hand side */}
@@ -34,7 +63,7 @@ const Home: NextPage = () => {
                 <Image
                   src={BrainstormImage}
                   placeholder="blur"
-                  blurDataURL="/research/covers/brainstorm small.jpg"
+                  blurDataURL={placeholders[0]}
                   alt="Brainstorm cover art"
                   className="w-full h-80 object-cover rounded-tr-md rounded-tl-md"
                   width={200}
@@ -56,7 +85,7 @@ const Home: NextPage = () => {
                 <Image
                   src={SyncImage}
                   placeholder="blur"
-                  blurDataURL="/research/covers/sync small.jpg"
+                  blurDataURL={placeholders[1]}
                   alt="SYNC cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
@@ -81,6 +110,7 @@ const Home: NextPage = () => {
                 <Image
                   src={NanogradImage}
                   placeholder="blur"
+                  blurDataURL={placeholders[2]}
                   alt="Nanograd cover art"
                   className="w-full object-cover h-80 rounded-tr-md rounded-tl-md"
                   width={200}
@@ -107,7 +137,7 @@ const Home: NextPage = () => {
                 <Image
                   src={SwordImage}
                   placeholder="blur"
-                  blurDataURL="/research/covers/sword small.jpg"
+                  blurDataURL={placeholders[3]}
                   alt="SWORD cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
@@ -130,6 +160,4 @@ const Home: NextPage = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}
