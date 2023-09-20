@@ -11,7 +11,7 @@ export default function Home() {
           Hey, I'm <span className="text-green-400">Jett Hays</span>
         </h1>
         <p className="text-4xl">
-          I weave bits and bytes into the fabric of reality.
+          I am an explorer. I visit the unvisited and learn the unknown.
         </p>
       </div>
       <SplashMain />
