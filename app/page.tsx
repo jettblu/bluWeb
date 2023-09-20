@@ -1,8 +1,6 @@
 import React from "react";
-import SplashImage from "../components/splash/SplashImage";
 import ActivitiesSection from "../components/activities/ActivitiesSection";
-import Profile from "./profile/page";
-import ProfileCard from "../components/profile/ProfileCard";
+import SplashMain from "../components/splash/SplashMain";
 
 export default function Home() {
   return (
@@ -16,7 +14,7 @@ export default function Home() {
           I weave bits and bytes into the fabric of reality.
         </p>
       </div>
-      <SplashImage />
+      <SplashMain />
       {/* <div className="mx-auto max-w-2xl w-full">
         <div className="mb-12">
           <ProfileCard />

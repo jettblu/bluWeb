@@ -4,7 +4,7 @@ import Image from "next/image";
 import VideoPlayerSplash from "./VideoPlayerSplash";
 import Picture from "../../public/splash/overlook.jpg";
 
-export default function SplashImage() {
+export default function SplashMain() {
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
 
   function handleOnLoad() {
