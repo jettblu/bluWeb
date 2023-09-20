@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main className="flex flex-col">
       <div className="h-[10vh]" />
-      <div className="bluFont z-10 text-left bg-sky-400/10 md:bg-sky-400/70 md:ring-1 ring-green-400 w-fit p-2 rounded-md backdrop-blur-xl">
+      <div className="bluFont z-10 text-left bg-sky-400/10 md:bg-sky-400/70 md:ring-1 ring-green-400 w-fit p-2 rounded-md backdrop-blur-xl mx-auto">
         <h1 className="text-8xl">
           Hey, I'm <span className="text-green-400">Jett Hays</span>
         </h1>
