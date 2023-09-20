@@ -5,6 +5,7 @@ import BluThemeProvider from "../components/ThemeProvider";
 import { BluDataProvider } from "../components/DataProvider";
 import Navbar from "../components/navbar";
 import BluToaster from "../components/notifications/BluToaster";
+import Fathom from "../components/Fathom";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,6 +48,7 @@ export default function RootLayout({
               {children}
             </BluDataProvider>
           </BluThemeProvider>
+          <Fathom />
         </body>
       </main>
     </html>
