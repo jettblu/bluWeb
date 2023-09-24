@@ -47,7 +47,7 @@ const Navbar: NextPage = () => {
   return (
     <nav className="bluFont">
       <div
-        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-20 w-full -mx-4 px-4 md:backdrop-blur-xl ${
+        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-20 w-full -mx-4 px-4 backdrop-blur-lg md:backdrop-blur-xl ${
           !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
         } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
           !isMenuMobile &&
