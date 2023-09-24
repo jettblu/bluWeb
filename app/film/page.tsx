@@ -5,6 +5,7 @@ import { Film } from "../../src/film/types";
 import FilmPreview from "../../components/film/filmPreview";
 
 import type { Metadata } from "next";
+import FilmThumbnail from "../../components/film/filmThumbnail";
 
 export const metadata: Metadata = {
   title: "Jett's Films",
@@ -28,7 +29,9 @@ const Home: NextPage = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 gap-x-4 max-w-4xl mx-auto">
         {films.map((film: Film, index: number) => (
-          <FilmPreview film={film} key={index} />
+          <FilmPreview film={film} key={index}>
+            <FilmThumbnail film={film} />
+          </FilmPreview>
         ))}
       </div>
     </div>

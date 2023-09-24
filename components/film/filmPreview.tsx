@@ -8,9 +8,10 @@ import Modal from "../modals/modal";
 
 interface Props {
   film: Film;
+  children: React.ReactNode;
 }
 const FilmPreview: NextPage<Props> = (props) => {
-  const { film } = { ...props };
+  const { film, children } = { ...props };
 
   const filmCardId = `${film.title}Card`;
   const [showModal, setShowModal] = useState(false);
@@ -31,19 +32,8 @@ const FilmPreview: NextPage<Props> = (props) => {
 
   return (
     <div className="mx-auto">
-      <div
-        className="mx-auto hover:z-10 transition ease-in-out hover:scale-110 hover:cursor-pointer"
-        onClick={() => handlePreviewClicked()}
-      >
-        <img
-          src={film.thumbnailPath}
-          className="hover:shadow-md hover:shadow-sky-400 w-70 h-44 rounded-md drop-shadow-lg object-cover"
-        />
-        <div className="flex">
-          <p className="my-2 text-lg text-gray-400 dark:text-gray-400 font-semibold">
-            {film.title}
-          </p>
-        </div>
+      <div className="" onClick={() => handlePreviewClicked()}>
+        {children}
       </div>
       <Modal isOpen={showModal} onRequestClose={handleModalClose}>
         {/* video info card */}
