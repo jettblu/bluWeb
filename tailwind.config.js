@@ -9,6 +9,30 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        splashRotate: {
+          "0%": { transform: "rotate(0deg) scale(1)", filter: "blur(0px)" },
+          "25%": {
+            transform: "scale(1.5)",
+            filter: "blur(5px) sepia(1)",
+          },
+          "35%": {
+            transform: "scale(1.5)",
+            filter: "blur(5px) sepia (1)",
+          },
+          "55%": {
+            transform: "scale(1.5) rotate(3deg)",
+            filter: "blur(5px) sepia(1)",
+          },
+          "80%": {
+            transform: "rotate(0deg) scale(1)",
+          },
+          "100%": { transform: "rotate(0deg) scale(1)", filter: "blur(0px)" },
+        },
+      },
+      animation: {
+        "splash-rotate": "splashRotate 20s ease-in-out infinite",
+      },
       typography: {
         quoteless: {
           css: {
