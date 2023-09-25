@@ -12,14 +12,13 @@ interface Props {
   className?: string;
 }
 
-export default function ShowCard(props: Props) {
+export default async function ShowCard(props: Props) {
   let { width, alt, height, basePath, src, className } = { ...props };
   if (!basePath) {
     basePath = join(process.cwd(), "public");
   }
   const imgBuffer = readFileSync(join(basePath, src));
-  let base64: string = "";
-  getPlaiceholder(imgBuffer).then((v) => (base64 = v.base64));
+  const { base64 } = await getPlaiceholder(imgBuffer);
   return (
     <Image
       src={src}
