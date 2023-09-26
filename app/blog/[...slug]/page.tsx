@@ -1,15 +1,15 @@
-import Head from "next/head";
 import DocContent from "../../../components/docs/docContent";
 import DocHeader from "../../../components/docs/docHeader";
 import DocKeepReadingPreview from "../../../components/docs/docKeepReadingPreview";
 
 import { getDocBySlug, getDocsByCategory } from "../../../src/helpers/docs";
 import { DocType, DocTypeEnum } from "../../../src/helpers/docs/types";
-import BluVideo from "../../../components/film/bluVideo";
-import markdownToHtml from "../../../src/helpers/docs/markdownFormat";
-import Custom404 from "../../404";
 
+import Custom404 from "../../404";
 import type { Metadata, ResolvingMetadata } from "next";
+import BluVideo from "../../../components/film/bluVideo";
+
+import markdownToHtml from "../../../src/helpers/docs/markdownFormat";
 
 type Props = {
   params: { slug: string };
@@ -27,6 +27,7 @@ export async function generateMetadata(
   const newOgImages = doc.image
     ? [doc.image, ...previousImages]
     : previousImages;
+
   return {
     title: doc.title,
     openGraph: {
@@ -46,8 +47,7 @@ export async function generateMetadata(
 export default async function Post(context: any) {
   const slug = context.params.slug[0];
   const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
-  const content: string = await markdownToHtml(doc.content || "");
-  doc.content = content;
+  doc.content = await markdownToHtml(doc.content);
   const recommendedDocs: DocType[] = getDocsByCategory({
     category: doc.category,
     slugToExclude: doc.slug,
@@ -77,7 +77,9 @@ export default async function Post(context: any) {
               <BluVideo videoSrc={doc.videoSrc} isPlaying={false} />
             </div>
           )}
-          <DocContent content={doc.content} />
+          <DocContent>
+            <div dangerouslySetInnerHTML={{ __html: doc.content }} />
+          </DocContent>
 
           {readNext.length != 0 && (
             <div className="my-8">
@@ -113,4 +115,18 @@ export default async function Post(context: any) {
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const docs = getDocsByCategory({
+    category: "blog",
+    docEnum: DocTypeEnum.Blog,
+  });
+  return docs.map((doc) => {
+    return {
+      params: {
+        slug: [doc.slug],
+      },
+    };
+  });
 }
