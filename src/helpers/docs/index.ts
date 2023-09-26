@@ -4,6 +4,7 @@ import { join } from "path";
 import matter from "gray-matter";
 import { DEFAULT_DOC, DocType, DocTypeEnum } from "./types";
 import { getContributorById } from "./contributors";
+import { cache } from "react";
 
 const blogDocsDirectory = join(process.cwd(), "blog");
 
@@ -49,7 +50,14 @@ export function getDocBySlug(props: {
 }): DocType {
   try {
     const { slug, fields, docEnum } = { ...props };
-    const realSlug = slug.replace(/\.md$/, "");
+    // check if file is mdx or md
+    const isMdx = slug.includes(".mdx");
+    let realSlug = slug;
+    if (isMdx) {
+      realSlug = slug.replace(".mdx", "");
+    } else {
+      realSlug = slug.replace(".md", "");
+    }
     let directory: string;
     switch (docEnum) {
       case DocTypeEnum.Blog: {
@@ -61,8 +69,29 @@ export function getDocBySlug(props: {
         break;
       }
     }
-    const fullPath = join(directory, `${realSlug}.md`);
-    const fileContents = fs.readFileSync(fullPath, "utf8");
+    let fullPath = "";
+    if (isMdx) {
+      fullPath = join(directory, `${realSlug}.mdx`);
+    } else {
+      fullPath = join(directory, `${realSlug}.md`);
+    }
+    let fileContents = "";
+    // try to read file... if doesn't exist try other version of file
+    let attempts = 0;
+    while (attempts < 2) {
+      try {
+        if (attempts == 1 && isMdx) {
+          // swtich to other version of file
+          fullPath = join(directory, `${realSlug}.md`);
+        } else if (attempts == 1 && !isMdx) {
+          fullPath = join(directory, `${realSlug}.mdx`);
+        }
+        fileContents = fs.readFileSync(fullPath, "utf8");
+        attempts = 2;
+      } catch (e) {
+        attempts++;
+      }
+    }
     const { data, content } = matter(fileContents);
 
     const items: Items = {};
@@ -103,7 +132,7 @@ export function getDocBySlug(props: {
   }
 }
 
-export function getAllDocs(props: {
+export const getAllDocs = cache(function (props: {
   docEnum: DocTypeEnum;
   fields?: string[];
 }): DocType[] {
@@ -121,7 +150,7 @@ export function getAllDocs(props: {
         : 1
     );
   return docs;
-}
+});
 
 export function getDocsByCategory(props: {
   category: string;
