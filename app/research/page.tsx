@@ -44,7 +44,7 @@ async function getPlaceholderUrl() {
 export default async function Home() {
   const placeholders: string[] = await getPlaceholderUrl();
   return (
-    <div className="text-black dark:text-white">
+    <div className="text-black dark:text-white pb-16">
       {/* fixed left hand side */}
       <div className="md:fixed md:left-0 md:h-full md:w-[40%] md:bg-green-900 md:text-white md:dark:bg-green-400/10 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
         <div className="md:pt-[25vh] md:px-12">
