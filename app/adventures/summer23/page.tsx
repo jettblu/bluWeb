@@ -10,7 +10,7 @@ export default async function Summer23() {
       <div className="bg-neutral-700 w-full h-[94vh] snap-center place-content-center flex flex-col items-center px-2">
         <EnterSlideUp>
           <Polaroid
-            src="/adventures/summer23/fireByLake.jpg"
+            src="/adventures/summer23/fireByNightLake.jpg"
             caption="Summer 23'"
           />
         </EnterSlideUp>
