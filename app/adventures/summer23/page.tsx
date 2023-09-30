@@ -349,6 +349,7 @@ export default async function Summer23() {
         />
       </div>
       <hr className="" />
+      {/* pie eating */}
       <div className="bg-slate-700 w-full h-[92vh] snap-center place-content-center flex flex-col items-center px-2 relative">
         <DateAndLocation date="July 20th" location="Downtown Torrance" />
         <Polaroid
@@ -357,6 +358,7 @@ export default async function Summer23() {
         />
       </div>
       <hr className="" />
+      {/* grant's bday party */}
       <div className="bg-teal-600 w-full h-[92vh] snap-center place-content-center flex flex-col items-center px-2 relative">
         <DateAndLocation date="July 22nd" location="Home" />
         <Polaroid
@@ -589,7 +591,7 @@ function Polaroid(props: { src: string; caption: string }) {
         width={400}
         height={400}
         alt={props.caption}
-        className="w-96 h-96 object-cover rounded-md"
+        className="w-96 h-96 object-cover rounded-md bg-black"
       />
       <p className="bluFont italic text-black text-4xl text-center mt-6 max-w-2xl px-2">
         {props.caption}
