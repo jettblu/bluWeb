@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
+import BluImage from "../../public/blu/jett.png";
 
 export default function ProfileCard() {
   const profileFlipCardId: string = "bluFlipCard";
@@ -33,7 +35,14 @@ export default function ProfileCard() {
       >
         <div className="flip-card-front bg-gray-50 dark:bg-gray-900 rounded-lg px-2 py-4">
           <div className="flex flex-row space-x-4">
-            <img src="/blu/jett.png" className="object-cover w-16 h-16" />
+            <Image
+              src={BluImage}
+              className="object-cover w-16 h-16"
+              width={100}
+              height={100}
+              alt="Blu"
+              placeholder="blur"
+            />
             <p className="bluFont text-slate-800 dark:text-white text-5xl my-auto">
               Hey, I'm <span className="text-sky-400">Jett Hays</span>
             </p>
