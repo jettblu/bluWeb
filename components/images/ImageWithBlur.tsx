@@ -25,6 +25,7 @@ export default async function ShowCard(props: Props) {
       width={width}
       height={height}
       blurDataURL={base64}
+      placeholder="blur"
       className={className || ""}
       alt={alt}
     />
