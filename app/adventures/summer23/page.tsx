@@ -2,6 +2,16 @@ import EnterSlideSide from "../../../components/animations/EnterSlideSide";
 import EnterSlideUp from "../../../components/animations/EnterSlideUp";
 import BluVideo from "../../../components/film/bluVideo";
 import ImageWithBlur from "../../../components/images/ImageWithBlur";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Summer 23'",
+  description:
+    "Summer 23' was full of color. I ran a half ironman, climbed Spanish Fork Peak, and  went to Disneyland. From the beaches of LA and Mexico to the Black Hills of South Dakota: so many people and so many places!",
+  openGraph: {
+    images: ["/adventures/summer23/fireByNightLake.jpg"],
+  },
+};
 
 export default async function Summer23() {
   return (
