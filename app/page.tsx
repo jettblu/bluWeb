@@ -5,7 +5,7 @@ import ProfileCard from "../components/profile/ProfileCard";
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <div className="mx-auto max-w-2xl w-full">
+      <div className="mx-auto max-w-2xl w-full pb-16">
         <div className="mb-12">
           <ProfileCard />
         </div>
