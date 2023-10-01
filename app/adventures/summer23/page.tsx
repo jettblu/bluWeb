@@ -92,7 +92,7 @@ export default async function Summer23() {
       </div>
       <hr className="" />
       {/* half ironman */}
-      <div className="bg-gradient-to-r from-stone-900 to-emerald-900 w-full h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
+      <div className="bg-gradient-to-r from-stone-900 to-emerald-900 w-full min-h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
         <DateAndLocation date="May 20th" location="Morro Bay, CA" />
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
           <div className="md:w-1/2">
@@ -140,7 +140,7 @@ export default async function Summer23() {
       </div>
       <hr className="" />
       {/* utah move */}
-      <div className="bg-stone-900 w-full h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
+      <div className="bg-stone-900 w-full min-h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
         <DateAndLocation date="May 27th" location="Mapleton, Utah" />
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
           <div className="md:w-1/2">
@@ -159,8 +159,8 @@ export default async function Summer23() {
             </p>
             <p>
               We roller skate (my first time!) and stumble across a pride parade
-              in Salt Lake City. Utah is so green, and the early summer moon
-              hangs low over the mountains.
+              in Salt Lake City. Utah is green, and early summer moons hang low
+              over the mountains. It feels like summer.
             </p>
           </div>
         </div>
@@ -527,7 +527,7 @@ export default async function Summer23() {
       </div>
       <hr className="" />
       {/* presentation */}
-      <div className="bg-stone-900 w-full h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
+      <div className="bg-stone-900 w-full min-h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
         <DateAndLocation date="August 27th" location="Berkeley, CA" />
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
           <div className="md:w-1/2">
@@ -566,6 +566,44 @@ export default async function Summer23() {
         </div>
       </div>
       <hr className="" />
+      {/* first day of school */}
+      <div className="bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-600 to-sky-400 w-full h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
+        <DateAndLocation date="August 28th" location="Carnegie Mellon" />
+        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
+          <div className="md:w-1/2">
+            <Polaroid
+              src="/adventures/summer23/firstDayOfSchool.jpg"
+              caption="First Day of School"
+            />
+          </div>
+          <div className="md:w-1/2 prose prose-invert md:prose-xl flex flex-col place-content-center max-w-xl">
+            <p>
+              I take a red eye from San Fransisco and land just in time for my
+              philosophy class. I'm back at Carnegie Mellon for what may be my
+              last first day of school.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr className="" />
+      {/* outro */}
+      <div className="h-[92vh] bg-stone-700 snap-center relative place-content-center flex flex-col items-center px-2">
+        <div className="prose prose-invert md:prose-xl">
+          <p>
+            Thank you to all the people and places who helped me feel the color
+            of summer.
+          </p>
+          <p>A new season begins.</p>
+        </div>
+        <div className="absolute bottom-0 w-full grid grid-cols-3 md:grid-cols-6 mt-8">
+          <div className="bg-sky-400 h-6 md:h-20 w-full "></div>
+          <div className="bg-emerald-400 h-6 md:h-20 w-full "></div>
+          <div className="bg-fuchsia-400 h-6 md:h-20 w-full "></div>
+          <div className="bg-rose-400 h-6 md:h-20 w-full "></div>
+          <div className="bg-amber-400 h-6 md:h-20 w-full "></div>
+          <div className="bg-violet-400 h-6 md:h-20 w-full "></div>
+        </div>
+      </div>
     </div>
   );
 }
