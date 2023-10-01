@@ -33,7 +33,7 @@ const Navbar: NextPage = () => {
 
   // change style based on boolean
   const menuWrapperClassName = isMenuMobile
-    ? "flex flex-col md:flex-row mx-auto h-[80vh] rounded-lg bg-gray-700/90 ring-4 ring-sky-400 md:ml-auto mt-8 md:mt-0 pt-4 z-20 pl-8 backdrop-blur-2xl"
+    ? "flex flex-col md:flex-row mx-auto h-[70vh] rounded-lg bg-gray-700 ring-4 ring-sky-400 md:ml-auto mt-8 md:mt-0 pt-4 z-20 pl-8 backdrop-blur-2xl"
     : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
 
   function handleDarkToggle() {
