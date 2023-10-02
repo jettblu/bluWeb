@@ -1,3 +1,4 @@
+import Link from "next/link";
 import EnterSlideSide from "../../../components/animations/EnterSlideSide";
 import EnterSlideUp from "../../../components/animations/EnterSlideUp";
 import BluVideo from "../../../components/film/bluVideo";
@@ -521,7 +522,7 @@ export default async function Summer23() {
           <div className="md:w-1/2 prose prose-invert md:prose-xl flex flex-col place-content-center max-w-xl">
             <p>
               Cabo, coding, and catching waves. I go on an all expenses paid
-              trip down South for my wallet project. I won the prize!
+              trip down South for my wallet project. I win the grand prize!
             </p>
           </div>
         </div>
@@ -537,7 +538,7 @@ export default async function Summer23() {
       </div>
       <hr className="" />
       {/* presentation */}
-      <div className="bg-stone-900 w-full min-h-[92vh] snap-center place-content-center pt-[22vh] px-2 relative">
+      <div className="bg-stone-900 w-full min-h-[92vh] snap-start place-content-center pt-[22vh] px-2 relative">
         <DateAndLocation date="August 27th" location="Berkeley, CA" />
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
           <div className="md:w-1/2">
@@ -601,9 +602,16 @@ export default async function Summer23() {
         <div className="prose prose-invert md:prose-xl">
           <p>
             Thank you to all the people and places who helped me feel the color
-            of summer.
+            of summer!
           </p>
-          <p>A new season begins.</p>
+          <p>A new season begins (:</p>
+          <div className="w-[210px] h-[2px] bg-gray-200/40 my-8"></div>
+          <p>
+            {" "}
+            <Link href="/blog" className="hover:cursor-pointer text-sky-500">
+              Keep exploring?
+            </Link>
+          </p>
         </div>
         <div className="absolute bottom-0 w-full grid grid-cols-3 md:grid-cols-6 mt-8">
           <div className="bg-sky-400 h-6 md:h-20 w-full "></div>
