@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import SyncImage from "../../public/research/covers/sync.gif";
-import BrainstormImage from "../../public/research/covers/brainstorm.gif";
-import SwordImage from "../../public/research/covers/sword.gif";
 import NanogradImage from "../../public/research/covers/nanograd.png";
 import { getPlaiceholder } from "plaiceholder";
 
@@ -21,6 +18,14 @@ export const metadata: Metadata = {
     "My primary research interests include machine learning, peer-to-peer sharing, and cryptography.",
 };
 
+const syncImageURL =
+  "https://res.cloudinary.com/drxzxoqu8/image/upload/f_auto,q_auto/v1/research/pfbtqk4rt7t49cigbwtn";
+
+const brainstormImageURL =
+  "https://res.cloudinary.com/drxzxoqu8/image/upload/f_auto,q_auto/v1/research/tvnhwx6qhlmfugnvqip7";
+
+const swordImageURL =
+  "https://res.cloudinary.com/drxzxoqu8/image/upload/f_auto,q_auto/v1/research/nzzd5mp3euyvvpk3shom";
 // generate placeholder urls base64.... using plaiceholder
 // https://plaiceholder.co/
 async function getPlaceholderUrl() {
@@ -60,7 +65,7 @@ export default async function Home() {
             <div className="bg-sky-400/10 w-full h-full">
               <Link href="/research/brainstorm">
                 <Image
-                  src={BrainstormImage}
+                  src={brainstormImageURL}
                   placeholder="blur"
                   blurDataURL={placeholders[0]}
                   alt="Brainstorm cover art"
@@ -83,7 +88,7 @@ export default async function Home() {
               <Link href="/research/sync">
                 {" "}
                 <Image
-                  src={SyncImage}
+                  src={syncImageURL}
                   placeholder="blur"
                   blurDataURL={placeholders[1]}
                   alt="SYNC cover art"
@@ -137,7 +142,7 @@ export default async function Home() {
                 rel="noopener noreferrer"
               >
                 <Image
-                  src={SwordImage}
+                  src={swordImageURL}
                   placeholder="blur"
                   blurDataURL={placeholders[3]}
                   alt="SWORD cover art"
