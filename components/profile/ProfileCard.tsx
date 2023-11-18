@@ -48,7 +48,7 @@ export default function ProfileCard() {
             </p>
           </div>
           <div className="text-3xl bluFont text-slate-700 dark:text-slate-200">
-            <p>Age: 20</p>
+            <p>Age: 21</p>
             <p>School: Carnegie Mellon</p>
             <p>Birthplace: California</p>
           </div>
