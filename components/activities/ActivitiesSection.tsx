@@ -7,7 +7,6 @@ import Tilt from "react-parallax-tilt";
 import Link from "next/link";
 import { IBluFetchResponse, BluFetch } from "../../src/helpers/BluFetch";
 import { Activity } from "../../src/helpers/strava/types";
-import { metersToMiles, secondsToMinutes } from "../../src/helpers/utils";
 import { useBluDataContext } from "../DataProvider";
 
 const ActivitiesSection: NextPage = () => {
@@ -68,7 +67,7 @@ const ActivitiesSection: NextPage = () => {
             </p>
             <Link href="/blog">
               <div className="rounded-xl bg-gray-200 text-black font-bold w-fit p-2 text-xl my-2 hover:cursor-pointer hover:bg-green-400">
-                <h1>See My Thoughts</h1>
+                <h1>Explore My Thoughts</h1>
               </div>
             </Link>
           </div>
