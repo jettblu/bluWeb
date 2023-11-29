@@ -14,7 +14,7 @@ Some of the world’s most influential technology relies on simple ideas applied
 
 But how? How can we learn from data that may not fit on a single computer? How can we tweak millions of parameters and expect any sort of improvement?
 
-This idea of machine learning at scale is the focus of a course I’m taking at Carnegie Mellon. For a recent homework problem, we examined grid search, a technique for selecting the best algorithm settings from a range of options. Once you get past some of the logical jargon, the solution involves nothing more than a dash of insight and some simple algebra.
+This idea of machine learning at scale is the focus of a course I’m taking at Carnegie Mellon. For a recent homework problem, we examined grid search, a technique for selecting the best algorithm settings from a range of options. Once you get past some of the math jargon, the solution involves nothing more than a dash of insight and some simple algebra.
 
 | **Epsilon Coverage Problem Statement**                                                                |
 | :---------------------------------------------------------------------------------------------------- |
@@ -23,7 +23,7 @@ This idea of machine learning at scale is the focus of a course I’m taking at 
 
 ### Problem Statement [Translation]
 
-That’s a whole bunch of jargon. A simplified (and silly) problem statement would read something like this: We’re standing at a random point in some multi-dimensional space. We need to poop. We want to be at most a distance from the nearest restroom.
+That’s a whole bunch of jargon. A simplified (and silly) problem statement would read something like this: We’re standing at a random point in some multi-dimensional space. We need to poop. We want to be at most a distance &#949; from the nearest restroom.
 
 Note, that the distance metric here is a little different than normal. Here, the distance metric is the L-infinity norm which is defined as, “the absolute value of the largest component of the vector.” So, for the triangle shown below, the L-infinity norm from A to B is 4.
 
@@ -39,7 +39,7 @@ Note, that the distance metric here is a little different than normal. Here, the
 
 ### Question One [Translation]
 
-We are standing in a rectangular field that is one mile long and two miles wide. What is the minimum number of restaurants needed so that we are no further than $\epsilon$ from the nearest restroom?
+We are standing in a rectangular field that is one mile long and two miles wide. What is the minimum number of restaurants needed so that we are no further than &#949; from the nearest restroom?
 
 | **Question One**                                                         |
 | :----------------------------------------------------------------------- |
@@ -48,7 +48,7 @@ We are standing in a rectangular field that is one mile long and two miles wide.
 
 ### Question Two [Translation]
 
-Imagine you are living in some absurd space of arbitrary dimensions. You still need to poop. You still want to be no further than from the nearest restroom. How many restrooms are needed in this arbitrary-dimensional space?
+Imagine you are living in some absurd space of arbitrary dimensions. You still need to poop. You still want to be no further than &#949; from the nearest restroom. How many restrooms are needed in this arbitrary-dimensional space?
 
 ### Tips
 
