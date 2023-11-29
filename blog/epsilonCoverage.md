@@ -1,6 +1,6 @@
 ---
 title: "Brain Teaser: How many bathrooms?"
-oneLiner: ""
+oneLiner: "Some of the world's most magical machine learning systems rely on sneaky simple concepts like this one. Give a shot at this grad-level problem on epsilon coverage from Carnegie Mellon."
 image: "/brainTeasers/epsilonCover/epsilonCover.jpg"
 lastUpdate: "2023-11-21"
 category: "Math"
