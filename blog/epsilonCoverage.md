@@ -16,10 +16,22 @@ But how? How can we learn from data that may not fit on a single computer? How c
 
 This idea of machine learning at scale is the focus of a course I’m taking at Carnegie Mellon. For a recent homework problem, we examined grid search, a technique for selecting the best algorithm settings from a range of options. Once you get past some of the math jargon, the solution involves nothing more than a dash of insight and some simple algebra.
 
-| **Epsilon Coverage Problem Statement**                                                                |
+> **Epsilon Coverage Problem Statement**
+>
+> We define the $\epsilon$-cover of a search space $S$ as a subset $E \subset S$: $[E = \{x \in \mathbb{R}^n\ |\ \forall y \in S,\,\exists x\ s.t.\ \|y-x\|\_\infty \leq \epsilon\}]$
+>
+> In words, every coordinate of every point in our search space $S$ is within $\epsilon$ of a point in our set $E$.
+> The $\epsilon$-covering number is the size of the smallest such set that provides an $\epsilon$-cover of $S$.
+> $[N(\epsilon, S) = \min_E \{|E| : E \textrm{ is an } \epsilon\textrm{-cover of } S\}]$
+>
+> Let's work through a concrete example to make the concept clearer: let's say we want to tune the learning rate for gradient descent on a logistic regression model by considering learning rates in the range of $[1,2]$. We want to have $\epsilon=.05$-coverage of our search space $S = [1,2]$. Then $E = \{1.05, 1.15, 1 25, 1.35, 1.45, 1.55, 1.65, 1.75, 1.85, 1.95\}$.
+>
+> We see that any point in $[1,2]$ is within $0.05$ of a point in $E$. So $E$ provides $\epsilon$-coverage of $S$. The $\epsilon$-covering number is 10. The questions below will ask you to generalize this idea.
+
+<!-- | **Epsilon Coverage Problem Statement**                                                                |
 | :---------------------------------------------------------------------------------------------------- |
 | ![Epsilon coverage problem statement](/brainTeasers/epsilonCover/epsilonProb.png)                     |
-| _The Epsilon Coverage problem as described in CMU's course on machine learning at scale (Fall 2023)._ |
+| _The Epsilon Coverage problem as described in CMU's course on machine learning at scale (Fall 2023)._ | -->
 
 ### Problem Statement [Translation]
 
@@ -32,19 +44,27 @@ Note, that the distance metric here is a little different than normal. Here, the
 | ![Trianagle with different sized sides.](/brainTeasers/epsilonCover/triangle.jpg)   |
 | _The L-infinity norm is different than the standard diagonal distance from A to B._ |
 
-| **Question One**                                                         |
+> **Question One**
+>
+> Find the size of a set needed to provide $\epsilon$-coverage ($\epsilon$-covering number) of $S = [0,1]\times[0,2]$, the Cartesian product of two intervals. Note that we want this to hold for a generic $\epsilon$
+
+<!-- | **Question One**                                                         |
 | :----------------------------------------------------------------------- |
 | ![Epsilon coverage problem statement](/brainTeasers/epsilonCover/q1.png) |
-| _Here, we consider the minimum covering in two dimensions._              |
+| _Here, we consider the minimum covering in two dimensions._              | -->
 
 ### Question One [Translation]
 
 We are standing in a rectangular field that is one mile long and two miles wide. What is the minimum number of restaurants needed so that we are no further than &#949; from the nearest restroom?
 
-| **Question One**                                                         |
+> **Question Two**
+>
+> Find the $\epsilon$-covering number of $S = [a_1, b_1] \times \ldots \times [a_d, b_d]$, the Cartesian product of $d$ arbitrary closed intervals. Specifically, write down an expression $N(\epsilon, S)$ as a function of $a_i$, $b_i$, and $\epsilon$.
+
+<!-- | **Question Two**                                                         |
 | :----------------------------------------------------------------------- |
 | ![Epsilon coverage problem statement](/brainTeasers/epsilonCover/q2.png) |
-| _Here, we consider the minimum covering in arbitrary dimensions._        |
+| _Here, we consider the minimum covering in arbitrary dimensions._        | -->
 
 ### Question Two [Translation]
 
@@ -64,10 +84,11 @@ But whatever you do, give yourself a chance to discover the solution. Don’t qu
 
 If you have a solution, feel free to [message me](mailto:jetthays@cmu.edu).
 
-| **Bonus Problem Statement**                                                                 |
-| :------------------------------------------------------------------------------------------ |
-| ![Grid search vs random search problem statement](/brainTeasers/epsilonCover/bonusProb.png) |
-| _Buckle up, we're launching into hyperparameter space._                                     |
+> **Bonus Problem Statement**
+>
+> There are two basic strategies commonly employed in hyperparameter search: grid search and random search. Grid search is defined as choosing an independent set of values to try for each hyperparameter and the configurations are the Cartesian product of these sets. Random search chooses a random value for each hyperparameter at each configuration.
+>
+> Imagine we are in the (extreme) case where we have d hyperparameters all in the range [0,1], but only one ($h_1$ ) of them has any impact on the model, while the rest have no effect on model performance. For simplicity, assume that for a fixed value of $h_1$ that our training procedure will return the exact same trained model regardless of the values of the other hyperparameters.
 
 I won’t bother with a translation, since this problem statement doesn’t have any fancy math jargon. Plus, you’re here for a challenge: embrace the unfamiliar.
 
