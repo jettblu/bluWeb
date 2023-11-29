@@ -1,4 +1,5 @@
 import "./globals.css";
+import "highlight.js/styles/github-dark-dimmed.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import BluThemeProvider from "../components/ThemeProvider";

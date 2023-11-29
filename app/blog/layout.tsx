@@ -1,4 +1,5 @@
 import Subscribe from "../../components/subscribe";
+import "katex/dist/katex.min.css";
 
 export default function BlogLayout({
   children,

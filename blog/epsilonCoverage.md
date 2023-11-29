@@ -24,7 +24,9 @@ This idea of machine learning at scale is the focus of a course I’m taking at 
 > The $\epsilon$-covering number is the size of the smallest such set that provides an $\epsilon$-cover of $S$.
 > $[N(\epsilon, S) = \min_E \{|E| : E \textrm{ is an } \epsilon\textrm{-cover of } S\}]$
 >
-> Let's work through a concrete example to make the concept clearer: let's say we want to tune the learning rate for gradient descent on a logistic regression model by considering learning rates in the range of $[1,2]$. We want to have $\epsilon=.05$-coverage of our search space $S = [1,2]$. Then $E = \{1.05, 1.15, 1 25, 1.35, 1.45, 1.55, 1.65, 1.75, 1.85, 1.95\}$. We see that any point in $[1,2]$ is within $0.05$ of a point in $E$. So $E$ provides $\epsilon$-coverage of $S$. The $\epsilon$-covering number is 10. The questions below will ask you to generalize this idea.
+> Let's work through a concrete example to make the concept clearer: let's say we want to tune the learning rate for gradient descent on a logistic regression model by considering learning rates in the range of $[1,2]$. We want to have $\epsilon=.05$-coverage of our search space $S = [1,2]$. Then $E = \{1.05, 1.15, 1 25, 1.35, 1.45, 1.55, 1.65, 1.75, 1.85, 1.95\}$.
+>
+> We see that any point in $[1,2]$ is within $0.05$ of a point in $E$. So $E$ provides $\epsilon$-coverage of $S$. The $\epsilon$-covering number is 10. The questions below will ask you to generalize this idea.
 
 <!-- | **Epsilon Coverage Problem Statement**                                                                |
 | :---------------------------------------------------------------------------------------------------- |
