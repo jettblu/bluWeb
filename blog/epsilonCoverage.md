@@ -62,7 +62,7 @@ Think about it! Don’t worry if you’re still searching for answers thirty min
 
 But whatever you do, give yourself a chance to discover the solution. Don’t quit before the miracle happens. You got this!
 
-If you have a solution, feel free to message me.
+If you have a solution, feel free to [message me](mailto:jetthays@cmu.edu).
 
 | **Bonus Problem Statement**                                                                 |
 | :------------------------------------------------------------------------------------------ |
