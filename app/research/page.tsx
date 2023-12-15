@@ -26,6 +26,9 @@ const brainstormImageURL =
 
 const swordImageURL =
   "https://res.cloudinary.com/drxzxoqu8/image/upload/f_auto,q_auto/v1/research/nzzd5mp3euyvvpk3shom";
+
+const snakeImageURL =
+  "https://res.cloudinary.com/drxzxoqu8/image/upload/v1702659911/research/snakeGameplay_gnksme.gif";
 // generate placeholder urls base64.... using plaiceholder
 // https://plaiceholder.co/
 async function getPlaceholderUrl() {
@@ -33,6 +36,7 @@ async function getPlaceholderUrl() {
     "brainstorm.jpg",
     "sync.png",
     "nanograd.png",
+    "snake.jpg",
     "sword.webp",
   ];
   const temp_placeholders = await Promise.all(
@@ -92,7 +96,7 @@ export default async function Home() {
                   placeholder="blur"
                   blurDataURL={placeholders[1]}
                   alt="SYNC cover art"
-                  className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
+                  className="w-full object-cover h-[600px] rounded-tr-md rounded-tl-md"
                   width={200}
                   height={200}
                 />
@@ -133,6 +137,34 @@ export default async function Home() {
               </a>
             </div>
           </div>
+          <div className="rounded-md ring-1 ring-red-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
+            <div className="bg-purple-400/10 w-full h-full">
+              <a
+                href="https://www.nanograd.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src={snakeImageURL}
+                  placeholder="blur"
+                  blurDataURL={placeholders[3]}
+                  alt="Nanograd cover art"
+                  className="w-full object-cover h-80 rounded-tr-md rounded-tl-md"
+                  width={200}
+                  height={200}
+                />
+                <div className="px-2 py-2">
+                  <h2 className="text-2xl font-semibold mb-2">
+                    Preference Arcade
+                  </h2>
+                  <p className="text-lg text-red-600">
+                    End to end framework for training reinforcement learning
+                    agents to learn from human preferences.
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
 
           <div className="rounded-md ring-1 ring-pink-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
             <div className="bg-pink-400/10 w-full h-full">
@@ -144,7 +176,7 @@ export default async function Home() {
                 <Image
                   src={swordImageURL}
                   placeholder="blur"
-                  blurDataURL={placeholders[3]}
+                  blurDataURL={placeholders[4]}
                   alt="SWORD cover art"
                   className="w-full object-cover h-100 rounded-tr-md rounded-tl-md"
                   width={200}
