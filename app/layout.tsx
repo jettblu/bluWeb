@@ -36,7 +36,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <main>
         <body
           className={`${inter.className} min-h-screen px-4 bg-[#F8F6F1] dark:bg-gradient-to-r dark:from-black dark:to-[#010F15] text-black dark:text-white`}
           suppressHydrationWarning={true}
@@ -51,7 +50,6 @@ export default function RootLayout({
           </BluThemeProvider>
           <Fathom />
         </body>
-      </main>
     </html>
   );
 }
