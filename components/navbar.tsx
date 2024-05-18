@@ -89,7 +89,7 @@ const Navbar: NextPage = () => {
           onClick={() => setMenuMobile(false)}
         >
           <div
-            className="invisible mt-1 mr-3 md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
+            className="invisible mt-1 mr-3 md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black hover:cursor-pointer ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
             onClick={() => handleDarkToggle()}
           >
             {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
