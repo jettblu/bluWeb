@@ -13,7 +13,7 @@ export default function FilmThumbnail(props: Props) {
         width={100}
         height={100}
         alt={`${film.title} thumbnail`}
-        className="hover:shadow-md hover:shadow-sky-40 h-44 w-72 rounded-md drop-shadow-lg object-cover"
+        className="hover:shadow-md hover:shadow-sky-40 h-44 w-72 rounded-md drop-shadow-lg object-cover ring-1 ring-sky-400 hover:ring-2"
       />
       <div className="flex">
         <p className="my-2 text-lg text-gray-400 dark:text-gray-400 font-semibold">

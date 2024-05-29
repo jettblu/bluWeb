@@ -2,6 +2,13 @@ import { Film } from "./types";
 
 export const films: Film[] = [
   {
+    title: "America's Highest Birthday Party",
+    url: "https://youtu.be/CfgAx7_LQQY",
+    thumbnailPath: "/film/thumbnails/highestbday.jpg",
+    description:
+      "Climbing Mount Whitney to celebrate our 22nd birthdays at altitude!",
+  },
+  {
     title: "Weekend in Belize",
     url: "https://www.youtu.be/I5TjGai2Lv8",
     thumbnailPath: "/film/thumbnails/belizeWater.png",

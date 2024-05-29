@@ -39,6 +39,10 @@ a {
   font-family: "blu", sans-serif;
 }
 
+h1 {
+  font-family: "blu";
+}
+
 /* navbar icon style and animation*/
 
 #nav-icon {

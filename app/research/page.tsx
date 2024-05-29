@@ -54,12 +54,12 @@ export default async function Home() {
   return (
     <div className="text-black dark:text-white pb-16">
       {/* fixed left hand side */}
-      <div className="md:fixed md:left-0 md:h-full md:w-[40%] md:bg-green-900 md:text-white md:dark:bg-green-400/10 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
+      <div className="md:fixed md:left-0 md:h-full md:w-[40%] md:bg-sky-900 md:text-white md:dark:bg-sky-400/20 md:dark:text-white md:rounded-none rounded-xl px-2 py-1">
         <div className="md:pt-[25vh] md:px-12">
           <h1 className="text-3xl font-semibold mb-2">My Research</h1>
           <p className="text-slate-700 dark:text-slate-200 md:text-slate-200 md:dark:text-slate-200 text-xl">
-            My primary research interests include machine learning, peer-to-peer
-            sharing, and cryptography.
+            My primary research interests include machine learning, autonomous
+            drones, and peer to peer networks.
           </p>
         </div>
       </div>
@@ -129,9 +129,7 @@ export default async function Home() {
                 <div className="px-2 py-2">
                   <h2 className="text-2xl font-semibold mb-2">Nanograd</h2>
                   <p className="text-lg text-purple-600">
-                    A deep learning framework built from scratch in Rust.
-                    Nanograd minimizes memory usage and maximizes performance
-                    with a custom autograd engine.
+                    A minimalist deep learning framework built with Rust.
                   </p>
                 </div>
               </a>
@@ -158,8 +156,8 @@ export default async function Home() {
                     Preference Arcade
                   </h2>
                   <p className="text-lg text-red-600">
-                    End to end framework for training reinforcement learning
-                    agents to learn from human preferences.
+                    Train reinforcement learning agents to follow human
+                    preferences.
                   </p>
                 </div>
               </a>
@@ -185,11 +183,7 @@ export default async function Home() {
                 <div className="px-2 py-2">
                   <h2 className="text-2xl font-semibold mb-2">SWORD</h2>
                   <p className="text-lg text-pink-600">
-                    Instead of relying on a smart contract with trusted
-                    guardians, SWORD distributes shares of an encryption key to
-                    a group of shareholders. Whenever a user wants to regain
-                    access to their wallet, the shares are reassembled, and the
-                    wallet is decrypted.
+                    Distributed signatures for secure transactions.
                   </p>
                 </div>
               </a>
