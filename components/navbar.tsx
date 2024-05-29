@@ -48,12 +48,12 @@ const Navbar: NextPage = () => {
     <nav className="bluFont">
       {isMenuMobile && (
         <div
-          className={`absolute top-0 left-0 bg-sky-500/10 backdrop-blur-xl w-full h-[100vh] z-10`}
+          className={`absolute top-0 left-0 bg-sky-500/10 backdrop-blur-xl w-full h-[100vh] z-40`}
         ></div>
       )}
 
       <div
-        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-20 w-full -mx-4 px-4 backdrop-blur-lg md:backdrop-blur-xl ${
+        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-50 w-full -mx-4 px-4 backdrop-blur-lg md:backdrop-blur-xl ${
           !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
         } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
           !isMenuMobile &&

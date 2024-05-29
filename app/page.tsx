@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex flex-col h-[90vh] -mx-4">
       <div className="flex place-items-center bg-gradient-conic from-sky-400 via-pink-400 to-transparent blur-2xl absolute bottom-20 right-0 w-[200px] h-[300px] lg:w-[400px]" />
-      <h3 className="text-6xl md:text-8xl font-bold px-4 text-slate-800 dark:text-slate-50">
+      <h3 className="text-6xl md:text-8xl font-bold px-4 text-slate-800 dark:text-slate-50 z-20">
         Creating{" "}
         <Link href="research" className="text-pink-400">
           thinking machines
