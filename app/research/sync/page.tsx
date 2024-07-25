@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       <div className="max-w-3xl mx-auto">
         <div className="mb-12 mx-auto w-full max-w-[640px]">
           <BluVideo
-            videoSrc={"https://vimeo.com/802871414/c2cd6980c1"}
+            videoSrc={"https://vimeo.com/802871414"}
             isPlaying={false}
           />
         </div>
