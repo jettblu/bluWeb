@@ -138,7 +138,7 @@ export default async function Home() {
           <div className="rounded-md ring-1 ring-red-400 bg-gray-400/10 hover:cursor-pointer hover:scale-105 transition-ease-in duration-300 group snap-always snap-center">
             <div className="bg-purple-400/10 w-full h-full">
               <a
-                href="https://www.nanograd.xyz/"
+                href="https://www.preferencearcade.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
