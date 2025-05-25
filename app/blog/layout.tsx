@@ -1,4 +1,3 @@
-import Subscribe from "../../components/subscribe";
 import "katex/dist/katex.min.css";
 
 export default function BlogLayout({
@@ -9,9 +8,7 @@ export default function BlogLayout({
   return (
     <div>
       {children}
-      <div className="fixed bottom-4 right-4 z-20">
-        <Subscribe />
-      </div>
+      <div className="fixed bottom-4 right-4 z-20"></div>
     </div>
   );
 }

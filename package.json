@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
     "start": "next start",
     "lint": "next lint"
   },
@@ -30,17 +30,17 @@
     "jsonwebtoken": "^9.0.0",
     "katex": "^0.16.9",
     "moment": "^2.29.4",
-    "next": "^13.4.13",
+    "next": "15.3.2",
     "next-themes": "^0.2.1",
     "plaiceholder": "^3.0.0",
     "postcss": "^8.1.0",
     "prisma": "^5.14.0",
-    "react": "^18.2.0",
+    "react": "19.1.0",
     "react-code-input": "^3.10.1",
     "react-date-picker": "^9.2.0",
     "react-datepicker": "^4.8.0",
     "react-datetime": "^3.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "19.1.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
     "react-parallax-tilt": "^1.7.68",
@@ -62,10 +62,14 @@
   },
   "devDependencies": {
     "@types/node": "18.0.6",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "18.0.6",
+    "@types/react": "19.1.5",
+    "@types/react-dom": "19.1.5",
     "eslint": "8.20.0",
-    "eslint-config-next": "^13.4.13",
+    "eslint-config-next": "15.3.2",
     "typescript": "^5.2.2"
+  },
+  "resolutions": {
+    "@types/react": "19.1.5",
+    "@types/react-dom": "19.1.5"
   }
 }

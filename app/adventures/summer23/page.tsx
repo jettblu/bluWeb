@@ -1,14 +1,14 @@
 import Link from "next/link";
-import EnterSlideSide from "../../../components/animations/EnterSlideSide";
-import EnterSlideUp from "../../../components/animations/EnterSlideUp";
 import BluVideo from "../../../components/film/bluVideo";
 import ImageWithBlur from "../../../components/images/ImageWithBlur";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Summer 23'",
+
   description:
     "Summer 23' was full of color. I ran a half ironman, climbed Spanish Fork Peak, and  went to Disneyland. From the beaches of LA and Mexico to the Black Hills of South Dakota: so many people and so many places!",
+
   openGraph: {
     images: ["/adventures/summer23/fireByNightLake.jpg"],
   },
@@ -19,12 +19,10 @@ export default async function Summer23() {
     <div className="max-h-[92vh] overflow-auto text-white snap-mandatory snap-y w-[100vw] -mx-4">
       {/* top photo */}
       <div className="bg-neutral-700 w-full h-[94vh] snap-center place-content-center flex flex-col items-center px-2">
-        <EnterSlideUp>
-          <Polaroid
-            src="/adventures/summer23/fireByNightLake.jpg"
-            caption="Summer 23'"
-          />
-        </EnterSlideUp>
+        <Polaroid
+          src="/adventures/summer23/fireByNightLake.jpg"
+          caption="Summer 23'"
+        />
       </div>
       <hr className="" />
       {/* intro */}
@@ -64,12 +62,10 @@ export default async function Summer23() {
         <DateAndLocation date="May 8th" location="Carnegie Mellon" />
         <div className="flex flex-col space-y-2 md:flex-row w-full">
           <div className="md:w-1/2">
-            <EnterSlideSide>
-              <Polaroid
-                src="/adventures/summer23/bballWithRohan.jpeg"
-                caption="Bball with Rohan"
-              />
-            </EnterSlideSide>
+            <Polaroid
+              src="/adventures/summer23/bballWithRohan.jpeg"
+              caption="Bball with Rohan"
+            />
           </div>
           <div className="md:w-1/2 prose prose-invert md:prose-xl flex flex-col place-content-center max-w-xl">
             <p>
@@ -85,12 +81,10 @@ export default async function Summer23() {
         <DateAndLocation date="May 13th" location="Los Angeles, CA" />
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
           <div className="md:w-1/2">
-            <EnterSlideUp>
-              <Polaroid
-                src="/adventures/summer23/jordanWardLights.jpg"
-                caption="Jordan Ward Concert"
-              />
-            </EnterSlideUp>
+            <Polaroid
+              src="/adventures/summer23/jordanWardLights.jpg"
+              caption="Jordan Ward Concert"
+            />
           </div>
           <div className="md:w-1/2 prose prose-invert md:prose-xl flex flex-col place-content-center max-w-xl">
             <p>
@@ -206,7 +200,7 @@ export default async function Summer23() {
       </div>
       <hr className="" />
       {/* Utah Mountain */}
-      <div className="bg-green-900 w-full min-h-[92vh] snap-start pt-[22vh] pt-[22vh] px-2 relative">
+      <div className="bg-green-900 w-full min-h-[92vh] snap-start pt-[22vh] px-2 relative">
         <DateAndLocation date="June 27th" location="Spanish Fork Peak, Utah" />
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row w-full">
           <div className="md:w-1/2">
@@ -216,7 +210,7 @@ export default async function Summer23() {
             />
           </div>
           <div className="md:w-1/2 prose prose-invert md:prose-xl flex flex-col place-content-center max-w-xl">
-            <p>
+            <div>
               Alex, Keala, and I climb Spanish Fork Peak. We hike through the
               river and snow before camping aside an alpine lake. We freeze
               without sleeping bags but light a pre-dawn fire for warmth.
@@ -226,7 +220,7 @@ export default async function Summer23() {
                 the most beautiful areas I have been to.{" "}
               </p>
               <p>I wear sandals all the way up.</p>
-            </p>
+            </div>
           </div>
         </div>
       </div>

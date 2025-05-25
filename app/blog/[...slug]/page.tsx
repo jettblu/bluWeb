@@ -12,13 +12,11 @@ import BluVideo from "../../../components/film/bluVideo";
 import markdownToHtml from "../../../src/helpers/docs/markdownFormat";
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+  const params = await props.params;
   // read route params
   const slug = params.slug[0];
   const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
@@ -45,7 +43,7 @@ export async function generateMetadata(
 }
 
 export default async function Post(context: any) {
-  const slug = context.params.slug[0];
+  const slug = (await context.params).slug[0];
   const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
   doc.content = await markdownToHtml(doc.content);
   const recommendedDocs: DocType[] = getDocsByCategory({

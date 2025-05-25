@@ -14,8 +14,9 @@ const researchCoversDirectory = join(
 
 export const metadata: Metadata = {
   title: "Jett's Research",
+
   description:
-    "My primary research interests include machine learning, peer-to-peer sharing, and cryptography.",
+    "My primary research interests include machine learning, peer-to-peer sharing, and cryptography."
 };
 
 const syncImageURL =

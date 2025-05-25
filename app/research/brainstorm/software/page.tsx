@@ -4,8 +4,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Brainstorm Software",
+
   description:
-    "The design decisions behind a complex brain computer interface.",
+    "The design decisions behind a complex brain computer interface."
 };
 
 const Software: NextPage = () => {

@@ -9,8 +9,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Brainstorm - Jett's Research",
+
   description:
-    "Brainstorm is a mind controlled keyboard. It allows users to type with their mind using a brain-computer interface.",
+    "Brainstorm is a mind controlled keyboard. It allows users to type with their mind using a brain-computer interface."
 };
 
 const Home: NextPage = () => {

@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
 
 import BluVideo from "../../../components/film/bluVideo";
 import { Metadata } from "next";
@@ -7,6 +6,7 @@ import { Metadata } from "next";
 // update metadata
 export const metadata: Metadata = {
   title: "SYNC - Jett's Research",
+
   description:
     "SYNC is a peer-to-peer data sharing protocol. It allows users to share data between devices without a central server using a QR code stream.",
 };

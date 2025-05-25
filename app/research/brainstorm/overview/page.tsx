@@ -5,8 +5,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Brainstoprm Overview",
+
   description:
-    "An overview of how Brainstorm translates brainwaves into language using an EEG.",
+    "An overview of how Brainstorm translates brainwaves into language using an EEG."
 };
 
 const Overview: NextPage = () => {

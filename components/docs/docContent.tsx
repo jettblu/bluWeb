@@ -9,7 +9,7 @@ type Props = {
 };
 
 const DocContent = ({ children }: Props) => {
-  const articleTarget = useRef<HTMLDivElement | null>(null);
+  const articleTarget = useRef<HTMLDivElement>(null!);
   // copy and paste when code element is clicked
   // TODO: add visual indication of copy ability before click
   useEffect(() => {
@@ -29,6 +29,7 @@ const DocContent = ({ children }: Props) => {
 
   // sanitize incoming content
   // const cleanContent = DOMPurify.sanitize(content);
+
   return (
     <div className="max-w-3xl mx-auto">
       <ArticleProgress target={articleTarget} />

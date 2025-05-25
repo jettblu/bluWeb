@@ -7,8 +7,9 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Jett's Thoughts",
+
   description:
-    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on technology and philosophy.",
+    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on technology and philosophy."
 };
 export default function BlogHome() {
   const allDocs = getAllDocs({

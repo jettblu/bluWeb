@@ -9,8 +9,9 @@ import FilmThumbnail from "../../components/film/filmThumbnail";
 
 export const metadata: Metadata = {
   title: "Jett's Films",
+
   description:
-    "A curated collection of films: from my camera to your computer. Created by Jett Blu.",
+    "A curated collection of films: from my camera to your computer. Created by Jett Blu."
 };
 
 const Home: NextPage = () => {
