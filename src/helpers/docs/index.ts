@@ -1,8 +1,10 @@
+"use server";
+
 import fs from "fs";
 import { join } from "path";
 /// <reference path="node_modules\gray-matter\gray-matter.d.ts" />
 import matter from "gray-matter";
-import { DEFAULT_DOC, DocType, DocTypeEnum } from "./types";
+import { DEFAULT_DOC, DocMetadata, DocType, DocTypeEnum } from "./types";
 import { getContributorById } from "./contributors";
 import { cache } from "react";
 
@@ -23,7 +25,7 @@ const defaultFields = [
   "videoTitle",
 ];
 
-export function getDocSlugs(docEnum: DocTypeEnum) {
+export async function getDocSlugs(docEnum: DocTypeEnum) {
   let directory: string;
   switch (docEnum) {
     case DocTypeEnum.Blog: {
@@ -43,11 +45,11 @@ type Items = {
   [key: string]: any;
 };
 
-export function getDocBySlug(props: {
+export async function getDocBySlug(props: {
   slug: string;
   fields?: string[];
   docEnum: DocTypeEnum;
-}): DocType {
+}): Promise<DocType> {
   try {
     const { slug, fields, docEnum } = { ...props };
     // check if file is mdx or md
@@ -132,15 +134,36 @@ export function getDocBySlug(props: {
   }
 }
 
-export const getAllDocs = cache(function (props: {
+export async function getXMostRecentDocMetadata(props: {
+  docEnum: DocTypeEnum;
+  x: number;
+}): Promise<DocMetadata[]> {
+  const { docEnum, x } = { ...props };
+  const allDocs = await getAllDocs({ docEnum: docEnum });
+  const sortedDocs = allDocs.sort(
+    (a, b) =>
+      new Date(b.lastUpdate).getTime() - new Date(a.lastUpdate).getTime()
+  );
+  return sortedDocs.slice(0, x).map((doc) => ({
+    slug: doc.slug,
+    title: doc.title,
+    lastUpdate: doc.lastUpdate,
+    oneLiner: doc.oneLiner,
+    image: doc.image,
+  }));
+}
+
+export async function getAllDocs(props: {
   docEnum: DocTypeEnum;
   fields?: string[];
-}): DocType[] {
+}): Promise<DocType[]> {
   const { docEnum } = { ...props };
 
-  const slugs = getDocSlugs(docEnum);
-  const docs: DocType[] = slugs
-    .map((slug) => getDocBySlug({ slug: slug, docEnum: docEnum }))
+  const slugs = await getDocSlugs(docEnum);
+  const docsBySlug = await Promise.all(
+    slugs.map((slug) => getDocBySlug({ slug: slug, docEnum: docEnum }))
+  );
+  const docs: DocType[] = docsBySlug
     // sort posts by date in descending order
     // TODO: check efficiency of date operation... maybe store on object?
     .sort((post1, post2) =>
@@ -150,18 +173,18 @@ export const getAllDocs = cache(function (props: {
         : 1
     );
   return docs;
-});
+}
 
-export function getDocsByCategory(props: {
+export async function getDocsByCategory(props: {
   category: string;
   fields?: string[];
   docEnum: DocTypeEnum;
   slugToExclude?: string;
   maxCount?: number;
-}): DocType[] {
+}): Promise<DocType[]> {
   const { category, slugToExclude, fields, docEnum, maxCount } = { ...props };
   // TODO: examine efficiency if we call getalldocs this for every page
-  const allDocs = getAllDocs({ docEnum: docEnum, fields: fields });
+  const allDocs = await getAllDocs({ docEnum: docEnum, fields: fields });
   let recommendedDocs = allDocs.filter(
     (d) =>
       d.category.toLowerCase().trim() == category.toLowerCase().trim() &&

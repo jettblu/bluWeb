@@ -1,46 +1,83 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { getXMostRecentDocMetadata } from "../src/helpers/docs";
+import { DocMetadata, DocTypeEnum } from "../src/helpers/docs/types";
 
 export default function Home() {
+  async function populateRecentDocs() {
+    const newRecentDocs = await getXMostRecentDocMetadata({
+      docEnum: DocTypeEnum.Blog,
+      x: 8,
+    });
+    setRecentDocs(newRecentDocs);
+    setSelectedDoc(newRecentDocs[0]);
+  }
+  useEffect(() => {
+    populateRecentDocs();
+  }, []);
+  const [recentDocs, setRecentDocs] = useState<DocMetadata[]>([]);
+  const [selectedDoc, setSelectedDoc] = useState<DocMetadata | null>(null);
   return (
-    <main className="flex flex-col h-[90vh] -mx-4">
-      <div className="flex place-items-center bg-gradient-conic from-sky-400 via-pink-400 to-transparent blur-2xl absolute bottom-20 right-0 w-[200px] h-[300px] lg:w-[400px]" />
-      <h3 className="text-6xl md:text-8xl font-bold px-4 text-slate-800 dark:text-slate-50 z-20">
-        Creating{" "}
-        <Link href="research" className="text-pink-400">
-          thinking machines
-        </Link>{" "}
-        and{" "}
-        <Link href="blog" className="text-sky-400">
-          happy minds
-        </Link>
-        .
-      </h3>
-      <div className="invisible md:visible h-[1px] bg-gray-400 w-1/2 mt-4 ml-4" />
-      <div className="text-2xl px-4 mt-24 flex flex-col space-y-4 bg-gray-200/40 dark:bg-gray-900/40 py-2 z-2 md:bg-gray-200/10 md:dark:bg-gray-900/10 rounded-md w-fit z-10 absolute md:relative left-4 md:left-0 back bottom-20 backdrop-blur-lg">
-        <a
-          href="https://youtu.be/CfgAx7_LQQY"
-          className="text-sky-400 md:text-green-400 hover:underline"
-        >
-          Watch My Latest Adventure
-        </a>
-        <Link
-          href="/blog/epsilonCoverage"
-          className="text-pink-400 md:text-green-400 hover:underline"
-        >
-          Read My Latest Thought
-        </Link>
-      </div>
+    <main className="h-[90vh]">
+      <div className="w-full h-3/4 flex flex-row mt-2 space-x-3">
+        <div className="h-full md:w-1/2 flex items-center justify-center">
+          <div className="grid grid-cols-4 gap-3 h-fit">
+            {recentDocs.map((doc) => (
+              <div key={doc.slug}>
+                {doc.image && (
+                  <div
+                    className={`hover:cursor-pointer transition-all duration-300 p-2 ${
+                      selectedDoc?.slug === doc.slug
+                        ? "ring-2 ring-sky-400 bg-green-400/30"
+                        : "ring-1 ring-slate-200 hover:brightness-125"
+                    }`}
+                    onClick={() => setSelectedDoc(doc)}
+                  >
+                    <Image
+                      src={doc.image}
+                      alt={doc.title}
+                      width={100}
+                      height={100}
+                      className="w-40 h-40 object-cover rounded-md"
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
 
-      <Image
-        src="/blu/partyhat.png"
-        alt="hero"
-        width={300}
-        height={300}
-        priority
-        className="absolute m-auto bottom-0 right-0"
-      />
+        <div className="w-1/2 h-full">
+          {selectedDoc && (
+            <div className="w-full h-full mt-48 space-y-2 flex flex-col">
+              <div className="flex flex-row items-center justify-center">
+                {selectedDoc.image && (
+                  <div className="place-items-center w-full">
+                    <Image
+                      src={selectedDoc.image}
+                      alt={selectedDoc.title}
+                      width={500}
+                      height={500}
+                      className="w-8/12 h-8/12 rounded-md object-cover self-center"
+                    />
+                  </div>
+                )}
+              </div>
+              <div className="w-full place-items-center">
+                <div className="bg-gradient-to-r from-sky-400/20 to-green-400/20 rounded-md p-2 w-fit">
+                  <h3>{selectedDoc.title}</h3>
+                </div>
+              </div>
+              <div className="flex flex-row items-center">
+                <p>{selectedDoc.lastUpdate}</p>
+              </div>
+              <p>{selectedDoc.oneLiner}</p>
+            </div>
+          )}
+        </div>
+      </div>
     </main>
   );
 }

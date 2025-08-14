@@ -1,7 +1,6 @@
 import { getAllDocs } from "../../src/helpers/docs";
-import { DocType, DocTypeEnum } from "../../src/helpers/docs/types";
-import Head from "next/head";
-import DocListItemPreview from "../../components/docs/docListItemPreview";
+import { DocTypeEnum } from "../../src/helpers/docs/types";
+
 import SearchDocs from "../../components/search/SearchDocs";
 import type { Metadata } from "next";
 
@@ -9,10 +8,10 @@ export const metadata: Metadata = {
   title: "Jett's Thoughts",
 
   description:
-    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on technology and philosophy."
+    "Jump down the neural rabbit hole with Jett Hays. Explore ideas on technology and philosophy.",
 };
-export default function BlogHome() {
-  const allDocs = getAllDocs({
+export async function BlogHome() {
+  const allDocs = await getAllDocs({
     docEnum: DocTypeEnum.Blog,
   });
 

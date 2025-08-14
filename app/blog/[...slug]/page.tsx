@@ -15,11 +15,14 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata(props: Props, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata(
+  props: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const params = await props.params;
   // read route params
   const slug = params.slug[0];
-  const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
+  const doc = await getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
   const newOgImages = doc.image
@@ -44,9 +47,9 @@ export async function generateMetadata(props: Props, parent: ResolvingMetadata):
 
 export default async function Post(context: any) {
   const slug = (await context.params).slug[0];
-  const doc = getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
+  const doc = await getDocBySlug({ slug: slug, docEnum: DocTypeEnum.Blog });
   doc.content = await markdownToHtml(doc.content);
-  const recommendedDocs: DocType[] = getDocsByCategory({
+  const recommendedDocs: DocType[] = await getDocsByCategory({
     category: doc.category,
     slugToExclude: doc.slug,
     docEnum: DocTypeEnum.Blog,
@@ -116,7 +119,7 @@ export default async function Post(context: any) {
 }
 
 export async function generateStaticParams() {
-  const docs = getDocsByCategory({
+  const docs = await getDocsByCategory({
     category: "blog",
     docEnum: DocTypeEnum.Blog,
   });

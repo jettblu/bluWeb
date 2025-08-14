@@ -14,6 +14,14 @@ export type DocType = {
   contributor: Contributor;
 };
 
+export type DocMetadata = {
+  slug: string;
+  title: string;
+  lastUpdate: string;
+  oneLiner: string;
+  image: string | null;
+};
+
 export const DEFAULT_CONTRIBUTOR: Contributor = {
   id: "",
   name: "",
