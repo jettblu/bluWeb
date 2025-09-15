@@ -3,15 +3,12 @@
 import { NextPage } from "next";
 
 import Link from "next/link";
-import { RiMoonFill, RiSunFill } from "react-icons/ri";
+import Image from "next/image";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 
 const Navbar: NextPage = () => {
   const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-  const [isDark, setIsDark] = useState(resolvedTheme === "dark");
 
   const [isMenuMobile, setMenuMobile] = useState(false);
 
@@ -19,10 +16,6 @@ const Navbar: NextPage = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    setIsDark(resolvedTheme === "dark");
-  }, [resolvedTheme]);
 
   // if the theme is not yet mounted, don't render anything
   // this prevents the navbar from rendering server-side
@@ -36,14 +29,6 @@ const Navbar: NextPage = () => {
     ? "flex flex-col md:flex-row mx-auto h-[80vh] rounded-lg bg-gray-700 ring-4 ring-sky-400 md:ml-auto mt-8 md:mt-0 pt-4 z-20 pl-8 backdrop-blur-2xl"
     : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
 
-  function handleDarkToggle() {
-    if (isDark) {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
-  }
-
   return (
     <nav className="bluFont">
       {isMenuMobile && (
@@ -53,23 +38,18 @@ const Navbar: NextPage = () => {
       )}
 
       <div
-        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-50 w-full -mx-4 px-4 backdrop-blur-lg md:backdrop-blur-xl ${
-          !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
-        } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
-          !isMenuMobile &&
-          isDark &&
-          "bg-gradient-to-r from-black to-[#010F15]/80"
-        } ${
-          isMenuMobile && isDark && "bg-gradient-to-r from-black to-[#010F15]"
-        }`}
+        className={`-mx-4 md:flex md:items-center fixed h-20 py-2 z-50 w-full px-4 backdrop-blur-lg md:backdrop-blur-xl bg-secondary`}
       >
         <div className="flex justify-between items-center hover:cursor-pointer">
           <div onClick={() => setMenuMobile(false)}>
             {
               <Link href="/">
-                <img
-                  src={isDark ? "/head.jpg" : "/icon.ico"}
+                <Image
+                  src="/icon.ico"
+                  width={20}
+                  height={20}
                   className="w-20 h-auto"
+                  alt="Clouding floating on a delicate atmosphere of pixels."
                 />
               </Link>
             }
@@ -94,12 +74,6 @@ const Navbar: NextPage = () => {
           className={menuWrapperClassName}
           onClick={() => setMenuMobile(false)}
         >
-          <div
-            className="invisible mt-1 mr-3 md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black hover:cursor-pointer ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
-            onClick={() => handleDarkToggle()}
-          >
-            {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
-          </div>
           <Link href="/research">
             <span
               className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-6xl md:text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
@@ -122,17 +96,6 @@ const Navbar: NextPage = () => {
               Thoughts
             </span>
           </Link>
-          <div className="-ml-8 md:hidden">
-            <div
-              className="mt-40 mx-auto w-fit p-4 border border-gray-400 dark:border-gray-500 rounded-full flex flex-row space-x-2 text-slate-900 dark:text-slate-100 hover:cursor-pointer"
-              onClick={() => handleDarkToggle()}
-            >
-              {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
-              <p className="text-xl">
-                switch to {isDark ? "light" : "dark"} mode
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
