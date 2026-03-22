@@ -16,7 +16,13 @@ type Props = {
       <div className="flex flex-col space-y-4 max-w-3xl mx-auto mb-12">
             {
               !hideBackButton &&
-              <Link href={"./"}><AiOutlineArrowLeft size={24} className="text-slate-300 dark:text-slate-600 hover:cursor-pointer mb-2 hover:text-sky-400 hover:dark:text-sky-400"/></Link>
+              <Link
+                href={"./"}
+                className="inline-flex w-fit rounded-md p-1 -ml-1 text-slate-700 hover:bg-slate-100 hover:text-sky-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-sky-400"
+                aria-label="Back"
+              >
+                <AiOutlineArrowLeft size={24} className="shrink-0" />
+              </Link>
             }
             <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
               {

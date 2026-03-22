@@ -8,7 +8,7 @@ import fs from "node:fs/promises";
 import { join } from "path";
 
 const researchCoversDirectory = join(
-  process.cwd(),
+  /* turbopackIgnore: true */ process.cwd(),
   "public/research/covers/small/"
 );
 
@@ -101,7 +101,7 @@ export default async function Home() {
                   width={200}
                   height={200}
                 />
-                <div className="px-2 py-2">
+                <div className="px-2 py-3">
                   <h2 className="text-2xl font-semibold mb-2">Sync</h2>
                   <p className="text-lg text-green-600">
                     Share data between devices with a QR code stream.
@@ -127,7 +127,7 @@ export default async function Home() {
                   width={200}
                   height={200}
                 />
-                <div className="px-2 py-2">
+                <div className="px-2 py-3">
                   <h2 className="text-2xl font-semibold mb-2">Nanograd</h2>
                   <p className="text-lg text-purple-600">
                     A minimalist deep learning framework built with Rust.
@@ -152,7 +152,7 @@ export default async function Home() {
                   width={200}
                   height={200}
                 />
-                <div className="px-2 py-2">
+                <div className="px-2 py-3">
                   <h2 className="text-2xl font-semibold mb-2">
                     Preference Arcade
                   </h2>
@@ -181,7 +181,7 @@ export default async function Home() {
                   width={200}
                   height={200}
                 />
-                <div className="px-2 py-2">
+                <div className="px-2 py-3">
                   <h2 className="text-2xl font-semibold mb-2">SWORD</h2>
                   <p className="text-lg text-pink-600">
                     Distributed signatures for secure transactions.

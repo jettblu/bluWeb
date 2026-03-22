@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useId } from "react";
 
 type Props = {
   children: any;
@@ -11,9 +11,9 @@ type Props = {
 // TODO: Update to support dynamic headers
 export default function Modal(props: Props) {
   const { children, isOpen, onRequestClose } = { ...props };
-  const randomId: string = Math.random().toString();
-  const modalId = `${randomId}Modal`;
-  const childrenId = `${randomId}Children`;
+  const baseId = useId().replace(/:/g, "");
+  const modalId = `${baseId}-modal`;
+  const childrenId = `${baseId}-children`;
 
   useEffect(() => {
     if (!document) return;

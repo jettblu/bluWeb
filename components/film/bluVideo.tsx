@@ -1,31 +1,34 @@
 "use client";
 
-import { NextPage } from "next";
+import { useCallback, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 
 interface Props {
   videoSrc: string;
   isPlaying: boolean;
 }
-const BluVideo: NextPage<Props> = (props) => {
-  const { videoSrc, isPlaying } = { ...props };
+
+export default function BluVideo({ videoSrc, isPlaying }: Props) {
+  const [playerReady, setPlayerReady] = useState(false);
+
+  useEffect(() => {
+    setPlayerReady(false);
+  }, [videoSrc]);
+
+  const handleReady = useCallback(() => {
+    setPlayerReady(true);
+  }, []);
 
   return (
-    <div className="mx-auto">
+    <div className="mx-auto aspect-video w-full max-w-full overflow-hidden rounded-md">
       <ReactPlayer
         url={videoSrc}
-        playing={isPlaying}
-        controls={true}
+        playing={isPlaying && playerReady}
+        controls
         width="100%"
-        style={{
-          outline: "1px solid blue",
-          borderRadius: "5px",
-          padding: "5px",
-          backgroundColor: "skyblue",
-        }}
+        height="100%"
+        onReady={handleReady}
       />
     </div>
   );
-};
-
-export default BluVideo;
+}

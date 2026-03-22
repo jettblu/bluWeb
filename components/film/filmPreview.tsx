@@ -36,36 +36,37 @@ const FilmPreview: NextPage<Props> = (props) => {
         {children}
       </div>
       <Modal isOpen={showModal} onRequestClose={handleModalClose}>
-        {/* video info card */}
-        <div
-          id={filmCardId}
-          className="flex-1 bg-white dark:bg-black md:ml-6 mt-8 md:mt-0 rounded-lg min-h-[30rem] md:min-h-[25rem] h-fit md:max-h-[40rem] dark:border border-gray-400 w-[380px] md:w-[600px] max-w-sm md:max-w-xl dark:border-gray-100 md:overflow-x-hidden overflow-y-auto no-scrollbar"
-        >
-          <div className="mx-3 mt-3 text-black dark:text-white">
-            <div>
-              <h1 className="font-bold text-2xl text-sky-400">{film.title}</h1>
-            </div>
-
-            <div className="my-4">
-              <div className="w-full mx-auto">
-                <BluVideo videoSrc={film.url} isPlaying={showModal} />
-              </div>
-
+        {showModal ? (
+          <div
+            id={filmCardId}
+            className="flex-1 bg-white dark:bg-black md:ml-6 mt-8 md:mt-0 rounded-lg min-h-[30rem] md:min-h-[25rem] h-fit md:max-h-[40rem] dark:border border-gray-400 w-[380px] md:w-[600px] max-w-sm md:max-w-xl dark:border-gray-100 md:overflow-x-hidden overflow-y-auto no-scrollbar"
+          >
+            <div className="mx-3 mt-3 text-black dark:text-white">
               <div>
-                <h2 className="text-lg dark:text-white font-bold mt-2">
-                  Description
-                </h2>
-                <p className="text-gray-400 dark:text-gray-300">
-                  {film.description}
-                </p>
+                <h1 className="font-bold text-2xl text-sky-400">{film.title}</h1>
               </div>
 
-              <div className="h-[2rem] dark:text-white">
-                {/* padding div for space between top and main elements */}
+              <div className="my-4">
+                <div className="w-full mx-auto">
+                  <BluVideo videoSrc={film.url} isPlaying />
+                </div>
+
+                <div>
+                  <h2 className="text-lg dark:text-white font-bold mt-2">
+                    Description
+                  </h2>
+                  <p className="text-gray-400 dark:text-gray-300">
+                    {film.description}
+                  </p>
+                </div>
+
+                <div className="h-[2rem] dark:text-white">
+                  {/* padding div for space between top and main elements */}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : null}
       </Modal>
     </div>
   );

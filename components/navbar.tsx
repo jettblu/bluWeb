@@ -1,92 +1,54 @@
 "use client";
 
-import { NextPage } from "next";
-
 import Link from "next/link";
-import { RiMoonFill, RiSunFill } from "react-icons/ri";
+import { useState } from "react";
 
-import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
+function cn(
+  ...parts: Array<string | false | null | undefined>
+): string {
+  return parts.filter(Boolean).join(" ");
+}
 
-const Navbar: NextPage = () => {
-  const [mounted, setMounted] = useState(false);
-  const { resolvedTheme, setTheme } = useTheme();
-  const [isDark, setIsDark] = useState(resolvedTheme === "dark");
-
+export default function Navbar() {
   const [isMenuMobile, setMenuMobile] = useState(false);
 
-  // useEffect only runs on the client, so now we can safely show the UI
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    setIsDark(resolvedTheme === "dark");
-  }, [resolvedTheme]);
-
-  // if the theme is not yet mounted, don't render anything
-  // this prevents the navbar from rendering server-side
-  // which would cause a hydration mismatch
-  if (!mounted) {
-    return null;
-  }
-
-  // change style based on boolean
   const menuWrapperClassName = isMenuMobile
-    ? "flex flex-col md:flex-row mx-auto h-[80vh] rounded-lg bg-gray-700 ring-4 ring-sky-400 md:ml-auto mt-8 md:mt-0 pt-4 z-20 pl-8 backdrop-blur-2xl"
-    : "hidden md:flex md:flex-row md:ml-auto md:mt-0";
-
-  function handleDarkToggle() {
-    if (isDark) {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
-  }
+    ? "z-20 mt-8 flex h-[80vh] flex-col rounded-lg bg-gray-700 py-4 pl-8 pt-4 ring-4 ring-sky-400 backdrop-blur-2xl md:ml-auto md:mt-0 md:flex-row"
+    : "hidden md:ml-auto md:mt-0 md:flex md:flex-row";
 
   return (
     <nav className="bluFont">
       {isMenuMobile && (
-        <div
-          className={`absolute top-0 left-0 bg-sky-500/10 backdrop-blur-xl w-full h-[100vh] z-40`}
-        ></div>
+        <div className="absolute left-0 top-0 z-40 h-[100vh] w-full bg-sky-500/10 backdrop-blur-xl" />
       )}
 
       <div
-        className={`mx-auto md:flex md:items-center fixed h-20 py-2 z-50 w-full -mx-4 px-4 backdrop-blur-lg md:backdrop-blur-xl ${
-          !isMenuMobile && !isDark && "bg-[#F8F6F1]/50"
-        } ${isMenuMobile && !isDark && "bg-[#F8F6F1]"} ${
-          !isMenuMobile &&
-          isDark &&
-          "bg-gradient-to-r from-black to-[#010F15]/80"
-        } ${
-          isMenuMobile && isDark && "bg-gradient-to-r from-black to-[#010F15]"
-        }`}
+        className={cn(
+          "fixed left-0 right-0 top-0 z-50 mx-auto flex h-20 max-w-full flex-col px-4 py-2 backdrop-blur-lg md:flex-row md:items-center md:backdrop-blur-xl",
+          !isMenuMobile && "bg-[#F8F6F1]/50",
+          isMenuMobile && "bg-[#F8F6F1]",
+        )}
       >
-        <div className="flex justify-between items-center hover:cursor-pointer">
+        <div className="flex items-center justify-between hover:cursor-pointer">
           <div onClick={() => setMenuMobile(false)}>
-            {
-              <Link href="/">
-                <img
-                  src={isDark ? "/head.jpg" : "/icon.ico"}
-                  className="w-20 h-auto"
-                />
-              </Link>
-            }
+            <Link href="/">
+              <img src="/icon.ico" className="h-auto w-20" alt="Home" />
+            </Link>
           </div>
           <button
             id="nav-icon"
             onClick={() => setMenuMobile(!isMenuMobile)}
             type="button"
-            className={`md:hidden inline-flex ${
-              isMenuMobile && "open"
-            } items-center ml-3 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
+            className={cn(
+              "ml-3 inline-flex items-center rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden",
+              isMenuMobile && "open",
+            )}
             aria-controls="mobile-menu"
-            aria-expanded="false"
+            aria-expanded={isMenuMobile}
           >
-            <span className="bg-gray-500 dark:bg-gray-400"></span>
-            <span className="bg-gray-500 dark:bg-gray-400"></span>
-            <span className="bg-gray-500 dark:bg-gray-400"></span>
+            <span className="bg-gray-500" />
+            <span className="bg-gray-500" />
+            <span className="bg-gray-500" />
           </button>
         </div>
         <div
@@ -94,49 +56,23 @@ const Navbar: NextPage = () => {
           className={menuWrapperClassName}
           onClick={() => setMenuMobile(false)}
         >
-          <div
-            className="invisible mt-1 mr-3 md:visible w-fit h-fit p-1 hover:ring hover:ring-1 hover:outline-black hover:cursor-pointer ring-gray-500/70 rounded-full text-slate-400 dark:text-white"
-            onClick={() => handleDarkToggle()}
-          >
-            {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
-          </div>
           <Link href="/research">
-            <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-6xl md:text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
-            >
+            <span className="p-2 text-6xl text-gray-400 transition-colors duration-300 hover:cursor-pointer hover:text-green-400 md:mx-2 md:text-4xl lg:px-4">
               Research
             </span>
           </Link>
           <Link href="/film">
-            <span
-              className={`p-2 lg:px-4 md:mx-2 text-gray-400 text-6xl md:text-4xl hover:cursor-pointer hover:text-green-400 dark:hover:text-green-300 transition-colors duration-300 `}
-            >
+            <span className="p-2 text-6xl text-gray-400 transition-colors duration-300 hover:cursor-pointer hover:text-green-400 md:mx-2 md:text-4xl lg:px-4">
               Film
             </span>
           </Link>
-          {/* blog */}
           <Link href="/blog">
-            <span
-              className={`p-2 lg:px-4 md:mx-2 text-sky-400 text-6xl md:text-4xl hover:text-pink-400 transition-colors duration-300 `}
-            >
+            <span className="p-2 text-6xl text-sky-400 transition-colors duration-300 hover:cursor-pointer hover:text-pink-400 md:mx-2 md:text-4xl lg:px-4">
               Thoughts
             </span>
           </Link>
-          <div className="-ml-8 md:hidden">
-            <div
-              className="mt-40 mx-auto w-fit p-4 border border-gray-400 dark:border-gray-500 rounded-full flex flex-row space-x-2 text-slate-900 dark:text-slate-100 hover:cursor-pointer"
-              onClick={() => handleDarkToggle()}
-            >
-              {isDark ? <RiMoonFill size={20} /> : <RiSunFill size={20} />}
-              <p className="text-xl">
-                switch to {isDark ? "light" : "dark"} mode
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

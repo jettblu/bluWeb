@@ -15,7 +15,7 @@ interface Props {
 export default async function ShowCard(props: Props) {
   let { width, alt, height, basePath, src, className } = { ...props };
   if (!basePath) {
-    basePath = join(process.cwd(), "public");
+    basePath = join(/* turbopackIgnore: true */ process.cwd(), "public");
   }
   const imgBuffer = readFileSync(join(basePath, src));
   const { base64 } = await getPlaiceholder(imgBuffer);

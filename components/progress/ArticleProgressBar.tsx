@@ -1,46 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function ArticleProgress({
   target,
 }: {
-  target: React.RefObject<HTMLDivElement>;
+  target: React.RefObject<HTMLDivElement | null>;
 }) {
   const [readingProgress, setReadingProgress] = useState(0);
-  const scrollListener = () => {
-    if (!target.current) {
-      return;
+
+  const scrollListener = useCallback(() => {
+    const el = target.current;
+    if (!el) return;
+
+    const scrollY = window.scrollY;
+    const rect = el.getBoundingClientRect();
+    const articleTop = scrollY + rect.top;
+    const articleHeight = el.offsetHeight;
+    if (articleHeight <= 0) return;
+
+    const winH = window.innerHeight;
+    // 0% until the user scrolls down to/past the article start (not "how much of the article is in view")
+    const scrolledPastTop = Math.max(0, scrollY - articleTop);
+    const scrollable = articleHeight - winH;
+
+    let raw: number;
+    if (scrollable <= 0) {
+      raw =
+        scrolledPastTop <= 0
+          ? 0
+          : Math.min(100, (scrolledPastTop / Math.max(articleHeight, 1)) * 100);
+    } else {
+      raw = (scrolledPastTop / scrollable) * 100;
     }
 
-    const element = target.current;
-    const totalHeight = element.clientHeight - element.offsetTop;
-    const windowScrollTop =
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop ||
-      0;
-
-    if (windowScrollTop === 0) {
-      return setReadingProgress(0);
-    }
-
-    if (windowScrollTop > totalHeight) {
-      return setReadingProgress(100);
-    }
-
-    setReadingProgress((windowScrollTop / totalHeight) * 100);
-  };
+    setReadingProgress(Math.min(100, Math.max(0, raw)));
+  }, [target]);
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollListener);
-    return () => window.removeEventListener("scroll", scrollListener);
-  });
+    scrollListener();
+    window.addEventListener("scroll", scrollListener, { passive: true });
+    window.addEventListener("resize", scrollListener, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+      window.removeEventListener("resize", scrollListener);
+    };
+  }, [scrollListener]);
 
   return (
     <div
-      className={`reading-progress-bar h-2 fixed top-0 left-0 z-50 opacity-80 bg-gradient-to-r from-cyan-500 to-sky-500`}
-      style={{ width: `${readingProgress}%` }}
-    />
+      className="pointer-events-none fixed inset-x-0 top-20 z-[45] h-1.5 w-full bg-slate-200/80 dark:bg-slate-700/50"
+      aria-hidden
+    >
+      <div
+        className="h-full bg-gradient-to-r from-cyan-500 to-sky-500 opacity-90 transition-[width] duration-150 ease-out"
+        style={{ width: `${readingProgress}%` }}
+      />
+    </div>
   );
 }

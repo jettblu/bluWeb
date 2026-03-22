@@ -20,7 +20,6 @@ const Profile: NextPage = () => {
       // redirect to homepage
       router.push("/");
     } catch (e) {
-      // adding events failed. notfy user.
       toast.error("Unable to logout.");
     }
   }

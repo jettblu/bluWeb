@@ -1,14 +1,17 @@
 import "./globals.css";
 import "highlight.js/styles/github-dark-dimmed.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import BluThemeProvider from "../components/ThemeProvider";
 import { BluDataProvider } from "../components/DataProvider";
 import Navbar from "../components/navbar";
 import BluToaster from "../components/notifications/BluToaster";
 import Fathom from "../components/Fathom";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   title: "Jett Hays",
@@ -38,20 +41,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
-        className={`${inter.className} min-h-screen px-4 bg-[#F8F6F1] dark:bg-gradient-to-r dark:from-black dark:to-[#010F15] text-black dark:text-white`}
+        className={`${inter.className} min-h-screen overflow-x-hidden px-4 bg-[#F8F6F1] text-black antialiased`}
       >
-        <BluThemeProvider>
-          <BluDataProvider>
-            <Navbar />
-            <BluToaster />
-            <div className="h-20" />
-            {children}
-          </BluDataProvider>
+        <BluDataProvider>
+          <Navbar />
+          <BluToaster />
+          <div className="h-20" />
+          {children}
+        </BluDataProvider>
 
-          <Fathom />
-        </BluThemeProvider>
+        <Fathom />
       </body>
     </html>
   );

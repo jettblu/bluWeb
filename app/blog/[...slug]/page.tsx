@@ -61,7 +61,7 @@ export default async function Post(context: any) {
   const readNext: DocType[] = recommendedDocs ? recommendedDocs : [];
   return (
     <div>
-      <div className="max-w-2xl mx-auto">
+      <div className="mx-auto max-w-2xl pt-3 sm:pt-4">
         <div>
           <DocHeader
             title={doc.title}
