@@ -488,4 +488,3 @@ The integration is complete when:
 - Publishing makes a collection visible through a stable slug.
 - Public pages remain usable when the Rust service is temporarily unavailable.
 - Upload finalization and processing can be retried without duplicate items.
-
